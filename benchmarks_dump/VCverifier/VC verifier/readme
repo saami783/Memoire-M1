@@ -1,0 +1,51 @@
+Vertex cover verifier: VCverifier (2014)
+
+VCverifier verifies whether the given solution (a vertex set) is a vertex cover for the given graph.
+
+Note that the binary in this fold is compiled under 64-bit Linux OS system.
+If you are not under such an OS system, please compile the codes under your machine.
+**********************************************************************************************
+
+Author: 
+Shaowei Cai 
+State Key Laboratory of Computer Sciences,
+Institue of Software, Chinese Academy of Sciences
+
+Contact: 
+shaoweicai.cs@gmail.com, caisw@ios.ac.cn
+
+**********************************************************************************************
+
+
+1. Format of graph file and solution file
+=========================================
+
+1.1 The graph file is asked to be in DIMACS ascii format for undirected graphs.
+----------------------------------------------------------------------------------------------
+
+A small exmple is given as follow:
+
+c nodes: 4, edges: 3
+c the lines begin with a 'c' are comment lines and are not considered by the solvers.
+c the graph data begin with a 'p' line that in the format as: p edge <number of vertices> <number of edges>,
+c followed by all 'e' lines.
+p edge 4 3
+e 1 2
+e 1 3
+e 2 4
+
+1.2 The input solution file should be in the following format (illustrated by a small exmple).
+-----------------------------------------------------------------------------------------------
+
+c the lines begin with a 'c' are comment lines and are not considered by the solvers.
+c the solution begin with a 'p' line that in the format as: p size <number of vertices>,
+c followed by vertices.
+p size 10
+1 2 4 5 7 9 10 14 16 20
+
+2. Usage
+============================================
+
+The command to run VCverifier is: ./VCverifier <graph file> <solution file> <option parameter>
+
+The last parameter is the output option when the solution is not a vertex cover. It should be either -all or -single, where -all lists all uncovered edges and -single terminates the progame once it finds an uncovered edge.
