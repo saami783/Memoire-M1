@@ -1,0 +1,68 @@
+ok très bien, je veux que tu me créer un script python qui me genere un benchmark du graphe barabasi_albert, il me faudrait 5 instances de chaque classe de benchmark avec au minimum 5 classes différentes. Il y a une covention de nommages des benchmarks, avec nomGraphex-y-z où :
+- x représente la taille de la couverture minimale.
+- y le nombre total de variables dans le problème associé.
+- z le numéro de l'instance de la classe benchmark.
+
+Il nous faut donc connaître avec certitude la taille de la solution optimale pour chaque classe du benchmark. Par exemple :
+Le benchmark barabasi_albert a 5 sous-dossiers avec :
+barabasi_albert90-21 // taille optimale de 90 et 21 paramètres pour la construction du graphe.
+dans ce dossier il y a 5 sous dossiers barabasi_albert90-21-n où n = le numéro de l'instance.
+L'objectif est de générer des classes de plus en plus grandes.
+Le fichier sera structuré de cette manière :
+1 17
+1 18
+1 19
+1 22
+1 23
+1 24
+1 25
+1 26
+1 28
+1 29
+1 30
+1 31
+1 32
+1 33
+1 35
+1 36
+1 37
+1 38
+1 39
+1 40
+1 43
+
+// à titre informatif : p edge
+La plus petite classe aura au moins 80 000 noeuds et 450 sommets. Et le plus grand aura au maximum 4000 sommets et 7 425 226 noeuds. (Génères ça un peu aléatoirement pour avoir une bonne couverture). Pour la taille de la solution optimale j'utiliserais un solveur ISP ou SAT donc ne te casses pas la tête à essayer de calculer la solution optimale. Les fichiers doivent être en .dimacs
+Le graphe devra être généré avec la fonction network Xbarabasi_albert_graph().
+barabasi_albert_graph(n, m, seed=None, initial_graph=None, *, create_using=None)[source]
+Returns a random graph using Barabási–Albert preferential attachment
+
+A graph of
+ nodes is grown by attaching new nodes each with
+ edges that are preferentially attached to existing nodes with high degree.
+
+Parameters
+:
+n
+int
+Number of nodes
+m
+int
+Number of edges to attach from a new node to existing nodes
+seed
+integer, random_state, or None (default)
+Indicator of random number generation state. See Randomness.
+initial_graph
+Graph or None (default)
+Initial network for Barabási–Albert algorithm. It should be a connected graph for most use cases. A copy of initial_graph is used. If None, starts from a star graph on (m+1) nodes.
+create_using
+Graph constructor, optional (default=nx.Graph)
+Graph type to create. If graph instance, then cleared before populated. Multigraph and directed types are not supported and raise a NetworkXError.
+Returns
+:
+G
+Graph
+Raises
+:
+NetworkXError
+If m does not satisfy 1 <= m < n, or the initial graph number of nodes m0 does not satisfy m <= m0 <= n.

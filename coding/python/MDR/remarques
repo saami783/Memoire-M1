@@ -1,8 +1,0 @@
-Remarques supplémentaires :
-Version des bibliothèques : Assurez-vous d'utiliser les mêmes versions des bibliothèques sur toutes les machines. Vous pouvez créer un environnement virtuel ou utiliser un fichier requirements.txt pour installer des versions spécifiques.
-
-Environnements différents : Même avec les mêmes seeds, il est possible que des différences subtiles apparaissent si les machines ont des architectures différentes (par exemple, différences dans la précision numérique entre CPU).
-
-Contrôle des fonctions de tri : Si vous utilisez des fonctions qui dépendent de l'ordre des éléments (comme max en cas d'égalité), il est important de s'assurer que cet ordre est déterministe. Nous avons ajusté la fonction maximum_degree_greedy pour prendre en compte cela.
-
-Reproductibilité totale : En tenant compte de ces facteurs, les expériences devraient être parfaitement reproductibles, et vous devriez obtenir les mêmes résultats d'une machine à une autre.
