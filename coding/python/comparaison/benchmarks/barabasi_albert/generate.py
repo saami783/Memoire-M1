@@ -25,11 +25,18 @@ os.makedirs(base_folder, exist_ok=True)
 
 # Paramètres pour les différentes classes de benchmarks
 benchmark_classes = [
-    {"optimal_size": 90, "n": 1000, "m": 2},
-    {"optimal_size": 150, "n": 5000, "m": 3},
-    {"optimal_size": 300, "n": 4000, "m": 4},
-    {"optimal_size": 500, "n": 5000, "m": 5},
-    {"optimal_size": 1000, "n": 100000, "m": 6},
+    {"n": 1000, "m": 2},
+    {"n": 5000, "m": 3},
+    {"n": 4000, "m": 4},
+    {"n": 5000, "m": 5},
+    {"n": 100000, "m": 6},
+    {"n": 150000, "m": 7},
+    {"n": 200000, "m": 8},
+    {"n": 1000, "m": 3},
+    {"n": 2000, "m": 6},
+    {"n": 3000, "m": 4},
+    {"n": 8000, "m": 6},
+    {"n": 500000, "m": 8},
 ]
 
 # Seed fixe pour reproductibilité
