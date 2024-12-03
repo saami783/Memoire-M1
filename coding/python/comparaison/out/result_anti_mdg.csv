@@ -1,0 +1,1001 @@
+Graph,Nodes,Optimal_Size,Heuristic,Average_Size,Best_Size,Worst_Size
+anti_mdg,26,6,Maximum Degree Greedy,6.0,6,6
+anti_mdg,26,6,Greedy Independent Cover,6.0,6,6
+anti_mdg,26,6,Sorted ListLeft,8.0,8,8
+anti_mdg,26,6,Sorted ListRight,23.0,23,23
+anti_mdg,26,6,DFS,11.0,11,11
+anti_mdg,30,7,Maximum Degree Greedy,7.0,7,7
+anti_mdg,30,7,Greedy Independent Cover,7.0,7,7
+anti_mdg,30,7,Sorted ListLeft,10.0,10,10
+anti_mdg,30,7,Sorted ListRight,27.0,27,27
+anti_mdg,30,7,DFS,13.0,13,13
+anti_mdg,36,8,Maximum Degree Greedy,8.0,8,8
+anti_mdg,36,8,Greedy Independent Cover,8.0,8,8
+anti_mdg,36,8,Sorted ListLeft,11.0,11,11
+anti_mdg,36,8,Sorted ListRight,33.0,33,33
+anti_mdg,36,8,DFS,15.0,15,15
+anti_mdg,41,9,Maximum Degree Greedy,9.0,9,9
+anti_mdg,41,9,Greedy Independent Cover,9.0,9,9
+anti_mdg,41,9,Sorted ListLeft,13.0,13,13
+anti_mdg,41,9,Sorted ListRight,38.0,38,38
+anti_mdg,41,9,DFS,17.0,17,17
+anti_mdg,47,10,Maximum Degree Greedy,10.0,10,10
+anti_mdg,47,10,Greedy Independent Cover,10.0,10,10
+anti_mdg,47,10,Sorted ListLeft,14.0,14,14
+anti_mdg,47,10,Sorted ListRight,43.0,43,43
+anti_mdg,47,10,DFS,19.0,19,19
+anti_mdg,51,11,Maximum Degree Greedy,11.0,11,11
+anti_mdg,51,11,Greedy Independent Cover,11.0,11,11
+anti_mdg,51,11,Sorted ListLeft,16.0,16,16
+anti_mdg,51,11,Sorted ListRight,47.0,47,47
+anti_mdg,51,11,DFS,21.0,21,21
+anti_mdg,59,12,Maximum Degree Greedy,12.0,12,12
+anti_mdg,59,12,Greedy Independent Cover,12.0,12,12
+anti_mdg,59,12,Sorted ListLeft,17.0,17,17
+anti_mdg,59,12,Sorted ListRight,55.0,55,55
+anti_mdg,59,12,DFS,23.0,23,23
+anti_mdg,63,13,Maximum Degree Greedy,13.0,13,13
+anti_mdg,63,13,Greedy Independent Cover,13.0,13,13
+anti_mdg,63,13,Sorted ListLeft,19.0,19,19
+anti_mdg,63,13,Sorted ListRight,59.0,59,59
+anti_mdg,63,13,DFS,25.0,25,25
+anti_mdg,69,14,Maximum Degree Greedy,14.0,14,14
+anti_mdg,69,14,Greedy Independent Cover,14.0,14,14
+anti_mdg,69,14,Sorted ListLeft,20.0,20,20
+anti_mdg,69,14,Sorted ListRight,64.0,64,64
+anti_mdg,69,14,DFS,27.0,27,27
+anti_mdg,75,15,Maximum Degree Greedy,15.0,15,15
+anti_mdg,75,15,Greedy Independent Cover,15.0,15,15
+anti_mdg,75,15,Sorted ListLeft,22.0,22,22
+anti_mdg,75,15,Sorted ListRight,70.0,70,70
+anti_mdg,75,15,DFS,29.0,29,29
+anti_mdg,82,16,Maximum Degree Greedy,16.0,16,16
+anti_mdg,82,16,Greedy Independent Cover,16.0,16,16
+anti_mdg,82,16,Sorted ListLeft,23.0,23,23
+anti_mdg,82,16,Sorted ListRight,77.0,77,77
+anti_mdg,82,16,DFS,31.0,31,31
+anti_mdg,86,17,Maximum Degree Greedy,17.0,17,17
+anti_mdg,86,17,Greedy Independent Cover,17.0,17,17
+anti_mdg,86,17,Sorted ListLeft,25.0,25,25
+anti_mdg,86,17,Sorted ListRight,81.0,81,81
+anti_mdg,86,17,DFS,33.0,33,33
+anti_mdg,94,18,Maximum Degree Greedy,18.0,18,18
+anti_mdg,94,18,Greedy Independent Cover,18.0,18,18
+anti_mdg,94,18,Sorted ListLeft,26.0,26,26
+anti_mdg,94,18,Sorted ListRight,88.0,88,88
+anti_mdg,94,18,DFS,35.0,35,35
+anti_mdg,98,19,Maximum Degree Greedy,19.0,19,19
+anti_mdg,98,19,Greedy Independent Cover,19.0,19,19
+anti_mdg,98,19,Sorted ListLeft,28.0,28,28
+anti_mdg,98,19,Sorted ListRight,92.0,92,92
+anti_mdg,98,19,DFS,37.0,37,37
+anti_mdg,106,20,Maximum Degree Greedy,20.0,20,20
+anti_mdg,106,20,Greedy Independent Cover,20.0,20,20
+anti_mdg,106,20,Sorted ListLeft,29.0,29,29
+anti_mdg,106,20,Sorted ListRight,100.0,100,100
+anti_mdg,106,20,DFS,39.0,39,39
+anti_mdg,112,21,Maximum Degree Greedy,21.0,21,21
+anti_mdg,112,21,Greedy Independent Cover,21.0,21,21
+anti_mdg,112,21,Sorted ListLeft,31.0,31,31
+anti_mdg,112,21,Sorted ListRight,105.0,105,105
+anti_mdg,112,21,DFS,41.0,41,41
+anti_mdg,118,22,Maximum Degree Greedy,22.0,22,22
+anti_mdg,118,22,Greedy Independent Cover,22.0,22,22
+anti_mdg,118,22,Sorted ListLeft,32.0,32,32
+anti_mdg,118,22,Sorted ListRight,111.0,111,111
+anti_mdg,118,22,DFS,43.0,43,43
+anti_mdg,122,23,Maximum Degree Greedy,23.0,23,23
+anti_mdg,122,23,Greedy Independent Cover,23.0,23,23
+anti_mdg,122,23,Sorted ListLeft,34.0,34,34
+anti_mdg,122,23,Sorted ListRight,115.0,115,115
+anti_mdg,122,23,DFS,45.0,45,45
+anti_mdg,132,24,Maximum Degree Greedy,24.0,24,24
+anti_mdg,132,24,Greedy Independent Cover,24.0,24,24
+anti_mdg,132,24,Sorted ListLeft,35.0,35,35
+anti_mdg,132,24,Sorted ListRight,124.0,124,124
+anti_mdg,132,24,DFS,47.0,47,47
+anti_mdg,137,25,Maximum Degree Greedy,25.0,25,25
+anti_mdg,137,25,Greedy Independent Cover,25.0,25,25
+anti_mdg,137,25,Sorted ListLeft,37.0,37,37
+anti_mdg,137,25,Sorted ListRight,129.0,129,129
+anti_mdg,137,25,DFS,49.0,49,49
+anti_mdg,143,26,Maximum Degree Greedy,26.0,26,26
+anti_mdg,143,26,Greedy Independent Cover,26.0,26,26
+anti_mdg,143,26,Sorted ListLeft,38.0,38,38
+anti_mdg,143,26,Sorted ListRight,135.0,135,135
+anti_mdg,143,26,DFS,51.0,51,51
+anti_mdg,149,27,Maximum Degree Greedy,27.0,27,27
+anti_mdg,149,27,Greedy Independent Cover,27.0,27,27
+anti_mdg,149,27,Sorted ListLeft,40.0,40,40
+anti_mdg,149,27,Sorted ListRight,141.0,141,141
+anti_mdg,149,27,DFS,53.0,53,53
+anti_mdg,157,28,Maximum Degree Greedy,28.0,28,28
+anti_mdg,157,28,Greedy Independent Cover,28.0,28,28
+anti_mdg,157,28,Sorted ListLeft,41.0,41,41
+anti_mdg,157,28,Sorted ListRight,148.0,148,148
+anti_mdg,157,28,DFS,55.0,55,55
+anti_mdg,161,29,Maximum Degree Greedy,29.0,29,29
+anti_mdg,161,29,Greedy Independent Cover,29.0,29,29
+anti_mdg,161,29,Sorted ListLeft,43.0,43,43
+anti_mdg,161,29,Sorted ListRight,152.0,152,152
+anti_mdg,161,29,DFS,57.0,57,57
+anti_mdg,171,30,Maximum Degree Greedy,30.0,30,30
+anti_mdg,171,30,Greedy Independent Cover,30.0,30,30
+anti_mdg,171,30,Sorted ListLeft,44.0,44,44
+anti_mdg,171,30,Sorted ListRight,162.0,162,162
+anti_mdg,171,30,DFS,59.0,59,59
+anti_mdg,175,31,Maximum Degree Greedy,31.0,31,31
+anti_mdg,175,31,Greedy Independent Cover,31.0,31,31
+anti_mdg,175,31,Sorted ListLeft,46.0,46,46
+anti_mdg,175,31,Sorted ListRight,166.0,166,166
+anti_mdg,175,31,DFS,61.0,61,61
+anti_mdg,183,32,Maximum Degree Greedy,32.0,32,32
+anti_mdg,183,32,Greedy Independent Cover,32.0,32,32
+anti_mdg,183,32,Sorted ListLeft,47.0,47,47
+anti_mdg,183,32,Sorted ListRight,173.0,173,173
+anti_mdg,183,32,DFS,63.0,63,63
+anti_mdg,189,33,Maximum Degree Greedy,33.0,33,33
+anti_mdg,189,33,Greedy Independent Cover,33.0,33,33
+anti_mdg,189,33,Sorted ListLeft,49.0,49,49
+anti_mdg,189,33,Sorted ListRight,179.0,179,179
+anti_mdg,189,33,DFS,65.0,65,65
+anti_mdg,195,34,Maximum Degree Greedy,34.0,34,34
+anti_mdg,195,34,Greedy Independent Cover,34.0,34,34
+anti_mdg,195,34,Sorted ListLeft,50.0,50,50
+anti_mdg,195,34,Sorted ListRight,185.0,185,185
+anti_mdg,195,34,DFS,67.0,67,67
+anti_mdg,201,35,Maximum Degree Greedy,35.0,35,35
+anti_mdg,201,35,Greedy Independent Cover,35.0,35,35
+anti_mdg,201,35,Sorted ListLeft,52.0,52,52
+anti_mdg,201,35,Sorted ListRight,191.0,191,191
+anti_mdg,201,35,DFS,69.0,69,69
+anti_mdg,212,36,Maximum Degree Greedy,36.0,36,36
+anti_mdg,212,36,Greedy Independent Cover,36.0,36,36
+anti_mdg,212,36,Sorted ListLeft,53.0,53,53
+anti_mdg,212,36,Sorted ListRight,201.0,201,201
+anti_mdg,212,36,DFS,71.0,71,71
+anti_mdg,216,37,Maximum Degree Greedy,37.0,37,37
+anti_mdg,216,37,Greedy Independent Cover,37.0,37,37
+anti_mdg,216,37,Sorted ListLeft,55.0,55,55
+anti_mdg,216,37,Sorted ListRight,205.0,205,205
+anti_mdg,216,37,DFS,73.0,73,73
+anti_mdg,222,38,Maximum Degree Greedy,38.0,38,38
+anti_mdg,222,38,Greedy Independent Cover,38.0,38,38
+anti_mdg,222,38,Sorted ListLeft,56.0,56,56
+anti_mdg,222,38,Sorted ListRight,211.0,211,211
+anti_mdg,222,38,DFS,75.0,75,75
+anti_mdg,228,39,Maximum Degree Greedy,39.0,39,39
+anti_mdg,228,39,Greedy Independent Cover,39.0,39,39
+anti_mdg,228,39,Sorted ListLeft,58.0,58,58
+anti_mdg,228,39,Sorted ListRight,216.0,216,216
+anti_mdg,228,39,DFS,77.0,77,77
+anti_mdg,238,40,Maximum Degree Greedy,40.0,40,40
+anti_mdg,238,40,Greedy Independent Cover,40.0,40,40
+anti_mdg,238,40,Sorted ListLeft,59.0,59,59
+anti_mdg,238,40,Sorted ListRight,226.0,226,226
+anti_mdg,238,40,DFS,79.0,79,79
+anti_mdg,242,41,Maximum Degree Greedy,41.0,41,41
+anti_mdg,242,41,Greedy Independent Cover,41.0,41,41
+anti_mdg,242,41,Sorted ListLeft,61.0,61,61
+anti_mdg,242,41,Sorted ListRight,230.0,230,230
+anti_mdg,242,41,DFS,81.0,81,81
+anti_mdg,252,42,Maximum Degree Greedy,42.0,42,42
+anti_mdg,252,42,Greedy Independent Cover,42.0,42,42
+anti_mdg,252,42,Sorted ListLeft,62.0,62,62
+anti_mdg,252,42,Sorted ListRight,239.0,239,239
+anti_mdg,252,42,DFS,83.0,83,83
+anti_mdg,256,43,Maximum Degree Greedy,43.0,43,43
+anti_mdg,256,43,Greedy Independent Cover,43.0,43,43
+anti_mdg,256,43,Sorted ListLeft,64.0,64,64
+anti_mdg,256,43,Sorted ListRight,243.0,243,243
+anti_mdg,256,43,DFS,85.0,85,85
+anti_mdg,264,44,Maximum Degree Greedy,44.0,44,44
+anti_mdg,264,44,Greedy Independent Cover,44.0,44,44
+anti_mdg,264,44,Sorted ListLeft,65.0,65,65
+anti_mdg,264,44,Sorted ListRight,251.0,251,251
+anti_mdg,264,44,DFS,87.0,87,87
+anti_mdg,272,45,Maximum Degree Greedy,45.0,45,45
+anti_mdg,272,45,Greedy Independent Cover,45.0,45,45
+anti_mdg,272,45,Sorted ListLeft,67.0,67,67
+anti_mdg,272,45,Sorted ListRight,259.0,259,259
+anti_mdg,272,45,DFS,89.0,89,89
+anti_mdg,278,46,Maximum Degree Greedy,46.0,46,46
+anti_mdg,278,46,Greedy Independent Cover,46.0,46,46
+anti_mdg,278,46,Sorted ListLeft,68.0,68,68
+anti_mdg,278,46,Sorted ListRight,264.0,264,264
+anti_mdg,278,46,DFS,91.0,91,91
+anti_mdg,282,47,Maximum Degree Greedy,47.0,47,47
+anti_mdg,282,47,Greedy Independent Cover,47.0,47,47
+anti_mdg,282,47,Sorted ListLeft,70.0,70,70
+anti_mdg,282,47,Sorted ListRight,268.0,268,268
+anti_mdg,282,47,DFS,93.0,93,93
+anti_mdg,294,48,Maximum Degree Greedy,48.0,48,48
+anti_mdg,294,48,Greedy Independent Cover,48.0,48,48
+anti_mdg,294,48,Sorted ListLeft,71.0,71,71
+anti_mdg,294,48,Sorted ListRight,280.0,280,280
+anti_mdg,294,48,DFS,95.0,95,95
+anti_mdg,299,49,Maximum Degree Greedy,49.0,49,49
+anti_mdg,299,49,Greedy Independent Cover,49.0,49,49
+anti_mdg,299,49,Sorted ListLeft,73.0,73,73
+anti_mdg,299,49,Sorted ListRight,285.0,285,285
+anti_mdg,299,49,DFS,97.0,97,97
+anti_mdg,307,50,Maximum Degree Greedy,50.0,50,50
+anti_mdg,307,50,Greedy Independent Cover,50.0,50,50
+anti_mdg,307,50,Sorted ListLeft,74.0,74,74
+anti_mdg,307,50,Sorted ListRight,292.0,292,292
+anti_mdg,307,50,DFS,99.0,99,99
+anti_mdg,313,51,Maximum Degree Greedy,51.0,51,51
+anti_mdg,313,51,Greedy Independent Cover,51.0,51,51
+anti_mdg,313,51,Sorted ListLeft,76.0,76,76
+anti_mdg,313,51,Sorted ListRight,298.0,298,298
+anti_mdg,313,51,DFS,101.0,101,101
+anti_mdg,321,52,Maximum Degree Greedy,52.0,52,52
+anti_mdg,321,52,Greedy Independent Cover,52.0,52,52
+anti_mdg,321,52,Sorted ListLeft,77.0,77,77
+anti_mdg,321,52,Sorted ListRight,306.0,306,306
+anti_mdg,321,52,DFS,103.0,103,103
+anti_mdg,325,53,Maximum Degree Greedy,53.0,53,53
+anti_mdg,325,53,Greedy Independent Cover,53.0,53,53
+anti_mdg,325,53,Sorted ListLeft,79.0,79,79
+anti_mdg,325,53,Sorted ListRight,310.0,310,310
+anti_mdg,325,53,DFS,105.0,105,105
+anti_mdg,335,54,Maximum Degree Greedy,54.0,54,54
+anti_mdg,335,54,Greedy Independent Cover,54.0,54,54
+anti_mdg,335,54,Sorted ListLeft,80.0,80,80
+anti_mdg,335,54,Sorted ListRight,319.0,319,319
+anti_mdg,335,54,DFS,107.0,107,107
+anti_mdg,341,55,Maximum Degree Greedy,55.0,55,55
+anti_mdg,341,55,Greedy Independent Cover,55.0,55,55
+anti_mdg,341,55,Sorted ListLeft,82.0,82,82
+anti_mdg,341,55,Sorted ListRight,325.0,325,325
+anti_mdg,341,55,DFS,109.0,109,109
+anti_mdg,351,56,Maximum Degree Greedy,56.0,56,56
+anti_mdg,351,56,Greedy Independent Cover,56.0,56,56
+anti_mdg,351,56,Sorted ListLeft,83.0,83,83
+anti_mdg,351,56,Sorted ListRight,335.0,335,335
+anti_mdg,351,56,DFS,111.0,111,111
+anti_mdg,357,57,Maximum Degree Greedy,57.0,57,57
+anti_mdg,357,57,Greedy Independent Cover,57.0,57,57
+anti_mdg,357,57,Sorted ListLeft,85.0,85,85
+anti_mdg,357,57,Sorted ListRight,340.0,340,340
+anti_mdg,357,57,DFS,113.0,113,113
+anti_mdg,363,58,Maximum Degree Greedy,58.0,58,58
+anti_mdg,363,58,Greedy Independent Cover,58.0,58,58
+anti_mdg,363,58,Sorted ListLeft,86.0,86,86
+anti_mdg,363,58,Sorted ListRight,346.0,346,346
+anti_mdg,363,58,DFS,115.0,115,115
+anti_mdg,367,59,Maximum Degree Greedy,59.0,59,59
+anti_mdg,367,59,Greedy Independent Cover,59.0,59,59
+anti_mdg,367,59,Sorted ListLeft,88.0,88,88
+anti_mdg,367,59,Sorted ListRight,350.0,350,350
+anti_mdg,367,59,DFS,117.0,117,117
+anti_mdg,381,60,Maximum Degree Greedy,60.0,60,60
+anti_mdg,381,60,Greedy Independent Cover,60.0,60,60
+anti_mdg,381,60,Sorted ListLeft,89.0,89,89
+anti_mdg,381,60,Sorted ListRight,363.0,363,363
+anti_mdg,381,60,DFS,119.0,119,119
+anti_mdg,385,61,Maximum Degree Greedy,61.0,61,61
+anti_mdg,385,61,Greedy Independent Cover,61.0,61,61
+anti_mdg,385,61,Sorted ListLeft,91.0,91,91
+anti_mdg,385,61,Sorted ListRight,367.0,367,367
+anti_mdg,385,61,DFS,121.0,121,121
+anti_mdg,391,62,Maximum Degree Greedy,62.0,62,62
+anti_mdg,391,62,Greedy Independent Cover,62.0,62,62
+anti_mdg,391,62,Sorted ListLeft,92.0,92,92
+anti_mdg,391,62,Sorted ListRight,373.0,373,373
+anti_mdg,391,62,DFS,123.0,123,123
+anti_mdg,399,63,Maximum Degree Greedy,63.0,63,63
+anti_mdg,399,63,Greedy Independent Cover,63.0,63,63
+anti_mdg,399,63,Sorted ListLeft,94.0,94,94
+anti_mdg,399,63,Sorted ListRight,381.0,381,381
+anti_mdg,399,63,DFS,125.0,125,125
+anti_mdg,408,64,Maximum Degree Greedy,64.0,64,64
+anti_mdg,408,64,Greedy Independent Cover,64.0,64,64
+anti_mdg,408,64,Sorted ListLeft,95.0,95,95
+anti_mdg,408,64,Sorted ListRight,389.0,389,389
+anti_mdg,408,64,DFS,127.0,127,127
+anti_mdg,414,65,Maximum Degree Greedy,65.0,65,65
+anti_mdg,414,65,Greedy Independent Cover,65.0,65,65
+anti_mdg,414,65,Sorted ListLeft,97.0,97,97
+anti_mdg,414,65,Sorted ListRight,395.0,395,395
+anti_mdg,414,65,DFS,129.0,129,129
+anti_mdg,424,66,Maximum Degree Greedy,66.0,66,66
+anti_mdg,424,66,Greedy Independent Cover,66.0,66,66
+anti_mdg,424,66,Sorted ListLeft,98.0,98,98
+anti_mdg,424,66,Sorted ListRight,405.0,405,405
+anti_mdg,424,66,DFS,131.0,131,131
+anti_mdg,428,67,Maximum Degree Greedy,67.0,67,67
+anti_mdg,428,67,Greedy Independent Cover,67.0,67,67
+anti_mdg,428,67,Sorted ListLeft,100.0,100,100
+anti_mdg,428,67,Sorted ListRight,409.0,409,409
+anti_mdg,428,67,DFS,133.0,133,133
+anti_mdg,436,68,Maximum Degree Greedy,68.0,68,68
+anti_mdg,436,68,Greedy Independent Cover,68.0,68,68
+anti_mdg,436,68,Sorted ListLeft,101.0,101,101
+anti_mdg,436,68,Sorted ListRight,416.0,416,416
+anti_mdg,436,68,DFS,135.0,135,135
+anti_mdg,442,69,Maximum Degree Greedy,69.0,69,69
+anti_mdg,442,69,Greedy Independent Cover,69.0,69,69
+anti_mdg,442,69,Sorted ListLeft,103.0,103,103
+anti_mdg,442,69,Sorted ListRight,422.0,422,422
+anti_mdg,442,69,DFS,137.0,137,137
+anti_mdg,452,70,Maximum Degree Greedy,70.0,70,70
+anti_mdg,452,70,Greedy Independent Cover,70.0,70,70
+anti_mdg,452,70,Sorted ListLeft,104.0,104,104
+anti_mdg,452,70,Sorted ListRight,432.0,432,432
+anti_mdg,452,70,DFS,139.0,139,139
+anti_mdg,456,71,Maximum Degree Greedy,71.0,71,71
+anti_mdg,456,71,Greedy Independent Cover,71.0,71,71
+anti_mdg,456,71,Sorted ListLeft,106.0,106,106
+anti_mdg,456,71,Sorted ListRight,436.0,436,436
+anti_mdg,456,71,DFS,141.0,141,141
+anti_mdg,470,72,Maximum Degree Greedy,72.0,72,72
+anti_mdg,470,72,Greedy Independent Cover,72.0,72,72
+anti_mdg,470,72,Sorted ListLeft,107.0,107,107
+anti_mdg,470,72,Sorted ListRight,449.0,449,449
+anti_mdg,470,72,DFS,143.0,143,143
+anti_mdg,474,73,Maximum Degree Greedy,73.0,73,73
+anti_mdg,474,73,Greedy Independent Cover,73.0,73,73
+anti_mdg,474,73,Sorted ListLeft,109.0,109,109
+anti_mdg,474,73,Sorted ListRight,453.0,453,453
+anti_mdg,474,73,DFS,145.0,145,145
+anti_mdg,480,74,Maximum Degree Greedy,74.0,74,74
+anti_mdg,480,74,Greedy Independent Cover,74.0,74,74
+anti_mdg,480,74,Sorted ListLeft,110.0,110,110
+anti_mdg,480,74,Sorted ListRight,459.0,459,459
+anti_mdg,480,74,DFS,147.0,147,147
+anti_mdg,488,75,Maximum Degree Greedy,75.0,75,75
+anti_mdg,488,75,Greedy Independent Cover,75.0,75,75
+anti_mdg,488,75,Sorted ListLeft,112.0,112,112
+anti_mdg,488,75,Sorted ListRight,466.0,466,466
+anti_mdg,488,75,DFS,149.0,149,149
+anti_mdg,496,76,Maximum Degree Greedy,76.0,76,76
+anti_mdg,496,76,Greedy Independent Cover,76.0,76,76
+anti_mdg,496,76,Sorted ListLeft,113.0,113,113
+anti_mdg,496,76,Sorted ListRight,474.0,474,474
+anti_mdg,496,76,DFS,151.0,151,151
+anti_mdg,502,77,Maximum Degree Greedy,77.0,77,77
+anti_mdg,502,77,Greedy Independent Cover,77.0,77,77
+anti_mdg,502,77,Sorted ListLeft,115.0,115,115
+anti_mdg,502,77,Sorted ListRight,480.0,480,480
+anti_mdg,502,77,DFS,153.0,153,153
+anti_mdg,512,78,Maximum Degree Greedy,78.0,78,78
+anti_mdg,512,78,Greedy Independent Cover,78.0,78,78
+anti_mdg,512,78,Sorted ListLeft,116.0,116,116
+anti_mdg,512,78,Sorted ListRight,489.0,489,489
+anti_mdg,512,78,DFS,155.0,155,155
+anti_mdg,516,79,Maximum Degree Greedy,79.0,79,79
+anti_mdg,516,79,Greedy Independent Cover,79.0,79,79
+anti_mdg,516,79,Sorted ListLeft,118.0,118,118
+anti_mdg,516,79,Sorted ListRight,493.0,493,493
+anti_mdg,516,79,DFS,157.0,157,157
+anti_mdg,528,80,Maximum Degree Greedy,80.0,80,80
+anti_mdg,528,80,Greedy Independent Cover,80.0,80,80
+anti_mdg,528,80,Sorted ListLeft,119.0,119,119
+anti_mdg,528,80,Sorted ListRight,505.0,505,505
+anti_mdg,528,80,DFS,159.0,159,159
+anti_mdg,535,81,Maximum Degree Greedy,81.0,81,81
+anti_mdg,535,81,Greedy Independent Cover,81.0,81,81
+anti_mdg,535,81,Sorted ListLeft,121.0,121,121
+anti_mdg,535,81,Sorted ListRight,512.0,512,512
+anti_mdg,535,81,DFS,161.0,161,161
+anti_mdg,541,82,Maximum Degree Greedy,82.0,82,82
+anti_mdg,541,82,Greedy Independent Cover,82.0,82,82
+anti_mdg,541,82,Sorted ListLeft,122.0,122,122
+anti_mdg,541,82,Sorted ListRight,517.0,517,517
+anti_mdg,541,82,DFS,163.0,163,163
+anti_mdg,545,83,Maximum Degree Greedy,83.0,83,83
+anti_mdg,545,83,Greedy Independent Cover,83.0,83,83
+anti_mdg,545,83,Sorted ListLeft,124.0,124,124
+anti_mdg,545,83,Sorted ListRight,521.0,521,521
+anti_mdg,545,83,DFS,165.0,165,165
+anti_mdg,559,84,Maximum Degree Greedy,84.0,84,84
+anti_mdg,559,84,Greedy Independent Cover,84.0,84,84
+anti_mdg,559,84,Sorted ListLeft,125.0,125,125
+anti_mdg,559,84,Sorted ListRight,535.0,535,535
+anti_mdg,559,84,DFS,167.0,167,167
+anti_mdg,565,85,Maximum Degree Greedy,85.0,85,85
+anti_mdg,565,85,Greedy Independent Cover,85.0,85,85
+anti_mdg,565,85,Sorted ListLeft,127.0,127,127
+anti_mdg,565,85,Sorted ListRight,541.0,541,541
+anti_mdg,565,85,DFS,169.0,169,169
+anti_mdg,571,86,Maximum Degree Greedy,86.0,86,86
+anti_mdg,571,86,Greedy Independent Cover,86.0,86,86
+anti_mdg,571,86,Sorted ListLeft,128.0,128,128
+anti_mdg,571,86,Sorted ListRight,546.0,546,546
+anti_mdg,571,86,DFS,171.0,171,171
+anti_mdg,577,87,Maximum Degree Greedy,87.0,87,87
+anti_mdg,577,87,Greedy Independent Cover,87.0,87,87
+anti_mdg,577,87,Sorted ListLeft,130.0,130,130
+anti_mdg,577,87,Sorted ListRight,552.0,552,552
+anti_mdg,577,87,DFS,173.0,173,173
+anti_mdg,587,88,Maximum Degree Greedy,88.0,88,88
+anti_mdg,587,88,Greedy Independent Cover,88.0,88,88
+anti_mdg,587,88,Sorted ListLeft,131.0,131,131
+anti_mdg,587,88,Sorted ListRight,562.0,562,562
+anti_mdg,587,88,DFS,175.0,175,175
+anti_mdg,591,89,Maximum Degree Greedy,89.0,89,89
+anti_mdg,591,89,Greedy Independent Cover,89.0,89,89
+anti_mdg,591,89,Sorted ListLeft,133.0,133,133
+anti_mdg,591,89,Sorted ListRight,566.0,566,566
+anti_mdg,591,89,DFS,177.0,177,177
+anti_mdg,605,90,Maximum Degree Greedy,90.0,90,90
+anti_mdg,605,90,Greedy Independent Cover,90.0,90,90
+anti_mdg,605,90,Sorted ListLeft,134.0,134,134
+anti_mdg,605,90,Sorted ListRight,579.0,579,579
+anti_mdg,605,90,DFS,179.0,179,179
+anti_mdg,611,91,Maximum Degree Greedy,91.0,91,91
+anti_mdg,611,91,Greedy Independent Cover,91.0,91,91
+anti_mdg,611,91,Sorted ListLeft,136.0,136,136
+anti_mdg,611,91,Sorted ListRight,585.0,585,585
+anti_mdg,611,91,DFS,181.0,181,181
+anti_mdg,619,92,Maximum Degree Greedy,92.0,92,92
+anti_mdg,619,92,Greedy Independent Cover,92.0,92,92
+anti_mdg,619,92,Sorted ListLeft,137.0,137,137
+anti_mdg,619,92,Sorted ListRight,593.0,593,593
+anti_mdg,619,92,DFS,183.0,183,183
+anti_mdg,625,93,Maximum Degree Greedy,93.0,93,93
+anti_mdg,625,93,Greedy Independent Cover,93.0,93,93
+anti_mdg,625,93,Sorted ListLeft,139.0,139,139
+anti_mdg,625,93,Sorted ListRight,598.0,598,598
+anti_mdg,625,93,DFS,185.0,185,185
+anti_mdg,631,94,Maximum Degree Greedy,94.0,94,94
+anti_mdg,631,94,Greedy Independent Cover,94.0,94,94
+anti_mdg,631,94,Sorted ListLeft,140.0,140,140
+anti_mdg,631,94,Sorted ListRight,604.0,604,604
+anti_mdg,631,94,DFS,187.0,187,187
+anti_mdg,637,95,Maximum Degree Greedy,95.0,95,95
+anti_mdg,637,95,Greedy Independent Cover,95.0,95,95
+anti_mdg,637,95,Sorted ListLeft,142.0,142,142
+anti_mdg,637,95,Sorted ListRight,610.0,610,610
+anti_mdg,637,95,DFS,189.0,189,189
+anti_mdg,651,96,Maximum Degree Greedy,96.0,96,96
+anti_mdg,651,96,Greedy Independent Cover,96.0,96,96
+anti_mdg,651,96,Sorted ListLeft,143.0,143,143
+anti_mdg,651,96,Sorted ListRight,623.0,623,623
+anti_mdg,651,96,DFS,191.0,191,191
+anti_mdg,655,97,Maximum Degree Greedy,97.0,97,97
+anti_mdg,655,97,Greedy Independent Cover,97.0,97,97
+anti_mdg,655,97,Sorted ListLeft,145.0,145,145
+anti_mdg,655,97,Sorted ListRight,627.0,627,627
+anti_mdg,655,97,DFS,193.0,193,193
+anti_mdg,663,98,Maximum Degree Greedy,98.0,98,98
+anti_mdg,663,98,Greedy Independent Cover,98.0,98,98
+anti_mdg,663,98,Sorted ListLeft,146.0,146,146
+anti_mdg,663,98,Sorted ListRight,635.0,635,635
+anti_mdg,663,98,DFS,195.0,195,195
+anti_mdg,671,99,Maximum Degree Greedy,99.0,99,99
+anti_mdg,671,99,Greedy Independent Cover,99.0,99,99
+anti_mdg,671,99,Sorted ListLeft,148.0,148,148
+anti_mdg,671,99,Sorted ListRight,643.0,643,643
+anti_mdg,671,99,DFS,197.0,197,197
+anti_mdg,682,100,Maximum Degree Greedy,100.0,100,100
+anti_mdg,682,100,Greedy Independent Cover,100.0,100,100
+anti_mdg,682,100,Sorted ListLeft,149.0,149,149
+anti_mdg,682,100,Sorted ListRight,653.0,653,653
+anti_mdg,682,100,DFS,199.0,199,199
+anti_mdg,686,101,Maximum Degree Greedy,101.0,101,101
+anti_mdg,686,101,Greedy Independent Cover,101.0,101,101
+anti_mdg,686,101,Sorted ListLeft,151.0,151,151
+anti_mdg,686,101,Sorted ListRight,657.0,657,657
+anti_mdg,686,101,DFS,201.0,201,201
+anti_mdg,696,102,Maximum Degree Greedy,102.0,102,102
+anti_mdg,696,102,Greedy Independent Cover,102.0,102,102
+anti_mdg,696,102,Sorted ListLeft,152.0,152,152
+anti_mdg,696,102,Sorted ListRight,667.0,667,667
+anti_mdg,696,102,DFS,203.0,203,203
+anti_mdg,700,103,Maximum Degree Greedy,103.0,103,103
+anti_mdg,700,103,Greedy Independent Cover,103.0,103,103
+anti_mdg,700,103,Sorted ListLeft,154.0,154,154
+anti_mdg,700,103,Sorted ListRight,671.0,671,671
+anti_mdg,700,103,DFS,205.0,205,205
+anti_mdg,710,104,Maximum Degree Greedy,104.0,104,104
+anti_mdg,710,104,Greedy Independent Cover,104.0,104,104
+anti_mdg,710,104,Sorted ListLeft,155.0,155,155
+anti_mdg,710,104,Sorted ListRight,680.0,680,680
+anti_mdg,710,104,DFS,207.0,207,207
+anti_mdg,720,105,Maximum Degree Greedy,105.0,105,105
+anti_mdg,720,105,Greedy Independent Cover,105.0,105,105
+anti_mdg,720,105,Sorted ListLeft,157.0,157,157
+anti_mdg,720,105,Sorted ListRight,690.0,690,690
+anti_mdg,720,105,DFS,209.0,209,209
+anti_mdg,726,106,Maximum Degree Greedy,106.0,106,106
+anti_mdg,726,106,Greedy Independent Cover,106.0,106,106
+anti_mdg,726,106,Sorted ListLeft,158.0,158,158
+anti_mdg,726,106,Sorted ListRight,696.0,696,696
+anti_mdg,726,106,DFS,211.0,211,211
+anti_mdg,730,107,Maximum Degree Greedy,107.0,107,107
+anti_mdg,730,107,Greedy Independent Cover,107.0,107,107
+anti_mdg,730,107,Sorted ListLeft,160.0,160,160
+anti_mdg,730,107,Sorted ListRight,700.0,700,700
+anti_mdg,730,107,DFS,213.0,213,213
+anti_mdg,744,108,Maximum Degree Greedy,108.0,108,108
+anti_mdg,744,108,Greedy Independent Cover,108.0,108,108
+anti_mdg,744,108,Sorted ListLeft,161.0,161,161
+anti_mdg,744,108,Sorted ListRight,713.0,713,713
+anti_mdg,744,108,DFS,215.0,215,215
+anti_mdg,748,109,Maximum Degree Greedy,109.0,109,109
+anti_mdg,748,109,Greedy Independent Cover,109.0,109,109
+anti_mdg,748,109,Sorted ListLeft,163.0,163,163
+anti_mdg,748,109,Sorted ListRight,717.0,717,717
+anti_mdg,748,109,DFS,217.0,217,217
+anti_mdg,758,110,Maximum Degree Greedy,110.0,110,110
+anti_mdg,758,110,Greedy Independent Cover,110.0,110,110
+anti_mdg,758,110,Sorted ListLeft,164.0,164,164
+anti_mdg,758,110,Sorted ListRight,727.0,727,727
+anti_mdg,758,110,DFS,219.0,219,219
+anti_mdg,764,111,Maximum Degree Greedy,111.0,111,111
+anti_mdg,764,111,Greedy Independent Cover,111.0,111,111
+anti_mdg,764,111,Sorted ListLeft,166.0,166,166
+anti_mdg,764,111,Sorted ListRight,732.0,732,732
+anti_mdg,764,111,DFS,221.0,221,221
+anti_mdg,776,112,Maximum Degree Greedy,112.0,112,112
+anti_mdg,776,112,Greedy Independent Cover,112.0,112,112
+anti_mdg,776,112,Sorted ListLeft,167.0,167,167
+anti_mdg,776,112,Sorted ListRight,744.0,744,744
+anti_mdg,776,112,DFS,223.0,223,223
+anti_mdg,780,113,Maximum Degree Greedy,113.0,113,113
+anti_mdg,780,113,Greedy Independent Cover,113.0,113,113
+anti_mdg,780,113,Sorted ListLeft,169.0,169,169
+anti_mdg,780,113,Sorted ListRight,748.0,748,748
+anti_mdg,780,113,DFS,225.0,225,225
+anti_mdg,790,114,Maximum Degree Greedy,114.0,114,114
+anti_mdg,790,114,Greedy Independent Cover,114.0,114,114
+anti_mdg,790,114,Sorted ListLeft,170.0,170,170
+anti_mdg,790,114,Sorted ListRight,757.0,757,757
+anti_mdg,790,114,DFS,227.0,227,227
+anti_mdg,796,115,Maximum Degree Greedy,115.0,115,115
+anti_mdg,796,115,Greedy Independent Cover,115.0,115,115
+anti_mdg,796,115,Sorted ListLeft,172.0,172,172
+anti_mdg,796,115,Sorted ListRight,763.0,763,763
+anti_mdg,796,115,DFS,229.0,229,229
+anti_mdg,804,116,Maximum Degree Greedy,116.0,116,116
+anti_mdg,804,116,Greedy Independent Cover,116.0,116,116
+anti_mdg,804,116,Sorted ListLeft,173.0,173,173
+anti_mdg,804,116,Sorted ListRight,771.0,771,771
+anti_mdg,804,116,DFS,231.0,231,231
+anti_mdg,812,117,Maximum Degree Greedy,117.0,117,117
+anti_mdg,812,117,Greedy Independent Cover,117.0,117,117
+anti_mdg,812,117,Sorted ListLeft,175.0,175,175
+anti_mdg,812,117,Sorted ListRight,779.0,779,779
+anti_mdg,812,117,DFS,233.0,233,233
+anti_mdg,818,118,Maximum Degree Greedy,118.0,118,118
+anti_mdg,818,118,Greedy Independent Cover,118.0,118,118
+anti_mdg,818,118,Sorted ListLeft,176.0,176,176
+anti_mdg,818,118,Sorted ListRight,784.0,784,784
+anti_mdg,818,118,DFS,235.0,235,235
+anti_mdg,824,119,Maximum Degree Greedy,119.0,119,119
+anti_mdg,824,119,Greedy Independent Cover,119.0,119,119
+anti_mdg,824,119,Sorted ListLeft,178.0,178,178
+anti_mdg,824,119,Sorted ListRight,790.0,790,790
+anti_mdg,824,119,DFS,237.0,237,237
+anti_mdg,842,120,Maximum Degree Greedy,120.0,120,120
+anti_mdg,842,120,Greedy Independent Cover,120.0,120,120
+anti_mdg,842,120,Sorted ListLeft,179.0,179,179
+anti_mdg,842,120,Sorted ListRight,808.0,808,808
+anti_mdg,842,120,DFS,239.0,239,239
+anti_mdg,847,121,Maximum Degree Greedy,121.0,121,121
+anti_mdg,847,121,Greedy Independent Cover,121.0,121,121
+anti_mdg,847,121,Sorted ListLeft,181.0,181,181
+anti_mdg,847,121,Sorted ListRight,813.0,813,813
+anti_mdg,847,121,DFS,241.0,241,241
+anti_mdg,853,122,Maximum Degree Greedy,122.0,122,122
+anti_mdg,853,122,Greedy Independent Cover,122.0,122,122
+anti_mdg,853,122,Sorted ListLeft,182.0,182,182
+anti_mdg,853,122,Sorted ListRight,818.0,818,818
+anti_mdg,853,122,DFS,243.0,243,243
+anti_mdg,859,123,Maximum Degree Greedy,123.0,123,123
+anti_mdg,859,123,Greedy Independent Cover,123.0,123,123
+anti_mdg,859,123,Sorted ListLeft,184.0,184,184
+anti_mdg,859,123,Sorted ListRight,824.0,824,824
+anti_mdg,859,123,DFS,245.0,245,245
+anti_mdg,867,124,Maximum Degree Greedy,124.0,124,124
+anti_mdg,867,124,Greedy Independent Cover,124.0,124,124
+anti_mdg,867,124,Sorted ListLeft,185.0,185,185
+anti_mdg,867,124,Sorted ListRight,832.0,832,832
+anti_mdg,867,124,DFS,247.0,247,247
+anti_mdg,873,125,Maximum Degree Greedy,125.0,125,125
+anti_mdg,873,125,Greedy Independent Cover,125.0,125,125
+anti_mdg,873,125,Sorted ListLeft,187.0,187,187
+anti_mdg,873,125,Sorted ListRight,838.0,838,838
+anti_mdg,873,125,DFS,249.0,249,249
+anti_mdg,887,126,Maximum Degree Greedy,126.0,126,126
+anti_mdg,887,126,Greedy Independent Cover,126.0,126,126
+anti_mdg,887,126,Sorted ListLeft,188.0,188,188
+anti_mdg,887,126,Sorted ListRight,851.0,851,851
+anti_mdg,887,126,DFS,251.0,251,251
+anti_mdg,891,127,Maximum Degree Greedy,127.0,127,127
+anti_mdg,891,127,Greedy Independent Cover,127.0,127,127
+anti_mdg,891,127,Sorted ListLeft,190.0,190,190
+anti_mdg,891,127,Sorted ListRight,855.0,855,855
+anti_mdg,891,127,DFS,253.0,253,253
+anti_mdg,901,128,Maximum Degree Greedy,128.0,128,128
+anti_mdg,901,128,Greedy Independent Cover,128.0,128,128
+anti_mdg,901,128,Sorted ListLeft,191.0,191,191
+anti_mdg,901,128,Sorted ListRight,865.0,865,865
+anti_mdg,901,128,DFS,255.0,255,255
+anti_mdg,907,129,Maximum Degree Greedy,129.0,129,129
+anti_mdg,907,129,Greedy Independent Cover,129.0,129,129
+anti_mdg,907,129,Sorted ListLeft,193.0,193,193
+anti_mdg,907,129,Sorted ListRight,870.0,870,870
+anti_mdg,907,129,DFS,257.0,257,257
+anti_mdg,917,130,Maximum Degree Greedy,130.0,130,130
+anti_mdg,917,130,Greedy Independent Cover,130.0,130,130
+anti_mdg,917,130,Sorted ListLeft,194.0,194,194
+anti_mdg,917,130,Sorted ListRight,880.0,880,880
+anti_mdg,917,130,DFS,259.0,259,259
+anti_mdg,921,131,Maximum Degree Greedy,131.0,131,131
+anti_mdg,921,131,Greedy Independent Cover,131.0,131,131
+anti_mdg,921,131,Sorted ListLeft,196.0,196,196
+anti_mdg,921,131,Sorted ListRight,884.0,884,884
+anti_mdg,921,131,DFS,261.0,261,261
+anti_mdg,935,132,Maximum Degree Greedy,132.0,132,132
+anti_mdg,935,132,Greedy Independent Cover,132.0,132,132
+anti_mdg,935,132,Sorted ListLeft,197.0,197,197
+anti_mdg,935,132,Sorted ListRight,897.0,897,897
+anti_mdg,935,132,DFS,263.0,263,263
+anti_mdg,941,133,Maximum Degree Greedy,133.0,133,133
+anti_mdg,941,133,Greedy Independent Cover,133.0,133,133
+anti_mdg,941,133,Sorted ListLeft,199.0,199,199
+anti_mdg,941,133,Sorted ListRight,903.0,903,903
+anti_mdg,941,133,DFS,265.0,265,265
+anti_mdg,947,134,Maximum Degree Greedy,134.0,134,134
+anti_mdg,947,134,Greedy Independent Cover,134.0,134,134
+anti_mdg,947,134,Sorted ListLeft,200.0,200,200
+anti_mdg,947,134,Sorted ListRight,909.0,909,909
+anti_mdg,947,134,DFS,267.0,267,267
+anti_mdg,957,135,Maximum Degree Greedy,135.0,135,135
+anti_mdg,957,135,Greedy Independent Cover,135.0,135,135
+anti_mdg,957,135,Sorted ListLeft,202.0,202,202
+anti_mdg,957,135,Sorted ListRight,919.0,919,919
+anti_mdg,957,135,DFS,269.0,269,269
+anti_mdg,967,136,Maximum Degree Greedy,136.0,136,136
+anti_mdg,967,136,Greedy Independent Cover,136.0,136,136
+anti_mdg,967,136,Sorted ListLeft,203.0,203,203
+anti_mdg,967,136,Sorted ListRight,928.0,928,928
+anti_mdg,967,136,DFS,271.0,271,271
+anti_mdg,971,137,Maximum Degree Greedy,137.0,137,137
+anti_mdg,971,137,Greedy Independent Cover,137.0,137,137
+anti_mdg,971,137,Sorted ListLeft,205.0,205,205
+anti_mdg,971,137,Sorted ListRight,932.0,932,932
+anti_mdg,971,137,DFS,273.0,273,273
+anti_mdg,981,138,Maximum Degree Greedy,138.0,138,138
+anti_mdg,981,138,Greedy Independent Cover,138.0,138,138
+anti_mdg,981,138,Sorted ListLeft,206.0,206,206
+anti_mdg,981,138,Sorted ListRight,942.0,942,942
+anti_mdg,981,138,DFS,275.0,275,275
+anti_mdg,985,139,Maximum Degree Greedy,139.0,139,139
+anti_mdg,985,139,Greedy Independent Cover,139.0,139,139
+anti_mdg,985,139,Sorted ListLeft,208.0,208,208
+anti_mdg,985,139,Sorted ListRight,946.0,946,946
+anti_mdg,985,139,DFS,277.0,277,277
+anti_mdg,999,140,Maximum Degree Greedy,140.0,140,140
+anti_mdg,999,140,Greedy Independent Cover,140.0,140,140
+anti_mdg,999,140,Sorted ListLeft,209.0,209,209
+anti_mdg,999,140,Sorted ListRight,959.0,959,959
+anti_mdg,999,140,DFS,279.0,279,279
+anti_mdg,1005,141,Maximum Degree Greedy,141.0,141,141
+anti_mdg,1005,141,Greedy Independent Cover,141.0,141,141
+anti_mdg,1005,141,Sorted ListLeft,211.0,211,211
+anti_mdg,1005,141,Sorted ListRight,965.0,965,965
+anti_mdg,1005,141,DFS,281.0,281,281
+anti_mdg,1011,142,Maximum Degree Greedy,142.0,142,142
+anti_mdg,1011,142,Greedy Independent Cover,142.0,142,142
+anti_mdg,1011,142,Sorted ListLeft,212.0,212,212
+anti_mdg,1011,142,Sorted ListRight,971.0,971,971
+anti_mdg,1011,142,DFS,283.0,283,283
+anti_mdg,1017,143,Maximum Degree Greedy,143.0,143,143
+anti_mdg,1017,143,Greedy Independent Cover,143.0,143,143
+anti_mdg,1017,143,Sorted ListLeft,214.0,214,214
+anti_mdg,1017,143,Sorted ListRight,977.0,977,977
+anti_mdg,1017,143,DFS,285.0,285,285
+anti_mdg,1034,144,Maximum Degree Greedy,144.0,144,144
+anti_mdg,1034,144,Greedy Independent Cover,144.0,144,144
+anti_mdg,1034,144,Sorted ListLeft,215.0,215,215
+anti_mdg,1034,144,Sorted ListRight,993.0,993,993
+anti_mdg,1034,144,DFS,287.0,287,287
+anti_mdg,1040,145,Maximum Degree Greedy,145.0,145,145
+anti_mdg,1040,145,Greedy Independent Cover,145.0,145,145
+anti_mdg,1040,145,Sorted ListLeft,217.0,217,217
+anti_mdg,1040,145,Sorted ListRight,999.0,999,999
+anti_mdg,1040,145,DFS,289.0,289,289
+anti_mdg,1046,146,Maximum Degree Greedy,146.0,146,146
+anti_mdg,1046,146,Greedy Independent Cover,146.0,146,146
+anti_mdg,1046,146,Sorted ListLeft,218.0,218,218
+anti_mdg,1046,146,Sorted ListRight,1005.0,1005,1005
+anti_mdg,1046,146,DFS,291.0,291,291
+anti_mdg,1054,147,Maximum Degree Greedy,147.0,147,147
+anti_mdg,1054,147,Greedy Independent Cover,147.0,147,147
+anti_mdg,1054,147,Sorted ListLeft,220.0,220,220
+anti_mdg,1054,147,Sorted ListRight,1012.0,1012,1012
+anti_mdg,1054,147,DFS,293.0,293,293
+anti_mdg,1062,148,Maximum Degree Greedy,148.0,148,148
+anti_mdg,1062,148,Greedy Independent Cover,148.0,148,148
+anti_mdg,1062,148,Sorted ListLeft,221.0,221,221
+anti_mdg,1062,148,Sorted ListRight,1020.0,1020,1020
+anti_mdg,1062,148,DFS,295.0,295,295
+anti_mdg,1066,149,Maximum Degree Greedy,149.0,149,149
+anti_mdg,1066,149,Greedy Independent Cover,149.0,149,149
+anti_mdg,1066,149,Sorted ListLeft,223.0,223,223
+anti_mdg,1066,149,Sorted ListRight,1024.0,1024,1024
+anti_mdg,1066,149,DFS,297.0,297,297
+anti_mdg,1080,150,Maximum Degree Greedy,150.0,150,150
+anti_mdg,1080,150,Greedy Independent Cover,150.0,150,150
+anti_mdg,1080,150,Sorted ListLeft,224.0,224,224
+anti_mdg,1080,150,Sorted ListRight,1037.0,1037,1037
+anti_mdg,1080,150,DFS,299.0,299,299
+anti_mdg,1084,151,Maximum Degree Greedy,151.0,151,151
+anti_mdg,1084,151,Greedy Independent Cover,151.0,151,151
+anti_mdg,1084,151,Sorted ListLeft,226.0,226,226
+anti_mdg,1084,151,Sorted ListRight,1041.0,1041,1041
+anti_mdg,1084,151,DFS,301.0,301,301
+anti_mdg,1094,152,Maximum Degree Greedy,152.0,152,152
+anti_mdg,1094,152,Greedy Independent Cover,152.0,152,152
+anti_mdg,1094,152,Sorted ListLeft,227.0,227,227
+anti_mdg,1094,152,Sorted ListRight,1051.0,1051,1051
+anti_mdg,1094,152,DFS,303.0,303,303
+anti_mdg,1102,153,Maximum Degree Greedy,153.0,153,153
+anti_mdg,1102,153,Greedy Independent Cover,153.0,153,153
+anti_mdg,1102,153,Sorted ListLeft,229.0,229,229
+anti_mdg,1102,153,Sorted ListRight,1059.0,1059,1059
+anti_mdg,1102,153,DFS,305.0,305,305
+anti_mdg,1112,154,Maximum Degree Greedy,154.0,154,154
+anti_mdg,1112,154,Greedy Independent Cover,154.0,154,154
+anti_mdg,1112,154,Sorted ListLeft,230.0,230,230
+anti_mdg,1112,154,Sorted ListRight,1068.0,1068,1068
+anti_mdg,1112,154,DFS,307.0,307,307
+anti_mdg,1118,155,Maximum Degree Greedy,155.0,155,155
+anti_mdg,1118,155,Greedy Independent Cover,155.0,155,155
+anti_mdg,1118,155,Sorted ListLeft,232.0,232,232
+anti_mdg,1118,155,Sorted ListRight,1074.0,1074,1074
+anti_mdg,1118,155,DFS,309.0,309,309
+anti_mdg,1132,156,Maximum Degree Greedy,156.0,156,156
+anti_mdg,1132,156,Greedy Independent Cover,156.0,156,156
+anti_mdg,1132,156,Sorted ListLeft,233.0,233,233
+anti_mdg,1132,156,Sorted ListRight,1088.0,1088,1088
+anti_mdg,1132,156,DFS,311.0,311,311
+anti_mdg,1136,157,Maximum Degree Greedy,157.0,157,157
+anti_mdg,1136,157,Greedy Independent Cover,157.0,157,157
+anti_mdg,1136,157,Sorted ListLeft,235.0,235,235
+anti_mdg,1136,157,Sorted ListRight,1092.0,1092,1092
+anti_mdg,1136,157,DFS,313.0,313,313
+anti_mdg,1142,158,Maximum Degree Greedy,158.0,158,158
+anti_mdg,1142,158,Greedy Independent Cover,158.0,158,158
+anti_mdg,1142,158,Sorted ListLeft,236.0,236,236
+anti_mdg,1142,158,Sorted ListRight,1097.0,1097,1097
+anti_mdg,1142,158,DFS,315.0,315,315
+anti_mdg,1148,159,Maximum Degree Greedy,159.0,159,159
+anti_mdg,1148,159,Greedy Independent Cover,159.0,159,159
+anti_mdg,1148,159,Sorted ListLeft,238.0,238,238
+anti_mdg,1148,159,Sorted ListRight,1103.0,1103,1103
+anti_mdg,1148,159,DFS,317.0,317,317
+anti_mdg,1162,160,Maximum Degree Greedy,160.0,160,160
+anti_mdg,1162,160,Greedy Independent Cover,160.0,160,160
+anti_mdg,1162,160,Sorted ListLeft,239.0,239,239
+anti_mdg,1162,160,Sorted ListRight,1117.0,1117,1117
+anti_mdg,1162,160,DFS,319.0,319,319
+anti_mdg,1168,161,Maximum Degree Greedy,161.0,161,161
+anti_mdg,1168,161,Greedy Independent Cover,161.0,161,161
+anti_mdg,1168,161,Sorted ListLeft,241.0,241,241
+anti_mdg,1168,161,Sorted ListRight,1123.0,1123,1123
+anti_mdg,1168,161,DFS,321.0,321,321
+anti_mdg,1180,162,Maximum Degree Greedy,162.0,162,162
+anti_mdg,1180,162,Greedy Independent Cover,162.0,162,162
+anti_mdg,1180,162,Sorted ListLeft,242.0,242,242
+anti_mdg,1180,162,Sorted ListRight,1134.0,1134,1134
+anti_mdg,1180,162,DFS,323.0,323,323
+anti_mdg,1184,163,Maximum Degree Greedy,163.0,163,163
+anti_mdg,1184,163,Greedy Independent Cover,163.0,163,163
+anti_mdg,1184,163,Sorted ListLeft,244.0,244,244
+anti_mdg,1184,163,Sorted ListRight,1138.0,1138,1138
+anti_mdg,1184,163,DFS,325.0,325,325
+anti_mdg,1192,164,Maximum Degree Greedy,164.0,164,164
+anti_mdg,1192,164,Greedy Independent Cover,164.0,164,164
+anti_mdg,1192,164,Sorted ListLeft,245.0,245,245
+anti_mdg,1192,164,Sorted ListRight,1146.0,1146,1146
+anti_mdg,1192,164,DFS,327.0,327,327
+anti_mdg,1202,165,Maximum Degree Greedy,165.0,165,165
+anti_mdg,1202,165,Greedy Independent Cover,165.0,165,165
+anti_mdg,1202,165,Sorted ListLeft,247.0,247,247
+anti_mdg,1202,165,Sorted ListRight,1155.0,1155,1155
+anti_mdg,1202,165,DFS,329.0,329,329
+anti_mdg,1208,166,Maximum Degree Greedy,166.0,166,166
+anti_mdg,1208,166,Greedy Independent Cover,166.0,166,166
+anti_mdg,1208,166,Sorted ListLeft,248.0,248,248
+anti_mdg,1208,166,Sorted ListRight,1161.0,1161,1161
+anti_mdg,1208,166,DFS,331.0,331,331
+anti_mdg,1212,167,Maximum Degree Greedy,167.0,167,167
+anti_mdg,1212,167,Greedy Independent Cover,167.0,167,167
+anti_mdg,1212,167,Sorted ListLeft,250.0,250,250
+anti_mdg,1212,167,Sorted ListRight,1165.0,1165,1165
+anti_mdg,1212,167,DFS,333.0,333,333
+anti_mdg,1230,168,Maximum Degree Greedy,168.0,168,168
+anti_mdg,1230,168,Greedy Independent Cover,168.0,168,168
+anti_mdg,1230,168,Sorted ListLeft,251.0,251,251
+anti_mdg,1230,168,Sorted ListRight,1182.0,1182,1182
+anti_mdg,1230,168,DFS,335.0,335,335
+anti_mdg,1235,169,Maximum Degree Greedy,169.0,169,169
+anti_mdg,1235,169,Greedy Independent Cover,169.0,169,169
+anti_mdg,1235,169,Sorted ListLeft,253.0,253,253
+anti_mdg,1235,169,Sorted ListRight,1187.0,1187,1187
+anti_mdg,1235,169,DFS,337.0,337,337
+anti_mdg,1245,170,Maximum Degree Greedy,170.0,170,170
+anti_mdg,1245,170,Greedy Independent Cover,170.0,170,170
+anti_mdg,1245,170,Sorted ListLeft,254.0,254,254
+anti_mdg,1245,170,Sorted ListRight,1197.0,1197,1197
+anti_mdg,1245,170,DFS,339.0,339,339
+anti_mdg,1253,171,Maximum Degree Greedy,171.0,171,171
+anti_mdg,1253,171,Greedy Independent Cover,171.0,171,171
+anti_mdg,1253,171,Sorted ListLeft,256.0,256,256
+anti_mdg,1253,171,Sorted ListRight,1205.0,1205,1205
+anti_mdg,1253,171,DFS,341.0,341,341
+anti_mdg,1261,172,Maximum Degree Greedy,172.0,172,172
+anti_mdg,1261,172,Greedy Independent Cover,172.0,172,172
+anti_mdg,1261,172,Sorted ListLeft,257.0,257,257
+anti_mdg,1261,172,Sorted ListRight,1212.0,1212,1212
+anti_mdg,1261,172,DFS,343.0,343,343
+anti_mdg,1265,173,Maximum Degree Greedy,173.0,173,173
+anti_mdg,1265,173,Greedy Independent Cover,173.0,173,173
+anti_mdg,1265,173,Sorted ListLeft,259.0,259,259
+anti_mdg,1265,173,Sorted ListRight,1216.0,1216,1216
+anti_mdg,1265,173,DFS,345.0,345,345
+anti_mdg,1275,174,Maximum Degree Greedy,174.0,174,174
+anti_mdg,1275,174,Greedy Independent Cover,174.0,174,174
+anti_mdg,1275,174,Sorted ListLeft,260.0,260,260
+anti_mdg,1275,174,Sorted ListRight,1226.0,1226,1226
+anti_mdg,1275,174,DFS,347.0,347,347
+anti_mdg,1283,175,Maximum Degree Greedy,175.0,175,175
+anti_mdg,1283,175,Greedy Independent Cover,175.0,175,175
+anti_mdg,1283,175,Sorted ListLeft,262.0,262,262
+anti_mdg,1283,175,Sorted ListRight,1234.0,1234,1234
+anti_mdg,1283,175,DFS,349.0,349,349
+anti_mdg,1295,176,Maximum Degree Greedy,176.0,176,176
+anti_mdg,1295,176,Greedy Independent Cover,176.0,176,176
+anti_mdg,1295,176,Sorted ListLeft,263.0,263,263
+anti_mdg,1295,176,Sorted ListRight,1245.0,1245,1245
+anti_mdg,1295,176,DFS,351.0,351,351
+anti_mdg,1301,177,Maximum Degree Greedy,177.0,177,177
+anti_mdg,1301,177,Greedy Independent Cover,177.0,177,177
+anti_mdg,1301,177,Sorted ListLeft,265.0,265,265
+anti_mdg,1301,177,Sorted ListRight,1251.0,1251,1251
+anti_mdg,1301,177,DFS,353.0,353,353
+anti_mdg,1307,178,Maximum Degree Greedy,178.0,178,178
+anti_mdg,1307,178,Greedy Independent Cover,178.0,178,178
+anti_mdg,1307,178,Sorted ListLeft,266.0,266,266
+anti_mdg,1307,178,Sorted ListRight,1257.0,1257,1257
+anti_mdg,1307,178,DFS,355.0,355,355
+anti_mdg,1311,179,Maximum Degree Greedy,179.0,179,179
+anti_mdg,1311,179,Greedy Independent Cover,179.0,179,179
+anti_mdg,1311,179,Sorted ListLeft,268.0,268,268
+anti_mdg,1311,179,Sorted ListRight,1261.0,1261,1261
+anti_mdg,1311,179,DFS,357.0,357,357
+anti_mdg,1331,180,Maximum Degree Greedy,180.0,180,180
+anti_mdg,1331,180,Greedy Independent Cover,180.0,180,180
+anti_mdg,1331,180,Sorted ListLeft,269.0,269,269
+anti_mdg,1331,180,Sorted ListRight,1280.0,1280,1280
+anti_mdg,1331,180,DFS,359.0,359,359
+anti_mdg,1335,181,Maximum Degree Greedy,181.0,181,181
+anti_mdg,1335,181,Greedy Independent Cover,181.0,181,181
+anti_mdg,1335,181,Sorted ListLeft,271.0,271,271
+anti_mdg,1335,181,Sorted ListRight,1284.0,1284,1284
+anti_mdg,1335,181,DFS,361.0,361,361
+anti_mdg,1345,182,Maximum Degree Greedy,182.0,182,182
+anti_mdg,1345,182,Greedy Independent Cover,182.0,182,182
+anti_mdg,1345,182,Sorted ListLeft,272.0,272,272
+anti_mdg,1345,182,Sorted ListRight,1294.0,1294,1294
+anti_mdg,1345,182,DFS,363.0,363,363
+anti_mdg,1351,183,Maximum Degree Greedy,183.0,183,183
+anti_mdg,1351,183,Greedy Independent Cover,183.0,183,183
+anti_mdg,1351,183,Sorted ListLeft,274.0,274,274
+anti_mdg,1351,183,Sorted ListRight,1299.0,1299,1299
+anti_mdg,1351,183,DFS,365.0,365,365
+anti_mdg,1361,184,Maximum Degree Greedy,184.0,184,184
+anti_mdg,1361,184,Greedy Independent Cover,184.0,184,184
+anti_mdg,1361,184,Sorted ListLeft,275.0,275,275
+anti_mdg,1361,184,Sorted ListRight,1309.0,1309,1309
+anti_mdg,1361,184,DFS,367.0,367,367
+anti_mdg,1367,185,Maximum Degree Greedy,185.0,185,185
+anti_mdg,1367,185,Greedy Independent Cover,185.0,185,185
+anti_mdg,1367,185,Sorted ListLeft,277.0,277,277
+anti_mdg,1367,185,Sorted ListRight,1315.0,1315,1315
+anti_mdg,1367,185,DFS,369.0,369,369
+anti_mdg,1377,186,Maximum Degree Greedy,186.0,186,186
+anti_mdg,1377,186,Greedy Independent Cover,186.0,186,186
+anti_mdg,1377,186,Sorted ListLeft,278.0,278,278
+anti_mdg,1377,186,Sorted ListRight,1324.0,1324,1324
+anti_mdg,1377,186,DFS,371.0,371,371
+anti_mdg,1383,187,Maximum Degree Greedy,187.0,187,187
+anti_mdg,1383,187,Greedy Independent Cover,187.0,187,187
+anti_mdg,1383,187,Sorted ListLeft,280.0,280,280
+anti_mdg,1383,187,Sorted ListRight,1330.0,1330,1330
+anti_mdg,1383,187,DFS,373.0,373,373
+anti_mdg,1391,188,Maximum Degree Greedy,188.0,188,188
+anti_mdg,1391,188,Greedy Independent Cover,188.0,188,188
+anti_mdg,1391,188,Sorted ListLeft,281.0,281,281
+anti_mdg,1391,188,Sorted ListRight,1338.0,1338,1338
+anti_mdg,1391,188,DFS,375.0,375,375
+anti_mdg,1401,189,Maximum Degree Greedy,189.0,189,189
+anti_mdg,1401,189,Greedy Independent Cover,189.0,189,189
+anti_mdg,1401,189,Sorted ListLeft,283.0,283,283
+anti_mdg,1401,189,Sorted ListRight,1348.0,1348,1348
+anti_mdg,1401,189,DFS,377.0,377,377
+anti_mdg,1411,190,Maximum Degree Greedy,190.0,190,190
+anti_mdg,1411,190,Greedy Independent Cover,190.0,190,190
+anti_mdg,1411,190,Sorted ListLeft,284.0,284,284
+anti_mdg,1411,190,Sorted ListRight,1357.0,1357,1357
+anti_mdg,1411,190,DFS,379.0,379,379
+anti_mdg,1415,191,Maximum Degree Greedy,191.0,191,191
+anti_mdg,1415,191,Greedy Independent Cover,191.0,191,191
+anti_mdg,1415,191,Sorted ListLeft,286.0,286,286
+anti_mdg,1415,191,Sorted ListRight,1361.0,1361,1361
+anti_mdg,1415,191,DFS,381.0,381,381
+anti_mdg,1431,192,Maximum Degree Greedy,192.0,192,192
+anti_mdg,1431,192,Greedy Independent Cover,192.0,192,192
+anti_mdg,1431,192,Sorted ListLeft,287.0,287,287
+anti_mdg,1431,192,Sorted ListRight,1377.0,1377,1377
+anti_mdg,1431,192,DFS,383.0,383,383
+anti_mdg,1435,193,Maximum Degree Greedy,193.0,193,193
+anti_mdg,1435,193,Greedy Independent Cover,193.0,193,193
+anti_mdg,1435,193,Sorted ListLeft,289.0,289,289
+anti_mdg,1435,193,Sorted ListRight,1381.0,1381,1381
+anti_mdg,1435,193,DFS,385.0,385,385
+anti_mdg,1441,194,Maximum Degree Greedy,194.0,194,194
+anti_mdg,1441,194,Greedy Independent Cover,194.0,194,194
+anti_mdg,1441,194,Sorted ListLeft,290.0,290,290
+anti_mdg,1441,194,Sorted ListRight,1386.0,1386,1386
+anti_mdg,1441,194,DFS,387.0,387,387
+anti_mdg,1451,195,Maximum Degree Greedy,195.0,195,195
+anti_mdg,1451,195,Greedy Independent Cover,195.0,195,195
+anti_mdg,1451,195,Sorted ListLeft,292.0,292,292
+anti_mdg,1451,195,Sorted ListRight,1396.0,1396,1396
+anti_mdg,1451,195,DFS,389.0,389,389
+anti_mdg,1462,196,Maximum Degree Greedy,196.0,196,196
+anti_mdg,1462,196,Greedy Independent Cover,196.0,196,196
+anti_mdg,1462,196,Sorted ListLeft,293.0,293,293
+anti_mdg,1462,196,Sorted ListRight,1407.0,1407,1407
+anti_mdg,1462,196,DFS,391.0,391,391
+anti_mdg,1466,197,Maximum Degree Greedy,197.0,197,197
+anti_mdg,1466,197,Greedy Independent Cover,197.0,197,197
+anti_mdg,1466,197,Sorted ListLeft,295.0,295,295
+anti_mdg,1466,197,Sorted ListRight,1411.0,1411,1411
+anti_mdg,1466,197,DFS,393.0,393,393
+anti_mdg,1480,198,Maximum Degree Greedy,198.0,198,198
+anti_mdg,1480,198,Greedy Independent Cover,198.0,198,198
+anti_mdg,1480,198,Sorted ListLeft,296.0,296,296
+anti_mdg,1480,198,Sorted ListRight,1424.0,1424,1424
+anti_mdg,1480,198,DFS,395.0,395,395
+anti_mdg,1484,199,Maximum Degree Greedy,199.0,199,199
+anti_mdg,1484,199,Greedy Independent Cover,199.0,199,199
+anti_mdg,1484,199,Sorted ListLeft,298.0,298,298
+anti_mdg,1484,199,Sorted ListRight,1428.0,1428,1428
+anti_mdg,1484,199,DFS,397.0,397,397
+anti_mdg,1498,200,Maximum Degree Greedy,200.0,200,200
+anti_mdg,1498,200,Greedy Independent Cover,200.0,200,200
+anti_mdg,1498,200,Sorted ListLeft,299.0,299,299
+anti_mdg,1498,200,Sorted ListRight,1442.0,1442,1442
+anti_mdg,1498,200,DFS,399.0,399,399
+anti_mdg,1504,201,Maximum Degree Greedy,201.0,201,201
+anti_mdg,1504,201,Greedy Independent Cover,201.0,201,201
+anti_mdg,1504,201,Sorted ListLeft,301.0,301,301
+anti_mdg,1504,201,Sorted ListRight,1447.0,1447,1447
+anti_mdg,1504,201,DFS,401.0,401,401
+anti_mdg,1510,202,Maximum Degree Greedy,202.0,202,202
+anti_mdg,1510,202,Greedy Independent Cover,202.0,202,202
+anti_mdg,1510,202,Sorted ListLeft,302.0,302,302
+anti_mdg,1510,202,Sorted ListRight,1453.0,1453,1453
+anti_mdg,1510,202,DFS,403.0,403,403
+anti_mdg,1516,203,Maximum Degree Greedy,203.0,203,203
+anti_mdg,1516,203,Greedy Independent Cover,203.0,203,203
+anti_mdg,1516,203,Sorted ListLeft,304.0,304,304
+anti_mdg,1516,203,Sorted ListRight,1459.0,1459,1459
+anti_mdg,1516,203,DFS,405.0,405,405
+anti_mdg,1530,204,Maximum Degree Greedy,204.0,204,204
+anti_mdg,1530,204,Greedy Independent Cover,204.0,204,204
+anti_mdg,1530,204,Sorted ListLeft,305.0,305,305
+anti_mdg,1530,204,Sorted ListRight,1472.0,1472,1472
+anti_mdg,1530,204,DFS,407.0,407,407
+anti_mdg,1536,205,Maximum Degree Greedy,205.0,205,205
+anti_mdg,1536,205,Greedy Independent Cover,205.0,205,205
+anti_mdg,1536,205,Sorted ListLeft,307.0,307,307
+anti_mdg,1536,205,Sorted ListRight,1478.0,1478,1478
+anti_mdg,1536,205,DFS,409.0,409,409
