@@ -14,14 +14,12 @@ def maximum_degree_greedy(graph):
         degrees = dict(temp_graph.degree())
         max_degree = max(degrees.values())
         max_degree_nodes = [node for node, degree in degrees.items() if degree == max_degree]
-        random.shuffle(max_degree_nodes)  # Mélange les sommets avec le même degré
-        max_degree_node = max_degree_nodes[0]  # Prend le premier après mélange
+        max_degree_node = random.choice(max_degree_nodes)
 
         C.add(max_degree_node)
         temp_graph.remove_node(max_degree_node)
 
     return list(C)
-
 
 def greedy_independent_cover(graph):
     C = set()
@@ -31,8 +29,7 @@ def greedy_independent_cover(graph):
         degrees = dict(temp_graph.degree())
         min_degree = min(degrees.values())
         min_degree_nodes = [node for node, degree in degrees.items() if degree == min_degree]
-        random.shuffle(min_degree_nodes)
-        min_degree_node = min_degree_nodes[0]
+        min_degree_node = random.choice(min_degree_nodes)
 
         neighbors = set(temp_graph.neighbors(min_degree_node))
         C.update(neighbors)
@@ -41,15 +38,12 @@ def greedy_independent_cover(graph):
 
     return list(C)
 
-
 def sorted_list_left(graph):
     C = set()
     degrees = dict(graph.degree())
-    sorted_nodes = list(degrees.keys())
-    random.shuffle(sorted_nodes)  # Mélange avant le tri
-    sorted_nodes = sorted(sorted_nodes, key=lambda x: -degrees[x])  # Trie décroissant par degré
+    sorted_nodes = sorted(degrees.keys(), key=lambda x: -degrees[x])  # Trie décroissant par degré
 
-    for u in sorted_nodes:
+    for u in sorted_nodes:  # Parcourir la liste de gauche à droite
         if any(neighbor not in C for neighbor in graph.neighbors(u)):
             C.add(u)
 
@@ -58,16 +52,13 @@ def sorted_list_left(graph):
 def sorted_list_right(graph):
     C = set()
     degrees = dict(graph.degree())
-    sorted_nodes = list(degrees.keys())
-    random.shuffle(sorted_nodes)
-    sorted_nodes = sorted(sorted_nodes, key=lambda x: -degrees[x])
+    sorted_nodes = sorted(degrees.keys(), key=lambda x: -degrees[x])  # Trie décroissant par degré
 
-    for u in reversed(sorted_nodes):
+    for u in reversed(sorted_nodes):  # Parcourir la liste de droite à gauche
         if any(neighbor not in C for neighbor in graph.neighbors(u)):
             C.add(u)
 
     return list(C)
-
 
 def dfs_heuristic(graph):
     dfs_tree = nx.dfs_tree(graph)  # Crée un arbre DFS
@@ -160,8 +151,8 @@ def evaluate_heuristics(graph, num_runs=300):
 
 if __name__ == "__main__":
     # Dossier contenant les graphes DIMACS
-    input_dir = "dimacs_files/anti_mdg"
-    output_file = "out/result_anti_mdg.csv"
+    input_dir = "../dimacs_files/frankl_rodl"
+    output_file = "../dump/out/result_frankl_rodl.csv"
 
     # Vérifier si le dossier existe
     if not os.path.exists(input_dir):
@@ -173,7 +164,7 @@ if __name__ == "__main__":
     # Parcourir tous les fichiers DIMACS en ordre croissant de taille de graphe
     file_list = sorted(
         [f for f in os.listdir(input_dir) if f.endswith(".dimacs")],
-        key=lambda x: int(x.split("-")[1])  # Trier par taille du graphe (num_nodes)
+        key=lambda x: int(x.split("-")[1][1:])  # Extraire le numéro après "n" dans la partie "nXX"
     )
 
     for idx, filename in enumerate(file_list, start=1):
@@ -188,8 +179,8 @@ if __name__ == "__main__":
             mdg_results, gic_results, left_results, right_results, dfs_results = evaluate_heuristics(graph)
 
             # Extraire les informations du fichier
-            graph_name, num_nodes, opt_size = filename.replace(".dimacs", "").split("-")
-            num_nodes = int(num_nodes)
+            graph_name, n_part, k_part, opt_size = filename.replace(".dimacs", "").split("-")
+            num_nodes = int(n_part[1:])  # Extraire la valeur après "n"
             opt_size = int(opt_size)
 
             # Ajouter les résultats au tableau

@@ -1,0 +1,5 @@
+exclusion des graphes frankl rodl, génération trop complexe avec k et n paramètres,
+la taille de la solution optimale n'est pas possibler à calculer, idem pour B(I) et W(I).
+|S| = 0 pour chaque algorithme.
+
+
