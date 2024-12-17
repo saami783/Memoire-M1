@@ -4,3 +4,6 @@ la taille de la solution optimale n'est pas possibler à calculer, idem pour B(I
 
 
 j'augmente la generation de barabasi albert car il est rapide
+
+
+le anti-mdg retournera toujours une très bonne solution pour le GIC et le MDG donc il faut que je m'attarde sur d'autres graphes.

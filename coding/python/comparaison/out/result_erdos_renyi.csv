@@ -1,0 +1,86 @@
+Graph,Nodes,Optimal_Size,Heuristic,Average_Size,Best_Size,Worst_Size
+erdos_renyi,10,6,Maximum Degree Greedy,6.0,6,6
+erdos_renyi,10,6,Greedy Independent Cover,6.0,6,6
+erdos_renyi,10,6,Sorted ListLeft,6.466666666666667,6,7
+erdos_renyi,10,6,Sorted ListRight,9.0,9,9
+erdos_renyi,10,6,DFS,7.0,7,7
+erdos_renyi,15,8,Maximum Degree Greedy,8.0,8,8
+erdos_renyi,15,8,Greedy Independent Cover,8.17,8,9
+erdos_renyi,15,8,Sorted ListLeft,10.0,10,10
+erdos_renyi,15,8,Sorted ListRight,13.0,13,13
+erdos_renyi,15,8,DFS,11.0,11,11
+erdos_renyi,20,12,Maximum Degree Greedy,12.0,12,12
+erdos_renyi,20,12,Greedy Independent Cover,12.396666666666667,12,13
+erdos_renyi,20,12,Sorted ListLeft,13.503333333333334,13,14
+erdos_renyi,20,12,Sorted ListRight,18.51,18,19
+erdos_renyi,20,12,DFS,15.0,15,15
+erdos_renyi,25,17,Maximum Degree Greedy,17.726666666666667,17,18
+erdos_renyi,25,17,Greedy Independent Cover,17.043333333333333,17,18
+erdos_renyi,25,17,Sorted ListLeft,19.0,19,19
+erdos_renyi,25,17,Sorted ListRight,22.503333333333334,22,23
+erdos_renyi,25,17,DFS,20.0,20,20
+erdos_renyi,30,22,Maximum Degree Greedy,22.946666666666665,22,23
+erdos_renyi,30,22,Greedy Independent Cover,22.0,22,22
+erdos_renyi,30,22,Sorted ListLeft,23.57,23,24
+erdos_renyi,30,22,Sorted ListRight,27.466666666666665,27,28
+erdos_renyi,30,22,DFS,27.0,27,27
+erdos_renyi,35,25,Maximum Degree Greedy,26.393333333333334,25,28
+erdos_renyi,35,25,Greedy Independent Cover,26.0,26,26
+erdos_renyi,35,25,Sorted ListLeft,29.516666666666666,29,30
+erdos_renyi,35,25,Sorted ListRight,33.69,33,34
+erdos_renyi,35,25,DFS,30.0,30,30
+erdos_renyi,40,31,Maximum Degree Greedy,31.923333333333332,31,34
+erdos_renyi,40,31,Greedy Independent Cover,31.743333333333332,31,32
+erdos_renyi,40,31,Sorted ListLeft,36.0,36,36
+erdos_renyi,40,31,Sorted ListRight,38.42333333333333,37,39
+erdos_renyi,40,31,DFS,36.0,36,36
+erdos_renyi,45,35,Maximum Degree Greedy,36.54666666666667,36,38
+erdos_renyi,45,35,Greedy Independent Cover,35.51,35,36
+erdos_renyi,45,35,Sorted ListLeft,40.0,40,40
+erdos_renyi,45,35,Sorted ListRight,43.71666666666667,43,44
+erdos_renyi,45,35,DFS,41.0,41,41
+erdos_renyi,50,40,Maximum Degree Greedy,41.49333333333333,41,43
+erdos_renyi,50,40,Greedy Independent Cover,41.053333333333335,41,42
+erdos_renyi,50,40,Sorted ListLeft,45.31333333333333,45,46
+erdos_renyi,50,40,Sorted ListRight,47.0,47,47
+erdos_renyi,50,40,DFS,47.0,47,47
+erdos_renyi,55,45,Maximum Degree Greedy,46.21666666666667,45,47
+erdos_renyi,55,45,Greedy Independent Cover,45.21666666666667,45,46
+erdos_renyi,55,45,Sorted ListLeft,49.486666666666665,49,50
+erdos_renyi,55,45,Sorted ListRight,53.49666666666667,53,54
+erdos_renyi,55,45,DFS,50.0,50,50
+erdos_renyi,60,50,Maximum Degree Greedy,51.10666666666667,50,53
+erdos_renyi,60,50,Greedy Independent Cover,51.056666666666665,50,52
+erdos_renyi,60,50,Sorted ListLeft,55.0,55,55
+erdos_renyi,60,50,Sorted ListRight,59.0,59,59
+erdos_renyi,60,50,DFS,58.0,58,58
+erdos_renyi,65,55,Maximum Degree Greedy,56.59,55,58
+erdos_renyi,65,55,Greedy Independent Cover,55.86,55,57
+erdos_renyi,65,55,Sorted ListLeft,61.53333333333333,61,63
+erdos_renyi,65,55,Sorted ListRight,63.0,63,63
+erdos_renyi,65,55,DFS,63.0,63,63
+erdos_renyi,70,60,Maximum Degree Greedy,60.906666666666666,60,62
+erdos_renyi,70,60,Greedy Independent Cover,60.57666666666667,60,62
+erdos_renyi,70,60,Sorted ListLeft,65.69333333333333,65,66
+erdos_renyi,70,60,Sorted ListRight,69.0,69,69
+erdos_renyi,70,60,DFS,67.0,67,67
+erdos_renyi,75,65,Maximum Degree Greedy,66.47333333333333,65,68
+erdos_renyi,75,65,Greedy Independent Cover,65.75333333333333,65,67
+erdos_renyi,75,65,Sorted ListLeft,73.46666666666667,73,74
+erdos_renyi,75,65,Sorted ListRight,73.0,73,73
+erdos_renyi,75,65,DFS,72.0,72,72
+erdos_renyi,80,70,Maximum Degree Greedy,72.06333333333333,71,74
+erdos_renyi,80,70,Greedy Independent Cover,71.1,71,72
+erdos_renyi,80,70,Sorted ListLeft,77.16666666666667,77,78
+erdos_renyi,80,70,Sorted ListRight,79.0,79,79
+erdos_renyi,80,70,DFS,77.0,77,77
+erdos_renyi,85,76,Maximum Degree Greedy,77.38666666666667,76,79
+erdos_renyi,85,76,Greedy Independent Cover,76.0,76,76
+erdos_renyi,85,76,Sorted ListLeft,81.0,81,81
+erdos_renyi,85,76,Sorted ListRight,83.0,83,83
+erdos_renyi,85,76,DFS,83.0,83,83
+erdos_renyi,90,80,Maximum Degree Greedy,81.62666666666667,81,84
+erdos_renyi,90,80,Greedy Independent Cover,82.0,82,82
+erdos_renyi,90,80,Sorted ListLeft,86.49666666666667,86,87
+erdos_renyi,90,80,Sorted ListRight,87.98666666666666,87,89
+erdos_renyi,90,80,DFS,86.0,86,86

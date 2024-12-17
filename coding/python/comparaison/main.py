@@ -163,8 +163,8 @@ def evaluate_heuristics(graph, num_runs=300):
 
 if __name__ == "__main__":
     # Dossier contenant les graphes DIMACS
-    input_dir = "dimacs_files/barabasi_albert"
-    output_file = "out/result_barabasi_albert.csv"
+    input_dir = "dimacs_files/trees"
+    output_file = "out/result_trees.csv"
 
     # Vérifier si le dossier existe
     if not os.path.exists(input_dir):
