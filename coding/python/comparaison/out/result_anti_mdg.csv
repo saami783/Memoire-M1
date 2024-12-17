@@ -1,33 +1,33 @@
 Graph,Nodes,Optimal_Size,Heuristic,Average_Size,Best_Size,Worst_Size
 anti_mdg,17,6,Maximum Degree Greedy,6.0,6,6
 anti_mdg,17,6,Greedy Independent Cover,6.0,6,6
-anti_mdg,17,6,Sorted ListLeft,8.516666666666667,7,10
-anti_mdg,17,6,Sorted ListRight,13.35,12,14
+anti_mdg,17,6,Sorted ListLeft,8.496666666666666,7,10
+anti_mdg,17,6,Sorted ListRight,13.4,12,14
 anti_mdg,17,6,DFS,10.0,10,10
 anti_mdg,33,11,Maximum Degree Greedy,11.0,11,11
 anti_mdg,33,11,Greedy Independent Cover,11.0,11,11
-anti_mdg,33,11,Sorted ListLeft,14.956666666666667,14,16
-anti_mdg,33,11,Sorted ListRight,24.75,24,25
+anti_mdg,33,11,Sorted ListLeft,14.913333333333334,14,16
+anti_mdg,33,11,Sorted ListRight,24.78,24,25
 anti_mdg,33,11,DFS,21.0,21,21
 anti_mdg,52,16,Maximum Degree Greedy,16.0,16,16
 anti_mdg,52,16,Greedy Independent Cover,16.0,16,16
-anti_mdg,52,16,Sorted ListLeft,21.67,17,26
-anti_mdg,52,16,Sorted ListRight,38.67,37,39
+anti_mdg,52,16,Sorted ListLeft,21.586666666666666,17,26
+anti_mdg,52,16,Sorted ListRight,38.67666666666667,37,39
 anti_mdg,52,16,DFS,29.0,29,29
 anti_mdg,70,21,Maximum Degree Greedy,21.0,21,21
 anti_mdg,70,21,Greedy Independent Cover,21.0,21,21
-anti_mdg,70,21,Sorted ListLeft,32.43333333333333,31,34
-anti_mdg,70,21,Sorted ListRight,52.873333333333335,52,53
+anti_mdg,70,21,Sorted ListLeft,32.553333333333335,31,34
+anti_mdg,70,21,Sorted ListRight,52.86666666666667,52,53
 anti_mdg,70,21,DFS,40.0,40,40
 anti_mdg,89,26,Maximum Degree Greedy,26.0,26,26
 anti_mdg,89,26,Greedy Independent Cover,26.0,26,26
-anti_mdg,89,26,Sorted ListLeft,31.89666666666667,30,34
-anti_mdg,89,26,Sorted ListRight,64.82,64,65
+anti_mdg,89,26,Sorted ListLeft,32.02,30,34
+anti_mdg,89,26,Sorted ListRight,64.84666666666666,64,65
 anti_mdg,89,26,DFS,51.0,51,51
 anti_mdg,108,31,Maximum Degree Greedy,31.0,31,31
 anti_mdg,108,31,Greedy Independent Cover,31.0,31,31
-anti_mdg,108,31,Sorted ListLeft,35.02,31,39
-anti_mdg,108,31,Sorted ListRight,77.91,77,78
+anti_mdg,108,31,Sorted ListLeft,34.87,31,39
+anti_mdg,108,31,Sorted ListRight,77.86666666666666,77,78
 anti_mdg,108,31,DFS,61.0,61,61
 anti_mdg,130,36,Maximum Degree Greedy,36.0,36,36
 anti_mdg,130,36,Greedy Independent Cover,36.0,36,36
@@ -36,7 +36,7 @@ anti_mdg,130,36,Sorted ListRight,94.0,94,94
 anti_mdg,130,36,DFS,71.0,71,71
 anti_mdg,149,41,Maximum Degree Greedy,41.0,41,41
 anti_mdg,149,41,Greedy Independent Cover,41.0,41,41
-anti_mdg,149,41,Sorted ListLeft,46.71666666666667,41,52
+anti_mdg,149,41,Sorted ListLeft,46.57,41,52
 anti_mdg,149,41,Sorted ListRight,108.91333333333333,108,109
 anti_mdg,149,41,DFS,81.0,81,81
 anti_mdg,168,46,Maximum Degree Greedy,46.0,46,46

@@ -14,8 +14,8 @@ def maximum_degree_greedy(graph):
         degrees = dict(temp_graph.degree())
         max_degree = max(degrees.values())
         max_degree_nodes = [node for node, degree in degrees.items() if degree == max_degree]
-        random.shuffle(max_degree_nodes)  # Mélange les sommets avec le même degré
-        max_degree_node = max_degree_nodes[0]  # Prend le premier après mélange
+        # Choix aléatoire parmi les nœuds de degré max
+        max_degree_node = random.choice(max_degree_nodes)
 
         C.add(max_degree_node)
         temp_graph.remove_node(max_degree_node)
@@ -31,8 +31,8 @@ def greedy_independent_cover(graph):
         degrees = dict(temp_graph.degree())
         min_degree = min(degrees.values())
         min_degree_nodes = [node for node, degree in degrees.items() if degree == min_degree]
-        random.shuffle(min_degree_nodes)
-        min_degree_node = min_degree_nodes[0]
+        # Choix aléatoire parmi les nœuds de degré min
+        min_degree_node = random.choice(min_degree_nodes)
 
         neighbors = set(temp_graph.neighbors(min_degree_node))
         C.update(neighbors)
@@ -45,11 +45,13 @@ def greedy_independent_cover(graph):
 def sorted_list_left(graph):
     C = set()
     degrees = dict(graph.degree())
-    sorted_nodes = list(degrees.keys())
-    random.shuffle(sorted_nodes)  # Mélange avant le tri
-    sorted_nodes = sorted(sorted_nodes, key=lambda x: -degrees[x])  # Trie décroissant par degré
+    # Mélanger les nœuds avant le tri pour éviter un ordre déterministe des nœuds de même degré
+    node_list = list(degrees.keys())
+    random.shuffle(node_list)
+    sorted_nodes = sorted(node_list, key=lambda x: -degrees[x])  # Trie décroissant par degré
 
     for u in sorted_nodes:
+        # Ici, pas de sélection entre plusieurs nœuds d'égale priorité, on suit simplement l'ordre
         if any(neighbor not in C for neighbor in graph.neighbors(u)):
             C.add(u)
 
@@ -58,11 +60,12 @@ def sorted_list_left(graph):
 def sorted_list_right(graph):
     C = set()
     degrees = dict(graph.degree())
-    sorted_nodes = list(degrees.keys())
-    random.shuffle(sorted_nodes)
-    sorted_nodes = sorted(sorted_nodes, key=lambda x: -degrees[x])
+    node_list = list(degrees.keys())
+    random.shuffle(node_list)
+    sorted_nodes = sorted(node_list, key=lambda x: -degrees[x])
 
     for u in reversed(sorted_nodes):
+        # Idem que sorted_list_left, pas de choix aléatoire particulier ici
         if any(neighbor not in C for neighbor in graph.neighbors(u)):
             C.add(u)
 
@@ -70,8 +73,8 @@ def sorted_list_right(graph):
 
 
 def dfs_heuristic(graph):
-    dfs_tree = nx.dfs_tree(graph)  # Crée un arbre DFS
-    internal_nodes = [node for node in dfs_tree.nodes if dfs_tree.degree[node] > 1]  # Nœuds internes
+    dfs_tree = nx.dfs_tree(graph)
+    internal_nodes = [node for node in dfs_tree.nodes if dfs_tree.degree[node] > 1]
     return internal_nodes
 
 def load_graph_from_dimacs(filename):
@@ -160,8 +163,8 @@ def evaluate_heuristics(graph, num_runs=300):
 
 if __name__ == "__main__":
     # Dossier contenant les graphes DIMACS
-    input_dir = "dimacs_files/anti_mdg"
-    output_file = "out/result_anti_mdg.csv"
+    input_dir = "dimacs_files/barabasi_albert"
+    output_file = "out/result_barabasi_albert.csv"
 
     # Vérifier si le dossier existe
     if not os.path.exists(input_dir):

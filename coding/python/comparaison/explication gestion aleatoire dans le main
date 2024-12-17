@@ -1,0 +1,43 @@
+Analysons chacune des heuristiques :
+
+Maximum Degree Greedy (MDG)
+À chaque itération, on calcule le degré de chaque nœud restant. On détermine la valeur du degré maximum, puis on extrait la liste des nœuds ayant ce degré maximum. Lorsque plusieurs nœuds sont éligibles (même degré max), on utilise :
+
+python
+Copy code
+max_degree_node = random.choice(max_degree_nodes)
+Cette instruction garantit que chaque nœud de max_degree_nodes est choisi avec la même probabilité
+1
+/
+𝑛
+1/n, où
+𝑛
+n est le nombre de nœuds de degré maximum. Donc, chaque fois qu’un choix aléatoire est possible dans MDG, il est fait de manière équiprobable.
+
+Greedy Independent Cover (GIC)
+De manière similaire, on calcule les degrés, on identifie le degré minimum, et si plusieurs nœuds ont ce degré minimum, on choisit :
+
+python
+Copy code
+min_degree_node = random.choice(min_degree_nodes)
+Là encore, le choix est fait parmi les nœuds éligibles de manière équiprobable, sans biais.
+
+Sorted List Left et Sorted List Right
+Ces heuristiques ne font pas de choix aléatoire à chaque itération une fois les listes triées. Cependant, le code contient :
+
+python
+Copy code
+node_list = list(degrees.keys())
+random.shuffle(node_list)
+sorted_nodes = sorted(node_list, key=lambda x: -degrees[x])
+Le random.shuffle mélange les nœuds avant le tri. Ainsi, si plusieurs nœuds ont le même degré, leur ordre relatif dans la liste finale après tri est aléatoire. Cela signifie qu’en cas de nœuds de même degré, leur position dans l’ordre de traitement est déterminée aléatoirement. Ce n’est pas un choix aléatoire à chaque sélection, mais un mélange initial qui assure qu’aucune préférence déterministe n’est donnée à un nœud particulier parmi ceux ayant le même degré.
+En d’autres termes, dès le départ, tous les nœuds de même degré sont placés de façon aléatoire dans la liste, garantissant que le premier nœud traité parmi les ex-aequo est choisi de manière équiprobable. Bien que cela ne se reproduise pas à chaque itération, cela répond au besoin d’éviter tout biais systématique dans le choix parmi plusieurs nœuds équivalents.
+
+DFS Heuristic
+Cette heuristique ne fait aucun choix aléatoire. Elle construit un arbre DFS fixe. Il n’y a pas de sélection entre plusieurs nœuds à égalité puisque l’ordre d’exploration DFS est déterministe (fourni par nx.dfs_tree). Si l’on voulait introduire de l’aléatoire ici, il faudrait modifier le code DFS lui-même. Néanmoins, votre code actuel n’introduit pas d’aléa dans DFS, ce qui reste cohérent avec son mode de fonctionnement initial.
+
+Conclusion :
+
+Pour Maximum Degree Greedy et Greedy Independent Cover : Chaque fois qu’un choix parmi plusieurs nœuds est nécessaire (nœuds de degré max ou min), l’appel à random.choice() assure une sélection entièrement aléatoire et équiprobable.
+Pour Sorted List Left/Right : Bien que le choix ne se fasse pas au moment de la sélection, le random.shuffle() initial assure que, si plusieurs nœuds ont le même degré, ils sont placés de façon aléatoire dans la liste. Ainsi, sur le long terme, il n’y a pas de biais constant en faveur d’un nœud particulier.
+En somme, oui, à chaque fois que l’heuristique doit discriminer entre plusieurs nœuds présentant les mêmes caractéristiques (degré max ou min pour les deux premières heuristiques, ou même degré pour les listes triées), la décision finale est rendue aléatoire et équiprobable d’une manière ou d’une autre. Ce code respecte donc l’objectif que vous vous êtes fixé.
