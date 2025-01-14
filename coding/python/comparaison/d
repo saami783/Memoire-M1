@@ -7,3 +7,12 @@ j'augmente la generation de barabasi albert car il est rapide
 
 
 le anti-mdg retournera toujours une très bonne solution pour le GIC et le MDG donc il faut que je m'attarde sur d'autres graphes.
+
+
+Salut ! J'ai calculé le rapport d'approximation différentiel de plusieurs algorithmes et je souhaite genérer un graphique de cela.
+Je t'explique ce que doit contenir le graphique. Il s'agit d'un histogramme où en abscisse on aura le pourcentage d'erreur sur une echelle de 0 à 100
+avec un saut de 20 donc en abscisse on aura ces repères : 0..20..40..60.80..100%. En ordonné nous aurons le nombre de solutions qui appartiennent à un pourcentage.
+Par exemple, pour l'algorithme DFS, s'il y a 2 solutions qui ont 50% alors on fera un rectangle à 50% de hauteur de 2 pour dire qu'il y a 2 solutions dans ce pourcentage.
+L'ordonné ira jusqu'au maximum de solutions connu (arrondi à 25, par exemple s'il y a 23 solution connu alors on affichera la dernière hauteur à 25 car l'intervalle va de 5 en 5 soit 0..5..10..15.20.25..)
+Mon tableau est au format excel, j'ai plusieurs feuilles excels mais tous on le même tableau avec les mêmes algorithmes mais pas les mêmes données, donc généralise le script python pour que je puisse traiter une feuille en fonction du nom que je lui passe en paramètre. Toi par défaut tu t'occuperas de la feuille result_trees.
+Voici le fichier excel.
