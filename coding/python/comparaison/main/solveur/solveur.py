@@ -1,0 +1,40 @@
+from pulp import LpProblem, LpMinimize, LpVariable, lpSum, LpStatus
+import networkx as nx
+
+def minimum_vertex_cover(graph: nx.Graph):
+    """
+    Calcule la solution optimale du minimum vertex cover pour un graphe donné en utilisant PuLP.
+
+    Args:
+        graph (nx.Graph): Un graphe networkx non orienté.
+
+    Returns:
+        dict: Contient les sommets dans la couverture minimale (clé: sommet, valeur: 1 si inclus, 0 sinon).
+        float: La taille de la couverture minimale.
+        str: Le statut de la résolution (par exemple, 'Optimal').
+    """
+    if graph.is_directed():
+        raise ValueError("Le graphe doit être non orienté.")
+
+    # Création du problème de programmation linéaire
+    prob = LpProblem("MinimumVertexCover", LpMinimize)
+
+    # Variables binaires pour chaque sommet
+    vertex_vars = {v: LpVariable(f"x_{v}", cat="Binary") for v in graph.nodes()}
+
+    # Fonction objectif : minimiser la somme des variables binaires
+    prob += lpSum(vertex_vars[v] for v in graph.nodes()), "MinimizeCoverSize"
+
+    # Contraintes : chaque arête doit être couverte
+    for u, v in graph.edges():
+        prob += vertex_vars[u] + vertex_vars[v] >= 1, f"Edge_{u}_{v}_Covered"
+
+    # Résolution du problème
+    prob.solve()
+
+    # Extraction des résultats
+    status = LpStatus[prob.status]
+    solution = {v: int(vertex_vars[v].value()) for v in graph.nodes()}
+    cover_size = sum(solution[v] for v in graph.nodes())
+
+    return solution, cover_size, status
