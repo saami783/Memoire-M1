@@ -1,0 +1,88 @@
+from main.solveur.solveur import minimum_vertex_cover
+import os
+import networkx as nx
+import random
+
+# Liste des graines fixes pour garantir la reproductibilité
+FIXED_SEEDS = [42]
+
+def generate_tree_from_complete_graph(num_nodes, seed):
+    """
+    Génère un arbre en retirant aléatoirement des arêtes d'un graphe complet tout en maintenant la connexité.
+    """
+    if num_nodes < 3:
+        raise ValueError("Un arbre doit avoir au moins 3 sommets.")
+
+    random.seed(seed)
+    complete_graph = nx.complete_graph(num_nodes)
+
+    # Tant que le nombre d'arêtes est supérieur à n - 1, retirer une arête aléatoire en vérifiant la connexité
+    while complete_graph.number_of_edges() > num_nodes - 1:
+        edge = random.choice(list(complete_graph.edges()))
+        complete_graph.remove_edge(*edge)
+
+        if not nx.is_connected(complete_graph):
+            complete_graph.add_edge(*edge)  # Restaurer l'arête si la suppression casse la connexité
+
+    return complete_graph
+
+def save_graph_to_dimacs(graph, cover_size, filepath):
+    """
+    Sauvegarde le graphe au format DIMACS.
+    """
+    try:
+        with open(filepath, "w") as f:
+            f.write(f"p edge {graph.number_of_nodes()} {graph.number_of_edges()}\n")
+            for u, v in graph.edges():
+                f.write(f"e {u + 1} {v + 1}\n")  # DIMACS utilise des index 1-based
+            f.flush()  # S'assurer que les données sont écrites sur le disque
+        print(f"Fichier sauvegardé avec succès : {filepath}")
+    except Exception as e:
+        print(f"Erreur lors de la sauvegarde du fichier {filepath} : {e}")
+
+if __name__ == "__main__":
+    # Configuration des paramètres
+    output_dir = os.path.abspath("dimacs_files/trees")
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Tailles des arbres à générer
+    tree_sizes = [50, 100, 150, 200]
+    instances_per_category = 30  # Nombre d'instances uniques par catégorie de graphe
+    total_graphs = 0
+
+    for num_nodes in tree_sizes:
+        for instance_id in range(instances_per_category):  # Générer 30 instances uniques par catégorie
+            for seed in FIXED_SEEDS:
+                try:
+                    # Génération d'une graine aléatoire unique basée sur instance et seed pour varier la structure
+                    instance_seed = seed + instance_id * 1000
+                    print(f"Génération de l'arbre instance {instance_id + 1}/{instances_per_category} avec num_nodes={num_nodes}, seed={instance_seed}")
+
+                    # Génération de l'arbre
+                    graph = generate_tree_from_complete_graph(num_nodes, instance_seed)
+
+                    # Calcul du minimum vertex cover
+                    solution, cover_size, status = minimum_vertex_cover(graph)
+
+                    if status != "Optimal":
+                        print(f"Arrêt : Le solveur n'a pas trouvé une solution optimale pour n={num_nodes}, seed={seed}")
+                        continue
+
+                    # Nom du fichier DIMACS (ajout de l'identifiant d'instance)
+                    filename = f"tree-{num_nodes}-{cover_size}-{seed}-instance-{instance_id}.dimacs"
+                    filepath = os.path.join(output_dir, filename)
+
+                    # Sauvegarde au format DIMACS
+                    save_graph_to_dimacs(graph, cover_size, filepath)
+
+                    # Mise à jour du compteur
+                    total_graphs += 1
+                    print(f"Nombre total de graphes générés jusqu'à présent : {total_graphs}")
+
+                except Exception as e:
+                    print(f"Erreur lors de la génération du graphe (n={num_nodes}, seed={seed}, instance={instance_id}) : {e}")
+                    continue
+
+    # Vérification finale des fichiers générés
+    print(f"Nombre total de graphes générés : {total_graphs}")
+    print(f"Fichiers générés dans '{output_dir}': {len(os.listdir(output_dir))} fichiers")

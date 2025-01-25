@@ -8,11 +8,11 @@ from graphs.load_graph import load_graph_from_dimacs
 from algorithm.evaluation import process_graph
 
 SEED = 42
-INPUT_DIR = "../dimacs_files/anti_mdg"
-OUTPUT_FILE = "test/out/result_anti_mdg.csv"
+INPUT_DIR = "dimacs_files/trees"
+OUTPUT_FILE = "out/test/tree_results.csv"
 
 # Configuration du logger
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.basicConfig(level=logging.WARNING, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
 # Initialiser la graine pour la reproductibilité
@@ -34,7 +34,7 @@ def main():
         filepath = os.path.join(INPUT_DIR, filename)
         try:
             graph = load_graph_from_dimacs(filepath)
-            graph_name, num_nodes, opt_size = filename.replace(".dimacs", "").split("-")
+            graph_name, num_nodes, opt_size, _ = filename.replace(".dimacs", "").split("-")
             results.extend(process_graph(graph_name, graph, int(opt_size), verbose=False))
         except Exception as e:
             logger.error(f"Erreur lors du traitement du fichier {filename} : {e}")
@@ -42,7 +42,7 @@ def main():
 
     results_df = pd.DataFrame(results)
     results_df.to_csv(OUTPUT_FILE, index=False)
-    logger.info(f"\nRésultats sauvegardés dans le fichier : {OUTPUT_FILE}")
+    logger.warning(f"\nRésultats sauvegardés dans le fichier : {OUTPUT_FILE}")
 
 if __name__ == "__main__":
     try:

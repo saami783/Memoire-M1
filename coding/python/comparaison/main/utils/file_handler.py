@@ -1,6 +1,5 @@
 import os
 
-
 def get_dimacs_files(input_dir):
     """Retourne la liste des fichiers DIMACS triés par taille de graphe."""
     if not os.path.exists(input_dir):
@@ -10,4 +9,8 @@ def get_dimacs_files(input_dir):
     if not dimacs_files:
         raise ValueError(f"Aucun fichier DIMACS trouvé dans '{input_dir}'.")
 
-    return sorted(dimacs_files, key=lambda x: int(x.split("-")[1]))  # Trier par taille
+    # Trier les fichiers par le nombre de sommets dans le nom du fichier
+    try:
+        return sorted(dimacs_files, key=lambda x: int(x.split("-")[1]))
+    except (IndexError, ValueError):
+        raise ValueError("Erreur de format dans le nom des fichiers DIMACS.")

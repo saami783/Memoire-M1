@@ -1,5 +1,7 @@
 from pulp import LpProblem, LpMinimize, LpVariable, lpSum, LpStatus
 import networkx as nx
+import pulp
+pulp.LpSolverDefault.msg = 0
 
 def minimum_vertex_cover(graph: nx.Graph):
     """

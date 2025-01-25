@@ -6,7 +6,7 @@ from .slr import sorted_list_right
 
 
 def calculate_statistics(solution_sizes):
-    """Calcule les statistiques pour une liste de tailles de solution."""
+    """Calcule les statistiques (moyenne, min, max) pour une liste de tailles de solutions."""
     return {
         "avg_size": sum(solution_sizes) / len(solution_sizes),
         "min_size": min(solution_sizes),
@@ -23,8 +23,6 @@ def evaluate_algorithm(graph, num_runs=300, verbose=True):
     }
 
     for run in range(1, num_runs + 1):
-        if verbose:
-            print(f"  Run {run}/{num_runs}", end="\r", flush=True)
         results["Maximum Degree Greedy"].append(len(maximum_degree_greedy(graph)))
         results["Greedy Independent Cover"].append(len(greedy_independent_cover(graph)))
         results["Sorted ListLeft"].append(len(sorted_list_left(graph)))
@@ -36,7 +34,6 @@ def evaluate_algorithm(graph, num_runs=300, verbose=True):
 def process_graph(filename, graph, opt_size, verbose=True):
     """Évalue les heuristiques sur un graphe donné et retourne les résultats."""
     heuristic_results = evaluate_algorithm(graph, verbose=verbose)
-
     results = []
     for heuristic, res in heuristic_results.items():
         results.append({
