@@ -39,7 +39,7 @@ def main():
     sizes = [50, 100, 200, 350]
     nb_instances_par_taille = 10
 
-    output_dir = "out_trees_dimacs"
+    output_dir = "dimacs_files/trees"
     os.makedirs(output_dir, exist_ok=True)
 
     csv_filename = os.path.join(output_dir, "trees_properties.csv")
@@ -61,7 +61,7 @@ def main():
                         deg_min = min(degrees)
                         deg_max = max(degrees)
 
-                        filename = f"tree_n{n}_i{i}_cover{int(cover_size)}.dimacs"
+                        filename = f"tree_{n}_{int(cover_size)}_{i}.dimacs"
                         filepath = os.path.join(output_dir, filename)
                         save_to_dimacs(G, filepath)
 

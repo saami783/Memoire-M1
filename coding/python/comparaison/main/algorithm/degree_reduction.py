@@ -1,4 +1,4 @@
-def degree_reduction_heuristic(graph):
+def degree_reduction(graph):
     """
     Degree Reduction Heuristic.
     Iteratively removes high-degree vertices.

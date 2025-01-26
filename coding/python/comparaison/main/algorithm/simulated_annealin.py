@@ -1,8 +1,9 @@
 import math
 import random
+from .utils import is_valid_cover
+from .approximate_matching import approximate_matching
 
-
-def simulated_annealing_vertex_cover(graph,
+def simulated_annealing(graph,
                                      initial_solution=None,
                                      max_iterations=1000,
                                      initial_temp=10.0,
@@ -16,24 +17,9 @@ def simulated_annealing_vertex_cover(graph,
     - cooling_rate : facteur de refroidissement (entre 0 et 1)
     """
 
-    def approximate_matching_vertex_cover(g):
-        C = set()
-        tmp_g = g.copy()
-        while tmp_g.number_of_edges() > 0:
-            u, v = random.choice(list(tmp_g.edges()))
-            C.add(u)
-            tmp_g.remove_node(u)
-        return list(C)
-
-    def is_valid_cover(C_set):
-        for (u, v) in graph.edges():
-            if u not in C_set and v not in C_set:
-                return False
-        return True
-
     # Solution de départ
     if initial_solution is None:
-        current_C = set(approximate_matching_vertex_cover(graph))
+        current_C = set(approximate_matching(graph))
     else:
         current_C = set(initial_solution)
 
@@ -63,7 +49,7 @@ def simulated_annealing_vertex_cover(graph,
             new_C = set(current_C)  # cas limite
 
         # Vérifier si la nouvelle solution est valide
-        if is_valid_cover(new_C):
+        if is_valid_cover(new_C, graph):
             # Calculer la différence de "coût" (taille)
             diff = len(new_C) - len(current_C)
 

@@ -1,7 +1,8 @@
 import random
+from .approximate_matching import approximate_matching
+from .utils import is_valid_cover, local_search_simple
 
-
-def vns_vertex_cover(graph,
+def vns(graph,
                      initial_solution=None,
                      max_iterations=100,
                      max_k=3):
@@ -25,39 +26,9 @@ def vns_vertex_cover(graph,
          4) Si k > max_k, on arrête ou on remet k=1
     """
 
-    def approximate_matching_vertex_cover(g):
-        C = set()
-        temp_g = g.copy()
-        while temp_g.number_of_edges() > 0:
-            (u, v) = random.choice(list(temp_g.edges()))
-            C.add(u)
-            temp_g.remove_node(u)
-        return C
-
-    def is_valid_cover(C_set):
-        for (u, v) in graph.edges():
-            if u not in C_set and v not in C_set:
-                return False
-        return True
-
-    # Petite recherche locale (on peut réutiliser local_search_vertex_cover si on veut)
-    def local_search_simple(g, cover_set):
-        # On essaie d'enlever un sommet inutile tant qu'on peut
-        improved = True
-        C = set(cover_set)
-        while improved:
-            improved = False
-            for node in list(C):
-                Ctemp = C - {node}
-                if is_valid_cover(Ctemp):
-                    C = Ctemp
-                    improved = True
-                    break
-        return C
-
     # -- Init
     if initial_solution is None:
-        current_C = approximate_matching_vertex_cover(graph)
+        current_C = approximate_matching(graph)
     else:
         current_C = set(initial_solution)
 
@@ -95,10 +66,10 @@ def vns_vertex_cover(graph,
                 new_C.add(node_out)
 
         # 2) Recherche locale sur la solution "secouée"
-        new_C = local_search_simple(graph, new_C)
+        new_C = local_search_simple(new_C, graph) # Petite recherche locale
 
         # 3) On compare
-        if is_valid_cover(new_C) and len(new_C) < best_size:
+        if is_valid_cover(new_C, graph) and len(new_C) < best_size:
             best_size = len(new_C)
             best_C = new_C
             current_C = new_C

@@ -1,7 +1,7 @@
 import random
 
 
-def local_ratio_vertex_cover(graph):
+def local_ratio(graph):
     """
     Implémentation simple du Local Ratio, 2-approximation pour Vertex Cover.
     Très proche en pratique de l'algorithme de matching glouton.

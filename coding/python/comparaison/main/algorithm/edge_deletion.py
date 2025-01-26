@@ -1,7 +1,7 @@
 import random
 
 
-def edge_deletion_vertex_cover(graph):
+def edge_deletion(graph):
     """
     Algorithme "Edge Deletion" (2-approximation) pour Vertex Cover.
     Tant qu'il y a des arêtes dans le graphe, on en choisit une (u,v),

@@ -1,5 +1,5 @@
 import random
-
+from .utils import is_valid_cover
 
 def harmony_search_(graph,
                                 hm_size=10,  # harmony memory size
@@ -22,15 +22,9 @@ def harmony_search_(graph,
     """
     nodes = list(graph.nodes())
 
-    def is_valid_cover(C):
-        for (u, v) in graph.edges():
-            if (u not in C) and (v not in C):
-                return False
-        return True
-
     def fitness(C):
         # Pénalité si pas valide
-        if not is_valid_cover(C):
+        if not is_valid_cover(C, graph):
             return 1_000_000 + len(C)
         return len(C)
 

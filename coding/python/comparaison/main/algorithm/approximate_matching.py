@@ -1,6 +1,6 @@
 import random
 
-def approximate_matching_vertex_cover(graph):
+def approximate_matching(graph):
     """
     Approximate Matching Algorithm.
     Picks an edge, adds one endpoint, removes covered edges.

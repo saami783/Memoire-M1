@@ -1,4 +1,4 @@
-def primal_dual_vertex_cover(graph):
+def primal_dual(graph):
     """
     Primal-Dual Algorithm for Vertex Cover.
     Uses a dual fitting technique to iteratively build a feasible solution.

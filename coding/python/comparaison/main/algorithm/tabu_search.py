@@ -1,9 +1,9 @@
 import random
 import math
-from collections import deque
+from .approximate_matching import approximate_matching
+from .utils import is_valid_cover
 
-
-def tabu_search_vertex_cover(graph,
+def tabu_search_(graph,
                              initial_solution=None,
                              max_iterations=1000,
                              tabu_tenure=10,
@@ -20,25 +20,9 @@ def tabu_search_vertex_cover(graph,
     neighborhood_size : nb de voisins que l'on va évaluer à chaque itération
     """
 
-    # Pour générer une solution initiale si besoin
-    def approximate_matching_vertex_cover(g):
-        C = set()
-        temp_g = g.copy()
-        while temp_g.number_of_edges() > 0:
-            (u, v) = random.choice(list(temp_g.edges()))
-            C.add(u)
-            temp_g.remove_node(u)
-        return C
-
-    def is_valid_cover(C_set):
-        for (u, v) in graph.edges():
-            if u not in C_set and v not in C_set:
-                return False
-        return True
-
     # -- Initialisation
     if initial_solution is None:
-        current_C = approximate_matching_vertex_cover(graph)
+        current_C = approximate_matching(graph) # Pour générer une solution initiale si besoin
     else:
         current_C = set(initial_solution)
 
@@ -87,7 +71,7 @@ def tabu_search_vertex_cover(graph,
 
         for (node_in, node_out, new_C) in neighbors:
             # On saute les solutions non valides
-            if not is_valid_cover(new_C):
+            if not is_valid_cover(new_C, graph):
                 continue
 
             # Calcul du coût

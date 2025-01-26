@@ -23,7 +23,7 @@ def rename_dimacs_files(directory):
                 print(f"Renommé : {filename} -> {new_filename}")
 
 if __name__ == "__main__":
-    directory = "dimacs_files/anti_mdg"  # Répertoire contenant les fichiers DIMACS
+    directory = "dimacs_files/trees"  # Répertoire contenant les fichiers DIMACS
     if os.path.exists(directory):
         rename_dimacs_files(directory)
     else:

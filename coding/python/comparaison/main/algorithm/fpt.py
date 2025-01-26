@@ -1,4 +1,4 @@
-def fpt_vertex_cover(graph, k):
+def fpt(graph, k):
     """
     Renvoie un vertex cover de taille <= k si possible, sinon None.
     Complexité en O(2^k * poly(n)).
@@ -17,7 +17,7 @@ def fpt_vertex_cover(graph, k):
             # On réduit k et on retire ce sommet du graphe
             subgraph = graph.copy()
             subgraph.remove_node(node)
-            rec_cover = fpt_vertex_cover(subgraph, k - 1)
+            rec_cover = fpt(subgraph, k - 1)
             if rec_cover is None:
                 return None
             else:
@@ -31,7 +31,7 @@ def fpt_vertex_cover(graph, k):
         return None
     subgraph_u = graph.copy()
     subgraph_u.remove_node(u)
-    cover_u = fpt_vertex_cover(subgraph_u, k - 1)
+    cover_u = fpt(subgraph_u, k - 1)
 
     if cover_u is not None:
         return cover_u | {u}
@@ -39,7 +39,7 @@ def fpt_vertex_cover(graph, k):
     # 3b) Sinon on branche en mettant v dans la cover
     subgraph_v = graph.copy()
     subgraph_v.remove_node(v)
-    cover_v = fpt_vertex_cover(subgraph_v, k - 1)
+    cover_v = fpt(subgraph_v, k - 1)
 
     if cover_v is not None:
         return cover_v | {v}

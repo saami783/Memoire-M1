@@ -1,4 +1,5 @@
 import math, random
+from .utils import is_valid_cover
 
 
 def pso(graph,
@@ -19,20 +20,12 @@ def pso(graph,
     nodes = list(graph.nodes())
     n = len(nodes)
 
-    def is_valid_cover(bitvec):
-        # bitvec[i] = 1 => on prend nodes[i]
-        chosen = {nodes[i] for i, val in enumerate(bitvec) if val == 1}
-        for (u, v) in graph.edges():
-            if (u not in chosen) and (v not in chosen):
-                return False
-        return True
-
     def cover_size(bitvec):
         return sum(bitvec)
 
     def fitness(bitvec):
         # Pénalité si non valide
-        if not is_valid_cover(bitvec):
+        if not is_valid_cover(bitvec, graph):
             return 10_000 + cover_size(bitvec)
         return cover_size(bitvec)
 

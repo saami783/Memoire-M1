@@ -1,7 +1,7 @@
 import random
+from .utils import is_valid_cover
 
-
-def genetic_vertex_cover(graph, population_size=30, generations=100, mutation_prob=0.1):
+def genetic(graph, population_size=30, generations=100, mutation_prob=0.1):
     """
     Algorithme génétique simple pour Vertex Cover.
     Chaque individu est représenté par un ensemble de sommets (ou un bitset).
@@ -9,17 +9,10 @@ def genetic_vertex_cover(graph, population_size=30, generations=100, mutation_pr
     nodes = list(graph.nodes())
     n = len(nodes)
 
-    # --- Helpers ---
-    def is_valid_cover(cover_set):
-        for (u, v) in graph.edges():
-            if u not in cover_set and v not in cover_set:
-                return False
-        return True
-
     def fitness(cover_set):
         # On privilégie la taille la plus petite, tout en imposant
         # une "pénalité" énorme si la couverture n'est pas valide
-        if not is_valid_cover(cover_set):
+        if not is_valid_cover(cover_set, graph):
             return 10_000 + len(cover_set)
         else:
             return len(cover_set)

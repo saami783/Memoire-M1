@@ -1,5 +1,5 @@
 import random
-
+from .utils import is_valid_cover
 
 def aco(graph,
                      ant_count=20,
@@ -23,14 +23,8 @@ def aco(graph,
     # tau[i] = la phéromone associée au node i
     tau = {node: 1.0 for node in nodes}  # on démarre à 1.0
 
-    def is_valid_cover(C):
-        for (u, v) in graph.edges():
-            if u not in C and v not in C:
-                return False
-        return True
-
     def fitness(C):
-        if not is_valid_cover(C):
+        if not is_valid_cover(C, graph):
             return 10_000 + len(C)
         return len(C)
 
@@ -69,7 +63,7 @@ def aco(graph,
 
         # Renforcement de la phéromone pour chaque node dans la meilleure solution
         # par ex: += 1 / size_of_solution
-        if is_valid_cover(best_ant):
+        if is_valid_cover(best_ant, graph):
             deposit = 1.0 / len(best_ant)
             for v in best_ant:
                 tau[v] += deposit

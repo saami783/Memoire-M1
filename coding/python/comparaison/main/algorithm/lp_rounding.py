@@ -1,6 +1,6 @@
 from pulp import LpProblem, LpMinimize, LpVariable, lpSum
 
-def lp_rounding_vertex_cover(graph):
+def lp_rounding(graph):
     """
     Linear Programming Rounding (LP-Rounding) for Vertex Cover.
     Solves the LP relaxation and rounds fractional values.

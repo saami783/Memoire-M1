@@ -2,7 +2,7 @@ import random
 from collections import deque
 
 
-def bfs_vertex_cover(graph):
+def bfs(graph):
     """
     Heuristique basée sur un parcours en largeur (BFS).
     Pour chaque composante connexe, on lance un BFS ;

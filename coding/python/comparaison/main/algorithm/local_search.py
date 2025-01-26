@@ -1,6 +1,7 @@
-from .approximate_matching import approximate_matching_vertex_cover
+from .approximate_matching import approximate_matching
+from .utils import is_valid_cover
 
-def local_search_vertex_cover(graph, initial_solution=None, max_iterations=1000):
+def local_search(graph, initial_solution=None, max_iterations=1000):
     """
     Métaheuristique de recherche locale :
       - On part d'une solution initiale (ex : approximate_matching).
@@ -9,15 +10,9 @@ def local_search_vertex_cover(graph, initial_solution=None, max_iterations=1000)
     """
     # 1) Solution de départ
     if initial_solution is None:
-        initial_solution = approximate_matching_vertex_cover(graph)
+        initial_solution = approximate_matching(graph)
     best_C = set(initial_solution)
     best_size = len(best_C)
-
-    def is_valid_cover(C):
-        for (u, v) in graph.edges():
-            if u not in C and v not in C:
-                return False
-        return True
 
     iteration = 0
     while iteration < max_iterations:
@@ -27,7 +22,7 @@ def local_search_vertex_cover(graph, initial_solution=None, max_iterations=1000)
         # 2) Essayer d'enlever des sommets inutiles
         for node in list(best_C):
             new_C = best_C - {node}
-            if is_valid_cover(new_C):
+            if is_valid_cover(new_C, graph):
                 best_C = new_C
                 best_size = len(best_C)
                 improved = True
@@ -43,7 +38,7 @@ def local_search_vertex_cover(graph, initial_solution=None, max_iterations=1000)
             for node_in in list(best_C):
                 # Swap : on enlève node_in, on ajoute node_out
                 new_C = (best_C - {node_in}) | {node_out}
-                if is_valid_cover(new_C) and len(new_C) < best_size:
+                if is_valid_cover(new_C, graph) and len(new_C) < best_size:
                     best_C = new_C
                     best_size = len(best_C)
                     improved = True

@@ -1,3 +1,6 @@
+import random
+from .utils import is_valid_cover
+
 def memetic(graph,
                          population_size=30,
                          generations=100,
@@ -7,12 +10,6 @@ def memetic(graph,
       - Comme un GA, mais on applique une Local Search à chaque enfant avant de l'ajouter à la population.
     """
     nodes = list(graph.nodes())
-
-    def is_valid_cover(C):
-        for (u, v) in graph.edges():
-            if u not in C and v not in C:
-                return False
-        return True
 
     def fitness(C):
         if not is_valid_cover(C):
@@ -28,7 +25,7 @@ def memetic(graph,
             improved = False
             for node in list(C):
                 Ctemp = C - {node}
-                if is_valid_cover(Ctemp):
+                if is_valid_cover(Ctemp, graph):
                     C = Ctemp
                     improved = True
                     break

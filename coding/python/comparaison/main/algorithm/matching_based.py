@@ -1,6 +1,6 @@
 import networkx as nx
 
-def matching_based_vertex_cover(graph):
+def matching_based(graph):
     """
     Matching-Based Algorithm.
     Computes a maximal matching and selects both endpoints of each matched edge.
