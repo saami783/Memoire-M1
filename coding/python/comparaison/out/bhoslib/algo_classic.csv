@@ -1,0 +1,26 @@
+Graph,Nodes,Optimal_Size,Heuristic,Average_Size,Best_Size,Worst_Size
+frb,450,420,Maximum Degree Greedy,436.0,436,436
+frb,450,420,Greedy Independent Cover,435.0,435,435
+frb,450,420,Sorted ListLeft,442.55,442,443
+frb,450,420,Sorted ListRight,447.49333333333334,447,448
+frb,450,420,DFS,446.0,446,446
+frb,450,420,Maximum Degree Greedy,436.71666666666664,435,442
+frb,450,420,Greedy Independent Cover,435.0,435,435
+frb,450,420,Sorted ListLeft,448.0,448,448
+frb,450,420,Sorted ListRight,449.0,449,449
+frb,450,420,DFS,446.0,446,446
+frb,450,420,Maximum Degree Greedy,436.50333333333333,435,440
+frb,450,420,Greedy Independent Cover,435.0,435,435
+frb,450,420,Sorted ListLeft,446.0,446,446
+frb,450,420,Sorted ListRight,449.0,449,449
+frb,450,420,DFS,444.0,444,444
+frb,450,420,Maximum Degree Greedy,436.6666666666667,435,441
+frb,450,420,Greedy Independent Cover,435.0,435,435
+frb,450,420,Sorted ListLeft,447.11,446,448
+frb,450,420,Sorted ListRight,446.99333333333334,446,448
+frb,450,420,DFS,443.0,443,443
+frb,450,420,Maximum Degree Greedy,438.71666666666664,435,441
+frb,450,420,Greedy Independent Cover,435.0,435,435
+frb,450,420,Sorted ListLeft,446.49333333333334,446,447
+frb,450,420,Sorted ListRight,447.0,447,447
+frb,450,420,DFS,445.0,445,445

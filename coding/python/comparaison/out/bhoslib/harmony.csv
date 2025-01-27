@@ -1,0 +1,6 @@
+Graph,Nodes,Optimal_Size,Heuristic,Average_Size,Best_Size,Worst_Size
+frb,450,420,Harmony Search,184.68666666666667,169,199
+frb,450,420,Harmony Search,184.05666666666667,162,202
+frb,450,420,Harmony Search,184.83333333333334,162,201
+frb,450,420,Harmony Search,185.29333333333332,159,201
+frb,450,420,Harmony Search,184.81666666666666,164,202
