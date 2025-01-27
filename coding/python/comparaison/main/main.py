@@ -8,8 +8,8 @@ from graphs.load_graph import load_graph_from_dimacs
 from algorithm.evaluation import process_graph
 
 SEED = 42
-INPUT_DIR = "dimacs_files/trees"
-OUTPUT_FILE = "out/test/tree_results.csv"
+INPUT_DIR = "dimacs_files/bhoslib/frb30-15"
+OUTPUT_FILE = "out/test/test.csv"
 
 # Configuration du logger
 logging.basicConfig(level=logging.WARNING, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -34,7 +34,7 @@ def main():
         filepath = os.path.join(INPUT_DIR, filename)
         try:
             graph = load_graph_from_dimacs(filepath)
-            graph_name, num_nodes, opt_size, _ = filename.replace(".dimacs", "").split("-")
+            graph_name, num_nodes, opt_size, _ = filename.replace(".dimacs", "").split("_")
             results.extend(process_graph(graph_name, graph, int(opt_size), verbose=False))
         except Exception as e:
             logger.error(f"Erreur lors du traitement du fichier {filename} : {e}")

@@ -1,10 +1,10 @@
 import random
-from .utils import is_valid_cover
+from .utils import is_valid_cover  # signature is_valid_cover(C_set, graph)
 
 def memetic(graph,
-                         population_size=30,
-                         generations=100,
-                         mutation_prob=0.1):
+            population_size=30,
+            generations=100,
+            mutation_prob=0.1):
     """
     Algorithme Mémétique simple pour Vertex Cover:
       - Comme un GA, mais on applique une Local Search à chaque enfant avant de l'ajouter à la population.
@@ -12,19 +12,20 @@ def memetic(graph,
     nodes = list(graph.nodes())
 
     def fitness(C):
-        if not is_valid_cover(C):
+        # On passe "graph" aussi
+        if not is_valid_cover(C, graph):
             return 10_000 + len(C)
         else:
             return len(C)
 
-    # Petite recherche locale basique
     def local_search(C):
-        improved = True
         C = set(C)
+        improved = True
         while improved:
             improved = False
             for node in list(C):
                 Ctemp = C - {node}
+                # Ici aussi, on passe "graph"
                 if is_valid_cover(Ctemp, graph):
                     C = Ctemp
                     improved = True
@@ -68,7 +69,7 @@ def memetic(graph,
                     else:
                         child.add(n)
 
-            # >>> Ici l'étape "mémétique": on applique une Local Search au child
+            # Recherche locale (mémétique)
             child = local_search(child)
 
             new_population.append(child)

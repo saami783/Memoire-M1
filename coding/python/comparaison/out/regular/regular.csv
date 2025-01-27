@@ -1,0 +1,757 @@
+Graph,Nodes,Optimal_Size,Heuristic,Average_Size,Best_Size,Worst_Size
+regular,28,16,Memetic,1.6466666666666667,0,24
+regular,28,16,Maximum Degree Greedy,17.5,16,20
+regular,28,16,Greedy Independent Cover,16.46,16,17
+regular,28,16,Sorted ListLeft,21.05666666666667,18,25
+regular,28,16,Sorted ListRight,21.046666666666667,18,24
+regular,28,16,DFS,23.0,23,23
+regular,28,16,Local Search,17.80666666666667,16,20
+regular,28,16,Matching Based,26.0,26,26
+regular,28,16,Genetic,1.4066666666666667,0,22
+regular,28,16,Minimum Degree Greedy,27.0,27,27
+regular,28,16,Primal Dual,26.0,26,26
+regular,28,16,PSO,2.546666666666667,1,4
+regular,28,16,Approximate matching,19.946666666666665,17,22
+regular,28,16,Bar Yehuda Even,24.506666666666668,20,28
+regular,28,16,Degree Reduction,17.0,17,17
+regular,28,16,Edge Deletion,19.99,17,23
+regular,28,16,Harmony Search,4.74,1,23
+regular,28,16,Local Search Ratio,20.0,18,22
+regular,28,16,ACO,28.0,28,28
+regular,28,16,ILS,17.67,16,20
+regular,28,16,VNS,18.726666666666667,16,22
+regular,28,17,Memetic,1.2866666666666666,0,23
+regular,28,17,Maximum Degree Greedy,18.473333333333333,17,21
+regular,28,17,Greedy Independent Cover,17.33,17,19
+regular,28,17,Sorted ListLeft,22.383333333333333,19,26
+regular,28,17,Sorted ListRight,22.46,20,25
+regular,28,17,DFS,23.0,23,23
+regular,28,17,Local Search,18.643333333333334,18,20
+regular,28,17,Matching Based,26.0,26,26
+regular,28,17,Genetic,1.1033333333333333,0,23
+regular,28,17,Minimum Degree Greedy,27.0,27,27
+regular,28,17,Primal Dual,26.0,26,26
+regular,28,17,PSO,2.4966666666666666,0,4
+regular,28,17,Approximate matching,20.843333333333334,18,23
+regular,28,17,Bar Yehuda Even,24.953333333333333,20,28
+regular,28,17,Degree Reduction,17.0,17,17
+regular,28,17,Edge Deletion,20.88,18,23
+regular,28,17,Harmony Search,4.736666666666666,1,20
+regular,28,17,Local Search Ratio,20.97,18,23
+regular,28,17,ACO,28.0,28,28
+regular,28,17,ILS,18.673333333333332,17,20
+regular,28,17,VNS,19.7,17,23
+regular,28,18,Memetic,1.1633333333333333,0,21
+regular,28,18,Maximum Degree Greedy,19.593333333333334,18,21
+regular,28,18,Greedy Independent Cover,18.893333333333334,18,20
+regular,28,18,Sorted ListLeft,23.283333333333335,20,26
+regular,28,18,Sorted ListRight,23.436666666666667,20,26
+regular,28,18,DFS,23.0,23,23
+regular,28,18,Local Search,20.033333333333335,19,21
+regular,28,18,Matching Based,28.0,28,28
+regular,28,18,Genetic,1.2133333333333334,0,24
+regular,28,18,Minimum Degree Greedy,27.0,27,27
+regular,28,18,Primal Dual,28.0,28,28
+regular,28,18,PSO,2.44,0,4
+regular,28,18,Approximate matching,22.723333333333333,20,25
+regular,28,18,Bar Yehuda Even,25.286666666666665,22,28
+regular,28,18,Degree Reduction,19.0,19,19
+regular,28,18,Edge Deletion,22.746666666666666,20,25
+regular,28,18,Harmony Search,4.6,1,21
+regular,28,18,Local Search Ratio,22.773333333333333,19,25
+regular,28,18,ACO,28.0,28,28
+regular,28,18,ILS,19.85,19,21
+regular,28,18,VNS,20.916666666666668,19,25
+regular,28,19,Memetic,1.0933333333333333,0,2
+regular,28,19,Maximum Degree Greedy,20.24,19,22
+regular,28,19,Greedy Independent Cover,19.766666666666666,19,21
+regular,28,19,Sorted ListLeft,24.12,21,27
+regular,28,19,Sorted ListRight,23.923333333333332,21,27
+regular,28,19,DFS,23.0,23,23
+regular,28,19,Local Search,20.2,20,22
+regular,28,19,Matching Based,28.0,28,28
+regular,28,19,Genetic,1.2033333333333334,0,22
+regular,28,19,Minimum Degree Greedy,27.0,27,27
+regular,28,19,Primal Dual,28.0,28,28
+regular,28,19,PSO,2.4566666666666666,0,4
+regular,28,19,Approximate matching,22.39,20,25
+regular,28,19,Bar Yehuda Even,25.593333333333334,22,28
+regular,28,19,Degree Reduction,20.0,20,20
+regular,28,19,Edge Deletion,22.323333333333334,20,25
+regular,28,19,Harmony Search,4.613333333333333,1,9
+regular,28,19,Local Search Ratio,22.503333333333334,20,25
+regular,28,19,ACO,28.0,28,28
+regular,28,19,ILS,20.153333333333332,19,21
+regular,28,19,VNS,21.09,20,25
+regular,28,19,Memetic,1.0233333333333334,0,2
+regular,28,19,Maximum Degree Greedy,20.4,19,22
+regular,28,19,Greedy Independent Cover,19.78,19,21
+regular,28,19,Sorted ListLeft,24.46,21,27
+regular,28,19,Sorted ListRight,24.533333333333335,22,27
+regular,28,19,DFS,24.0,24,24
+regular,28,19,Local Search,20.936666666666667,20,23
+regular,28,19,Matching Based,26.0,26,26
+regular,28,19,Genetic,1.1533333333333333,0,23
+regular,28,19,Minimum Degree Greedy,27.0,27,27
+regular,28,19,Primal Dual,26.0,26,26
+regular,28,19,PSO,2.48,0,4
+regular,28,19,Approximate matching,24.066666666666666,21,27
+regular,28,19,Bar Yehuda Even,25.66,22,28
+regular,28,19,Degree Reduction,20.0,20,20
+regular,28,19,Edge Deletion,24.013333333333332,21,26
+regular,28,19,Harmony Search,4.573333333333333,1,9
+regular,28,19,Local Search Ratio,24.0,21,27
+regular,28,19,ACO,28.0,28,28
+regular,28,19,ILS,20.78,19,22
+regular,28,19,VNS,21.51,19,25
+regular,28,21,Memetic,1.0566666666666666,0,2
+regular,28,21,Maximum Degree Greedy,21.41,21,23
+regular,28,21,Greedy Independent Cover,21.266666666666666,21,22
+regular,28,21,Sorted ListLeft,24.84,22,27
+regular,28,21,Sorted ListRight,24.93,22,27
+regular,28,21,DFS,24.0,24,24
+regular,28,21,Local Search,21.466666666666665,21,23
+regular,28,21,Matching Based,26.0,26,26
+regular,28,21,Genetic,1.14,0,2
+regular,28,21,Minimum Degree Greedy,27.0,27,27
+regular,28,21,Primal Dual,26.0,26,26
+regular,28,21,PSO,2.4066666666666667,0,4
+regular,28,21,Approximate matching,23.723333333333333,21,26
+regular,28,21,Bar Yehuda Even,26.026666666666667,22,28
+regular,28,21,Degree Reduction,21.0,21,21
+regular,28,21,Edge Deletion,23.653333333333332,21,26
+regular,28,21,Harmony Search,4.65,1,9
+regular,28,21,Local Search Ratio,23.746666666666666,21,26
+regular,28,21,ACO,28.0,28,28
+regular,28,21,ILS,21.47,21,22
+regular,28,21,VNS,22.226666666666667,21,25
+regular,40,22,Memetic,3.75,1,6
+regular,40,22,Maximum Degree Greedy,24.58,23,27
+regular,40,22,Greedy Independent Cover,22.923333333333332,22,24
+regular,40,22,Sorted ListLeft,30.136666666666667,26,34
+regular,40,22,Sorted ListRight,30.143333333333334,26,34
+regular,40,22,DFS,35.0,35,35
+regular,40,22,Local Search,25.75,24,28
+regular,40,22,Matching Based,38.0,38,38
+regular,40,22,Genetic,3.67,1,5
+regular,40,22,Minimum Degree Greedy,39.0,39,39
+regular,40,22,Primal Dual,38.0,38,38
+regular,40,22,PSO,5.73,2,8
+regular,40,22,Approximate matching,28.95,25,33
+regular,40,22,Bar Yehuda Even,34.88666666666666,30,38
+regular,40,22,Degree Reduction,24.0,24,24
+regular,40,22,Edge Deletion,28.95,26,33
+regular,40,22,Harmony Search,8.486666666666666,4,15
+regular,40,22,Local Search Ratio,28.913333333333334,25,33
+regular,40,22,ACO,40.0,40,40
+regular,40,22,ILS,25.616666666666667,23,28
+regular,40,22,VNS,27.336666666666666,23,32
+regular,40,24,Memetic,3.703333333333333,2,5
+regular,40,24,Maximum Degree Greedy,26.196666666666665,24,29
+regular,40,24,Greedy Independent Cover,24.51,24,26
+regular,40,24,Sorted ListLeft,31.956666666666667,28,36
+regular,40,24,Sorted ListRight,31.986666666666668,29,37
+regular,40,24,DFS,34.0,34,34
+regular,40,24,Local Search,26.66,25,28
+regular,40,24,Matching Based,38.0,38,38
+regular,40,24,Genetic,3.73,2,5
+regular,40,24,Minimum Degree Greedy,39.0,39,39
+regular,40,24,Primal Dual,38.0,38,38
+regular,40,24,PSO,5.666666666666667,3,8
+regular,40,24,Approximate matching,29.97,27,33
+regular,40,24,Bar Yehuda Even,35.593333333333334,30,38
+regular,40,24,Degree Reduction,26.0,26,26
+regular,40,24,Edge Deletion,29.99,27,33
+regular,40,24,Harmony Search,8.713333333333333,4,13
+regular,40,24,Local Search Ratio,30.033333333333335,27,33
+regular,40,24,ACO,40.0,40,40
+regular,40,24,ILS,26.7,25,28
+regular,40,24,VNS,28.423333333333332,25,32
+regular,40,26,Memetic,3.7,1,5
+regular,40,26,Maximum Degree Greedy,28.63,26,31
+regular,40,26,Greedy Independent Cover,27.24,26,29
+regular,40,26,Sorted ListLeft,34.27333333333333,30,37
+regular,40,26,Sorted ListRight,34.263333333333335,31,39
+regular,40,26,DFS,34.0,34,34
+regular,40,26,Local Search,28.843333333333334,28,31
+regular,40,26,Matching Based,38.0,38,38
+regular,40,26,Genetic,3.816666666666667,1,5
+regular,40,26,Minimum Degree Greedy,39.0,39,39
+regular,40,26,Primal Dual,38.0,38,38
+regular,40,26,PSO,5.7,2,8
+regular,40,26,Approximate matching,32.84,29,37
+regular,40,26,Bar Yehuda Even,36.473333333333336,34,40
+regular,40,26,Degree Reduction,28.0,28,28
+regular,40,26,Edge Deletion,32.72666666666667,29,36
+regular,40,26,Harmony Search,8.613333333333333,2,14
+regular,40,26,Local Search Ratio,32.806666666666665,29,36
+regular,40,26,ACO,40.0,40,40
+regular,40,26,ILS,28.856666666666666,28,31
+regular,40,26,VNS,30.506666666666668,28,36
+regular,40,26,Memetic,3.74,1,5
+regular,40,26,Maximum Degree Greedy,28.1,26,31
+regular,40,26,Greedy Independent Cover,26.83,26,28
+regular,40,26,Sorted ListLeft,33.2,30,37
+regular,40,26,Sorted ListRight,33.263333333333335,30,38
+regular,40,26,DFS,35.0,35,35
+regular,40,26,Local Search,27.88,27,30
+regular,40,26,Matching Based,36.0,36,36
+regular,40,26,Genetic,3.743333333333333,1,5
+regular,40,26,Minimum Degree Greedy,39.0,39,39
+regular,40,26,Primal Dual,36.0,36,36
+regular,40,26,PSO,5.88,3,8
+regular,40,26,Approximate matching,30.466666666666665,27,34
+regular,40,26,Bar Yehuda Even,36.11333333333334,32,40
+regular,40,26,Degree Reduction,28.0,28,28
+regular,40,26,Edge Deletion,30.25,28,33
+regular,40,26,Harmony Search,8.473333333333333,3,14
+regular,40,26,Local Search Ratio,30.336666666666666,27,34
+regular,40,26,ACO,40.0,40,40
+regular,40,26,ILS,27.893333333333334,27,30
+regular,40,26,VNS,29.333333333333332,26,33
+regular,40,28,Memetic,3.7533333333333334,2,5
+regular,40,28,Maximum Degree Greedy,29.536666666666665,28,32
+regular,40,28,Greedy Independent Cover,28.53,28,30
+regular,40,28,Sorted ListLeft,35.03333333333333,32,38
+regular,40,28,Sorted ListRight,34.96,32,38
+regular,40,28,DFS,36.0,36,36
+regular,40,28,Local Search,29.19333333333333,28,31
+regular,40,28,Matching Based,38.0,38,38
+regular,40,28,Genetic,3.7933333333333334,2,6
+regular,40,28,Minimum Degree Greedy,39.0,39,39
+regular,40,28,Primal Dual,38.0,38,38
+regular,40,28,PSO,5.733333333333333,3,8
+regular,40,28,Approximate matching,32.81666666666667,28,36
+regular,40,28,Bar Yehuda Even,36.79333333333334,34,40
+regular,40,28,Degree Reduction,30.0,30,30
+regular,40,28,Edge Deletion,32.876666666666665,29,36
+regular,40,28,Harmony Search,8.31,3,12
+regular,40,28,Local Search Ratio,32.79333333333334,29,36
+regular,40,28,ACO,40.0,40,40
+regular,40,28,ILS,29.27,28,31
+regular,40,28,VNS,31.153333333333332,28,35
+regular,40,28,Memetic,3.6633333333333336,1,5
+regular,40,28,Maximum Degree Greedy,30.30666666666667,28,33
+regular,40,28,Greedy Independent Cover,29.19333333333333,28,31
+regular,40,28,Sorted ListLeft,35.68,32,39
+regular,40,28,Sorted ListRight,35.45333333333333,31,39
+regular,40,28,DFS,35.0,35,35
+regular,40,28,Local Search,30.886666666666667,30,31
+regular,40,28,Matching Based,38.0,38,38
+regular,40,28,Genetic,3.75,1,6
+regular,40,28,Minimum Degree Greedy,39.0,39,39
+regular,40,28,Primal Dual,38.0,38,38
+regular,40,28,PSO,5.816666666666666,2,8
+regular,40,28,Approximate matching,33.166666666666664,31,35
+regular,40,28,Bar Yehuda Even,37.093333333333334,34,40
+regular,40,28,Degree Reduction,31.0,31,31
+regular,40,28,Edge Deletion,33.17666666666667,31,35
+regular,40,28,Harmony Search,8.383333333333333,4,14
+regular,40,28,Local Search Ratio,33.166666666666664,31,35
+regular,40,28,ACO,40.0,40,40
+regular,40,28,ILS,30.883333333333333,30,31
+regular,40,28,VNS,32.24666666666667,30,35
+regular,52,29,Memetic,7.02,3,10
+regular,52,29,Maximum Degree Greedy,32.28333333333333,29,36
+regular,52,29,Greedy Independent Cover,30.29,29,32
+regular,52,29,Sorted ListLeft,38.85,33,45
+regular,52,29,Sorted ListRight,38.89,35,43
+regular,52,29,DFS,43.0,43,43
+regular,52,29,Local Search,32.41,31,35
+regular,52,29,Matching Based,50.0,50,50
+regular,52,29,Genetic,6.976666666666667,4,9
+regular,52,29,Minimum Degree Greedy,51.0,51,51
+regular,52,29,Primal Dual,50.0,50,50
+regular,52,29,PSO,9.46,6,12
+regular,52,29,Approximate matching,37.03666666666667,33,42
+regular,52,29,Bar Yehuda Even,45.38,40,50
+regular,52,29,Degree Reduction,32.0,32,32
+regular,52,29,Edge Deletion,36.95,33,41
+regular,52,29,Harmony Search,12.823333333333334,7,18
+regular,52,29,Local Search Ratio,37.1,33,41
+regular,52,29,ACO,52.0,52,52
+regular,52,29,ILS,32.46333333333333,31,35
+regular,52,29,VNS,35.333333333333336,31,41
+regular,52,31,Memetic,6.923333333333333,3,9
+regular,52,31,Maximum Degree Greedy,33.71666666666667,31,37
+regular,52,31,Greedy Independent Cover,32.04333333333334,31,33
+regular,52,31,Sorted ListLeft,41.623333333333335,36,46
+regular,52,31,Sorted ListRight,41.693333333333335,36,46
+regular,52,31,DFS,47.0,47,47
+regular,52,31,Local Search,33.81666666666667,32,36
+regular,52,31,Matching Based,48.0,48,48
+regular,52,31,Genetic,6.996666666666667,4,9
+regular,52,31,Minimum Degree Greedy,51.0,51,51
+regular,52,31,Primal Dual,48.0,48,48
+regular,52,31,PSO,9.386666666666667,6,12
+regular,52,31,Approximate matching,39.2,33,43
+regular,52,31,Bar Yehuda Even,46.28666666666667,40,50
+regular,52,31,Degree Reduction,32.0,32,32
+regular,52,31,Edge Deletion,39.096666666666664,34,44
+regular,52,31,Harmony Search,13.056666666666667,7,18
+regular,52,31,Local Search Ratio,39.18,34,43
+regular,52,31,ACO,52.0,52,52
+regular,52,31,ILS,33.88,32,37
+regular,52,31,VNS,36.88666666666666,32,42
+regular,52,33,Memetic,7.083333333333333,3,9
+regular,52,33,Maximum Degree Greedy,35.696666666666665,33,39
+regular,52,33,Greedy Independent Cover,34.02,33,36
+regular,52,33,Sorted ListLeft,43.24333333333333,38,47
+regular,52,33,Sorted ListRight,43.35333333333333,39,48
+regular,52,33,DFS,44.0,44,44
+regular,52,33,Local Search,35.266666666666666,34,38
+regular,52,33,Matching Based,48.0,48,48
+regular,52,33,Genetic,7.083333333333333,4,9
+regular,52,33,Minimum Degree Greedy,51.0,51,51
+regular,52,33,Primal Dual,48.0,48,48
+regular,52,33,PSO,9.466666666666667,5,12
+regular,52,33,Approximate matching,40.39333333333333,36,44
+regular,52,33,Bar Yehuda Even,46.82666666666667,40,52
+regular,52,33,Degree Reduction,35.0,35,35
+regular,52,33,Edge Deletion,40.49333333333333,37,44
+regular,52,33,Harmony Search,12.933333333333334,6,18
+regular,52,33,Local Search Ratio,40.32666666666667,36,44
+regular,52,33,ACO,52.0,52,52
+regular,52,33,ILS,35.236666666666665,34,38
+regular,52,33,VNS,38.04,33,43
+regular,52,34,Memetic,6.993333333333333,2,9
+regular,52,34,Maximum Degree Greedy,37.24333333333333,34,40
+regular,52,34,Greedy Independent Cover,35.776666666666664,34,38
+regular,52,34,Sorted ListLeft,44.53666666666667,40,49
+regular,52,34,Sorted ListRight,44.593333333333334,40,49
+regular,52,34,DFS,47.0,47,47
+regular,52,34,Local Search,37.76,37,40
+regular,52,34,Matching Based,48.0,48,48
+regular,52,34,Genetic,7.016666666666667,3,9
+regular,52,34,Minimum Degree Greedy,51.0,51,51
+regular,52,34,Primal Dual,48.0,48,48
+regular,52,34,PSO,9.47,5,12
+regular,52,34,Approximate matching,41.663333333333334,39,45
+regular,52,34,Bar Yehuda Even,47.32,42,52
+regular,52,34,Degree Reduction,37.0,37,37
+regular,52,34,Edge Deletion,41.59,39,44
+regular,52,34,Harmony Search,12.796666666666667,7,18
+regular,52,34,Local Search Ratio,41.553333333333335,39,44
+regular,52,34,ACO,52.0,52,52
+regular,52,34,ILS,37.663333333333334,37,40
+regular,52,34,VNS,40.06666666666667,36,44
+regular,52,36,Memetic,7.033333333333333,3,9
+regular,52,36,Maximum Degree Greedy,37.83,36,41
+regular,52,36,Greedy Independent Cover,36.516666666666666,36,38
+regular,52,36,Sorted ListLeft,45.61666666666667,42,50
+regular,52,36,Sorted ListRight,45.38,42,49
+regular,52,36,DFS,47.0,47,47
+regular,52,36,Local Search,37.0,36,39
+regular,52,36,Matching Based,48.0,48,48
+regular,52,36,Genetic,7.056666666666667,4,9
+regular,52,36,Minimum Degree Greedy,51.0,51,51
+regular,52,36,Primal Dual,48.0,48,48
+regular,52,36,PSO,9.43,6,12
+regular,52,36,Approximate matching,41.50666666666667,38,45
+regular,52,36,Bar Yehuda Even,47.84,44,52
+regular,52,36,Degree Reduction,37.0,37,37
+regular,52,36,Edge Deletion,41.46,38,45
+regular,52,36,Harmony Search,12.74,7,17
+regular,52,36,Local Search Ratio,41.49666666666667,38,46
+regular,52,36,ACO,52.0,52,52
+regular,52,36,ILS,37.03333333333333,36,39
+regular,52,36,VNS,39.6,36,45
+regular,52,37,Memetic,7.043333333333333,4,9
+regular,52,37,Maximum Degree Greedy,38.92,37,42
+regular,52,37,Greedy Independent Cover,37.85,37,40
+regular,52,37,Sorted ListLeft,46.4,43,50
+regular,52,37,Sorted ListRight,46.336666666666666,42,50
+regular,52,37,DFS,47.0,47,47
+regular,52,37,Local Search,38.87,38,41
+regular,52,37,Matching Based,50.0,50,50
+regular,52,37,Genetic,6.97,3,10
+regular,52,37,Minimum Degree Greedy,51.0,51,51
+regular,52,37,Primal Dual,50.0,50,50
+regular,52,37,PSO,9.343333333333334,6,12
+regular,52,37,Approximate matching,42.58,39,45
+regular,52,37,Bar Yehuda Even,48.13333333333333,44,52
+regular,52,37,Degree Reduction,40.0,40,40
+regular,52,37,Edge Deletion,42.42333333333333,38,46
+regular,52,37,Harmony Search,12.726666666666667,5,18
+regular,52,37,Local Search Ratio,42.373333333333335,39,46
+regular,52,37,ACO,52.0,52,52
+regular,52,37,ILS,38.81333333333333,37,41
+regular,52,37,VNS,41.1,37,45
+regular,64,36,Memetic,10.576666666666666,7,13
+regular,64,36,Maximum Degree Greedy,39.93333333333333,37,42
+regular,64,36,Greedy Independent Cover,37.31,36,39
+regular,64,36,Sorted ListLeft,48.02,44,53
+regular,64,36,Sorted ListRight,47.76,43,53
+regular,64,36,DFS,54.0,54,54
+regular,64,36,Local Search,39.82666666666667,38,42
+regular,64,36,Matching Based,58.0,58,58
+regular,64,36,Genetic,10.603333333333333,6,13
+regular,64,36,Minimum Degree Greedy,63.0,63,63
+regular,64,36,Primal Dual,58.0,58,58
+regular,64,36,PSO,13.386666666666667,9,16
+regular,64,36,Approximate matching,45.28333333333333,40,51
+regular,64,36,Bar Yehuda Even,55.61333333333334,50,62
+regular,64,36,Degree Reduction,37.0,37,37
+regular,64,36,Edge Deletion,45.25,40,51
+regular,64,36,Harmony Search,17.076666666666668,10,24
+regular,64,36,Local Search Ratio,45.20333333333333,41,51
+regular,64,36,ACO,64.0,64,64
+regular,64,36,ILS,39.946666666666665,38,43
+regular,64,36,VNS,43.156666666666666,38,49
+regular,64,38,Memetic,10.61,7,13
+regular,64,38,Maximum Degree Greedy,41.76,39,45
+regular,64,38,Greedy Independent Cover,39.276666666666664,38,41
+regular,64,38,Sorted ListLeft,51.29333333333334,45,56
+regular,64,38,Sorted ListRight,51.276666666666664,45,57
+regular,64,38,DFS,54.0,54,54
+regular,64,38,Local Search,43.156666666666666,41,45
+regular,64,38,Matching Based,56.0,56,56
+regular,64,38,Genetic,10.463333333333333,7,13
+regular,64,38,Minimum Degree Greedy,63.0,63,63
+regular,64,38,Primal Dual,56.0,56,56
+regular,64,38,PSO,13.47,8,17
+regular,64,38,Approximate matching,47.96333333333333,44,52
+regular,64,38,Bar Yehuda Even,57.03333333333333,52,62
+regular,64,38,Degree Reduction,40.0,40,40
+regular,64,38,Edge Deletion,48.09,44,52
+regular,64,38,Harmony Search,17.016666666666666,9,23
+regular,64,38,Local Search Ratio,48.25666666666667,44,52
+regular,64,38,ACO,64.0,64,64
+regular,64,38,ILS,43.233333333333334,41,45
+regular,64,38,VNS,46.21,41,52
+regular,64,41,Memetic,10.613333333333333,6,13
+regular,64,41,Maximum Degree Greedy,44.126666666666665,41,48
+regular,64,41,Greedy Independent Cover,41.95,41,44
+regular,64,41,Sorted ListLeft,53.346666666666664,48,58
+regular,64,41,Sorted ListRight,53.25333333333333,48,58
+regular,64,41,DFS,56.0,56,56
+regular,64,41,Local Search,44.01,41,48
+regular,64,41,Matching Based,60.0,60,60
+regular,64,41,Genetic,10.506666666666666,7,13
+regular,64,41,Minimum Degree Greedy,63.0,63,63
+regular,64,41,Primal Dual,60.0,60,60
+regular,64,41,PSO,13.373333333333333,8,17
+regular,64,41,Approximate matching,50.5,46,56
+regular,64,41,Bar Yehuda Even,57.82666666666667,52,62
+regular,64,41,Degree Reduction,43.0,43,43
+regular,64,41,Edge Deletion,50.736666666666665,45,55
+regular,64,41,Harmony Search,17.263333333333332,9,23
+regular,64,41,Local Search Ratio,50.77,45,56
+regular,64,41,ACO,64.0,64,64
+regular,64,41,ILS,44.00333333333333,41,48
+regular,64,41,VNS,47.31,41,55
+regular,64,42,Memetic,10.51,7,13
+regular,64,42,Maximum Degree Greedy,45.53333333333333,42,49
+regular,64,42,Greedy Independent Cover,43.60666666666667,42,46
+regular,64,42,Sorted ListLeft,54.74,50,59
+regular,64,42,Sorted ListRight,54.85666666666667,50,60
+regular,64,42,DFS,59.0,59,59
+regular,64,42,Local Search,46.54666666666667,45,49
+regular,64,42,Matching Based,60.0,60,60
+regular,64,42,Genetic,10.55,7,13
+regular,64,42,Minimum Degree Greedy,63.0,63,63
+regular,64,42,Primal Dual,60.0,60,60
+regular,64,42,PSO,13.326666666666666,9,17
+regular,64,42,Approximate matching,51.4,47,55
+regular,64,42,Bar Yehuda Even,58.14,54,62
+regular,64,42,Degree Reduction,47.0,47,47
+regular,64,42,Edge Deletion,51.35,47,55
+regular,64,42,Harmony Search,17.286666666666665,11,23
+regular,64,42,Local Search Ratio,51.28666666666667,46,57
+regular,64,42,ACO,64.0,64,64
+regular,64,42,ILS,46.516666666666666,45,49
+regular,64,42,VNS,49.53333333333333,44,55
+regular,64,44,Memetic,10.52,7,13
+regular,64,44,Maximum Degree Greedy,46.946666666666665,44,50
+regular,64,44,Greedy Independent Cover,45.336666666666666,44,48
+regular,64,44,Sorted ListLeft,56.126666666666665,50,61
+regular,64,44,Sorted ListRight,55.94,50,61
+regular,64,44,DFS,57.0,57,57
+regular,64,44,Local Search,48.696666666666665,47,51
+regular,64,44,Matching Based,60.0,60,60
+regular,64,44,Genetic,10.523333333333333,6,13
+regular,64,44,Minimum Degree Greedy,63.0,63,63
+regular,64,44,Primal Dual,60.0,60,60
+regular,64,44,PSO,13.306666666666667,7,16
+regular,64,44,Approximate matching,54.25666666666667,50,58
+regular,64,44,Bar Yehuda Even,58.86666666666667,54,62
+regular,64,44,Degree Reduction,47.0,47,47
+regular,64,44,Edge Deletion,54.333333333333336,51,58
+regular,64,44,Harmony Search,17.09,12,24
+regular,64,44,Local Search Ratio,54.306666666666665,51,58
+regular,64,44,ACO,64.0,64,64
+regular,64,44,ILS,48.63666666666666,45,52
+regular,64,44,VNS,51.61333333333334,46,58
+regular,64,46,Memetic,10.64,6,13
+regular,64,46,Maximum Degree Greedy,48.586666666666666,46,52
+regular,64,46,Greedy Independent Cover,46.81666666666667,46,49
+regular,64,46,Sorted ListLeft,56.666666666666664,52,61
+regular,64,46,Sorted ListRight,56.93333333333333,52,62
+regular,64,46,DFS,56.0,56,56
+regular,64,46,Local Search,49.14666666666667,47,52
+regular,64,46,Matching Based,62.0,62,62
+regular,64,46,Genetic,10.573333333333334,7,13
+regular,64,46,Minimum Degree Greedy,63.0,63,63
+regular,64,46,Primal Dual,62.0,62,62
+regular,64,46,PSO,13.4,10,17
+regular,64,46,Approximate matching,54.77333333333333,51,59
+regular,64,46,Bar Yehuda Even,59.266666666666666,54,64
+regular,64,46,Degree Reduction,48.0,48,48
+regular,64,46,Edge Deletion,54.92333333333333,50,59
+regular,64,46,Harmony Search,17.013333333333332,11,22
+regular,64,46,Local Search Ratio,54.913333333333334,51,59
+regular,64,46,ACO,64.0,64,64
+regular,64,46,ILS,49.14666666666667,47,51
+regular,64,46,VNS,52.04333333333334,47,57
+regular,76,42,Memetic,14.496666666666666,10,17
+regular,76,42,Maximum Degree Greedy,46.556666666666665,43,50
+regular,76,42,Greedy Independent Cover,43.38333333333333,42,46
+regular,76,42,Sorted ListLeft,57.06333333333333,52,62
+regular,76,42,Sorted ListRight,56.93333333333333,51,62
+regular,76,42,DFS,65.0,65,65
+regular,76,42,Local Search,47.75,47,49
+regular,76,42,Matching Based,70.0,70,70
+regular,76,42,Genetic,14.483333333333333,9,17
+regular,76,42,Minimum Degree Greedy,75.0,75,75
+regular,76,42,Primal Dual,70.0,70,70
+regular,76,42,PSO,17.62,12,21
+regular,76,42,Approximate matching,54.75,49,59
+regular,76,42,Bar Yehuda Even,66.69333333333333,60,74
+regular,76,42,Degree Reduction,48.0,48,48
+regular,76,42,Edge Deletion,54.68,50,59
+regular,76,42,Harmony Search,21.76,14,28
+regular,76,42,Local Search Ratio,54.913333333333334,49,60
+regular,76,42,ACO,76.0,76,76
+regular,76,42,ILS,47.843333333333334,47,49
+regular,76,42,VNS,52.54666666666667,46,60
+regular,76,45,Memetic,14.393333333333333,10,17
+regular,76,45,Maximum Degree Greedy,50.276666666666664,47,53
+regular,76,45,Greedy Independent Cover,47.36666666666667,45,50
+regular,76,45,Sorted ListLeft,60.85,56,67
+regular,76,45,Sorted ListRight,60.623333333333335,55,68
+regular,76,45,DFS,66.0,66,66
+regular,76,45,Local Search,50.61,47,54
+regular,76,45,Matching Based,72.0,72,72
+regular,76,45,Genetic,14.383333333333333,10,17
+regular,76,45,Minimum Degree Greedy,75.0,75,75
+regular,76,45,Primal Dual,72.0,72,72
+regular,76,45,PSO,17.456666666666667,13,21
+regular,76,45,Approximate matching,57.486666666666665,52,62
+regular,76,45,Bar Yehuda Even,67.54,60,74
+regular,76,45,Degree Reduction,48.0,48,48
+regular,76,45,Edge Deletion,57.43333333333333,53,63
+regular,76,45,Harmony Search,21.82,13,28
+regular,76,45,Local Search Ratio,57.57,52,63
+regular,76,45,ACO,76.0,76,76
+regular,76,45,ILS,50.60333333333333,47,53
+regular,76,45,VNS,54.973333333333336,47,62
+regular,76,48,Memetic,14.47,10,17
+regular,76,48,Maximum Degree Greedy,52.18666666666667,49,55
+regular,76,48,Greedy Independent Cover,49.52333333333333,48,52
+regular,76,48,Sorted ListLeft,63.52333333333333,58,69
+regular,76,48,Sorted ListRight,63.54666666666667,58,70
+regular,76,48,DFS,67.0,67,67
+regular,76,48,Local Search,51.20333333333333,50,56
+regular,76,48,Matching Based,72.0,72,72
+regular,76,48,Genetic,14.533333333333333,10,17
+regular,76,48,Minimum Degree Greedy,75.0,75,75
+regular,76,48,Primal Dual,72.0,72,72
+regular,76,48,PSO,17.506666666666668,10,21
+regular,76,48,Approximate matching,58.803333333333335,54,63
+regular,76,48,Bar Yehuda Even,68.43333333333334,62,76
+regular,76,48,Degree Reduction,52.0,52,52
+regular,76,48,Edge Deletion,58.67666666666667,53,63
+regular,76,48,Harmony Search,21.743333333333332,13,29
+regular,76,48,Local Search Ratio,58.806666666666665,54,64
+regular,76,48,ACO,76.0,76,76
+regular,76,48,ILS,51.18,50,56
+regular,76,48,VNS,55.76,49,63
+regular,76,51,Memetic,14.44,9,17
+regular,76,51,Maximum Degree Greedy,54.31666666666667,51,57
+regular,76,51,Greedy Independent Cover,51.873333333333335,51,54
+regular,76,51,Sorted ListLeft,65.11333333333333,59,70
+regular,76,51,Sorted ListRight,65.15,60,70
+regular,76,51,DFS,66.0,66,66
+regular,76,51,Local Search,55.87,53,58
+regular,76,51,Matching Based,74.0,74,74
+regular,76,51,Genetic,14.34,11,17
+regular,76,51,Minimum Degree Greedy,75.0,75,75
+regular,76,51,Primal Dual,74.0,74,74
+regular,76,51,PSO,17.403333333333332,12,21
+regular,76,51,Approximate matching,61.33,57,66
+regular,76,51,Bar Yehuda Even,69.28,64,74
+regular,76,51,Degree Reduction,52.0,52,52
+regular,76,51,Edge Deletion,61.41,58,66
+regular,76,51,Harmony Search,21.81,12,28
+regular,76,51,Local Search Ratio,61.27,56,65
+regular,76,51,ACO,76.0,76,76
+regular,76,51,ILS,55.94,53,58
+regular,76,51,VNS,59.483333333333334,53,65
+regular,76,52,Memetic,14.463333333333333,9,17
+regular,76,52,Maximum Degree Greedy,55.483333333333334,52,59
+regular,76,52,Greedy Independent Cover,53.43333333333333,52,56
+regular,76,52,Sorted ListLeft,66.62333333333333,60,71
+regular,76,52,Sorted ListRight,66.5,61,72
+regular,76,52,DFS,67.0,67,67
+regular,76,52,Local Search,56.42333333333333,54,59
+regular,76,52,Matching Based,70.0,70,70
+regular,76,52,Genetic,14.506666666666666,10,17
+regular,76,52,Minimum Degree Greedy,75.0,75,75
+regular,76,52,Primal Dual,70.0,70,70
+regular,76,52,PSO,17.643333333333334,12,22
+regular,76,52,Approximate matching,62.18,57,66
+regular,76,52,Bar Yehuda Even,69.88666666666667,64,76
+regular,76,52,Degree Reduction,56.0,56,56
+regular,76,52,Edge Deletion,62.13333333333333,59,65
+regular,76,52,Harmony Search,21.83,12,29
+regular,76,52,Local Search Ratio,62.28333333333333,57,66
+regular,76,52,ACO,76.0,76,76
+regular,76,52,ILS,56.35666666666667,54,59
+regular,76,52,VNS,60.093333333333334,54,65
+regular,76,53,Memetic,14.226666666666667,10,17
+regular,76,53,Maximum Degree Greedy,57.02333333333333,53,61
+regular,76,53,Greedy Independent Cover,55.04333333333334,53,57
+regular,76,53,Sorted ListLeft,67.61333333333333,63,72
+regular,76,53,Sorted ListRight,67.39,61,73
+regular,76,53,DFS,66.0,66,66
+regular,76,53,Local Search,57.263333333333335,56,60
+regular,76,53,Matching Based,72.0,72,72
+regular,76,53,Genetic,14.44,10,17
+regular,76,53,Minimum Degree Greedy,75.0,75,75
+regular,76,53,Primal Dual,72.0,72,72
+regular,76,53,PSO,17.516666666666666,12,21
+regular,76,53,Approximate matching,62.02,58,65
+regular,76,53,Bar Yehuda Even,70.57333333333334,66,74
+regular,76,53,Degree Reduction,54.0,54,54
+regular,76,53,Edge Deletion,61.91,57,66
+regular,76,53,Harmony Search,21.583333333333332,14,28
+regular,76,53,Local Search Ratio,61.93,58,67
+regular,76,53,ACO,76.0,76,76
+regular,76,53,ILS,57.223333333333336,56,60
+regular,76,53,VNS,60.54666666666667,54,66
+regular,98,55,Memetic,21.833333333333332,17,25
+regular,98,55,Maximum Degree Greedy,60.513333333333335,57,65
+regular,98,55,Greedy Independent Cover,56.416666666666664,55,59
+regular,98,55,Sorted ListLeft,73.69666666666667,68,81
+regular,98,55,Sorted ListRight,73.55333333333333,66,81
+regular,98,55,DFS,84.0,84,84
+regular,98,55,Local Search,61.71,59,66
+regular,98,55,Matching Based,94.0,94,94
+regular,98,55,Genetic,21.89666666666667,18,25
+regular,98,55,Minimum Degree Greedy,97.0,97,97
+regular,98,55,Primal Dual,94.0,94,94
+regular,98,55,PSO,25.886666666666667,21,30
+regular,98,55,Approximate matching,69.74666666666667,64,75
+regular,98,55,Bar Yehuda Even,85.64666666666666,76,92
+regular,98,55,Degree Reduction,58.0,58,58
+regular,98,55,Edge Deletion,69.60666666666667,64,76
+regular,98,55,Harmony Search,30.606666666666666,20,39
+regular,98,55,Local Search Ratio,69.81666666666666,64,76
+regular,98,55,ACO,98.0,98,98
+regular,98,55,ILS,61.73,59,65
+regular,98,55,VNS,67.23,59,74
+regular,98,59,Memetic,21.95,17,25
+regular,98,59,Maximum Degree Greedy,64.38666666666667,60,68
+regular,98,59,Greedy Independent Cover,60.626666666666665,59,63
+regular,98,59,Sorted ListLeft,78.57333333333334,73,84
+regular,98,59,Sorted ListRight,78.37333333333333,72,84
+regular,98,59,DFS,87.0,87,87
+regular,98,59,Local Search,65.1,62,69
+regular,98,59,Matching Based,94.0,94,94
+regular,98,59,Genetic,21.873333333333335,15,25
+regular,98,59,Minimum Degree Greedy,97.0,97,97
+regular,98,59,Primal Dual,94.0,94,94
+regular,98,59,PSO,25.426666666666666,18,30
+regular,98,59,Approximate matching,73.79333333333334,68,81
+regular,98,59,Bar Yehuda Even,87.16,82,96
+regular,98,59,Degree Reduction,61.0,61,61
+regular,98,59,Edge Deletion,73.78333333333333,68,80
+regular,98,59,Harmony Search,30.71,22,39
+regular,98,59,Local Search Ratio,73.92666666666666,69,80
+regular,98,59,ACO,98.0,98,98
+regular,98,59,ILS,65.17666666666666,61,68
+regular,98,59,VNS,70.09333333333333,61,79
+regular,98,62,Memetic,21.916666666666668,16,25
+regular,98,62,Maximum Degree Greedy,67.54333333333334,63,71
+regular,98,62,Greedy Independent Cover,63.94,62,67
+regular,98,62,Sorted ListLeft,81.61666666666666,75,88
+regular,98,62,Sorted ListRight,81.51,76,87
+regular,98,62,DFS,87.0,87,87
+regular,98,62,Local Search,67.87,64,71
+regular,98,62,Matching Based,92.0,92,92
+regular,98,62,Genetic,21.913333333333334,17,25
+regular,98,62,Minimum Degree Greedy,97.0,97,97
+regular,98,62,Primal Dual,92.0,92,92
+regular,98,62,PSO,25.723333333333333,21,30
+regular,98,62,Approximate matching,75.19333333333333,71,80
+regular,98,62,Bar Yehuda Even,88.65333333333334,82,96
+regular,98,62,Degree Reduction,65.0,65,65
+regular,98,62,Edge Deletion,75.45,70,82
+regular,98,62,Harmony Search,30.836666666666666,21,40
+regular,98,62,Local Search Ratio,75.33666666666667,70,80
+regular,98,62,ACO,98.0,98,98
+regular,98,62,ILS,67.83,64,71
+regular,98,62,VNS,73.05,64,81
+regular,98,64,Memetic,21.883333333333333,17,25
+regular,98,64,Maximum Degree Greedy,69.86333333333333,65,74
+regular,98,64,Greedy Independent Cover,66.35333333333334,64,70
+regular,98,64,Sorted ListLeft,84.06333333333333,78,89
+regular,98,64,Sorted ListRight,83.96333333333334,78,90
+regular,98,64,DFS,87.0,87,87
+regular,98,64,Local Search,72.10666666666667,68,77
+regular,98,64,Matching Based,92.0,92,92
+regular,98,64,Genetic,21.926666666666666,17,26
+regular,98,64,Minimum Degree Greedy,97.0,97,97
+regular,98,64,Primal Dual,92.0,92,92
+regular,98,64,PSO,25.623333333333335,18,30
+regular,98,64,Approximate matching,80.32,76,86
+regular,98,64,Bar Yehuda Even,89.44,82,96
+regular,98,64,Degree Reduction,70.0,70,70
+regular,98,64,Edge Deletion,80.21333333333334,76,85
+regular,98,64,Harmony Search,30.733333333333334,21,39
+regular,98,64,Local Search Ratio,80.21,74,85
+regular,98,64,ACO,98.0,98,98
+regular,98,64,ILS,71.71333333333334,68,76
+regular,98,64,VNS,77.58333333333333,68,85
+regular,98,67,Memetic,21.776666666666667,16,26
+regular,98,67,Maximum Degree Greedy,71.92666666666666,68,75
+regular,98,67,Greedy Independent Cover,68.97666666666667,67,72
+regular,98,67,Sorted ListLeft,85.82,81,92
+regular,98,67,Sorted ListRight,85.72,80,92
+regular,98,67,DFS,87.0,87,87
+regular,98,67,Local Search,73.53,71,76
+regular,98,67,Matching Based,92.0,92,92
+regular,98,67,Genetic,21.893333333333334,15,25
+regular,98,67,Minimum Degree Greedy,97.0,97,97
+regular,98,67,Primal Dual,92.0,92,92
+regular,98,67,PSO,25.583333333333332,20,29
+regular,98,67,Approximate matching,80.34,77,85
+regular,98,67,Bar Yehuda Even,90.28666666666666,84,96
+regular,98,67,Degree Reduction,72.0,72,72
+regular,98,67,Edge Deletion,80.17666666666666,75,85
+regular,98,67,Harmony Search,30.863333333333333,21,39
+regular,98,67,Local Search Ratio,80.17333333333333,75,84
+regular,98,67,ACO,98.0,98,98
+regular,98,67,ILS,73.44,71,76
+regular,98,67,VNS,77.87666666666667,71,84
+regular,98,68,Memetic,21.78,17,25
+regular,98,68,Maximum Degree Greedy,73.45666666666666,70,78
+regular,98,68,Greedy Independent Cover,70.52666666666667,68,73
+regular,98,68,Sorted ListLeft,87.08333333333333,80,93
+regular,98,68,Sorted ListRight,86.92333333333333,81,92
+regular,98,68,DFS,88.0,88,88
+regular,98,68,Local Search,74.27333333333333,71,78
+regular,98,68,Matching Based,92.0,92,92
+regular,98,68,Genetic,21.80666666666667,16,25
+regular,98,68,Minimum Degree Greedy,97.0,97,97
+regular,98,68,Primal Dual,92.0,92,92
+regular,98,68,PSO,25.696666666666665,20,30
+regular,98,68,Approximate matching,81.18666666666667,76,86
+regular,98,68,Bar Yehuda Even,90.76666666666667,84,96
+regular,98,68,Degree Reduction,74.0,74,74
+regular,98,68,Edge Deletion,81.19333333333333,77,85
+regular,98,68,Harmony Search,30.5,23,38
+regular,98,68,Local Search Ratio,81.41,77,87
+regular,98,68,ACO,98.0,98,98
+regular,98,68,ILS,74.16333333333333,71,77
+regular,98,68,VNS,79.13333333333334,70,86

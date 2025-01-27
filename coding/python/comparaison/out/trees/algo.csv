@@ -1,0 +1,201 @@
+Graph,Nodes,Optimal_Size,Heuristic,Average_Size,Best_Size,Worst_Size
+tree,50,23,Maximum Degree Greedy,23.956666666666667,23,25
+tree,50,23,Greedy Independent Cover,23.0,23,23
+tree,50,23,Sorted ListLeft,26.713333333333335,24,29
+tree,50,23,Sorted ListRight,41.736666666666665,38,45
+tree,50,23,DFS,32.0,32,32
+tree,50,23,Maximum Degree Greedy,23.953333333333333,23,25
+tree,50,23,Greedy Independent Cover,23.0,23,23
+tree,50,23,Sorted ListLeft,26.75,24,30
+tree,50,23,Sorted ListRight,41.71666666666667,39,45
+tree,50,23,DFS,32.0,32,32
+tree,50,23,Maximum Degree Greedy,23.956666666666667,23,25
+tree,50,23,Greedy Independent Cover,23.0,23,23
+tree,50,23,Sorted ListLeft,26.816666666666666,24,30
+tree,50,23,Sorted ListRight,41.85333333333333,39,45
+tree,50,23,DFS,32.0,32,32
+tree,50,23,Maximum Degree Greedy,24.013333333333332,23,25
+tree,50,23,Greedy Independent Cover,23.0,23,23
+tree,50,23,Sorted ListLeft,26.783333333333335,24,30
+tree,50,23,Sorted ListRight,41.79,39,44
+tree,50,23,DFS,32.0,32,32
+tree,50,23,Maximum Degree Greedy,23.963333333333335,23,25
+tree,50,23,Greedy Independent Cover,23.0,23,23
+tree,50,23,Sorted ListLeft,26.713333333333335,24,30
+tree,50,23,Sorted ListRight,41.71,39,45
+tree,50,23,DFS,32.0,32,32
+tree,50,23,Maximum Degree Greedy,23.97,23,25
+tree,50,23,Greedy Independent Cover,23.0,23,23
+tree,50,23,Sorted ListLeft,26.803333333333335,24,29
+tree,50,23,Sorted ListRight,41.76,38,45
+tree,50,23,DFS,32.0,32,32
+tree,50,23,Maximum Degree Greedy,23.936666666666667,23,25
+tree,50,23,Greedy Independent Cover,23.0,23,23
+tree,50,23,Sorted ListLeft,26.69333333333333,24,29
+tree,50,23,Sorted ListRight,41.68,38,45
+tree,50,23,DFS,32.0,32,32
+tree,50,23,Maximum Degree Greedy,23.976666666666667,23,25
+tree,50,23,Greedy Independent Cover,23.0,23,23
+tree,50,23,Sorted ListLeft,26.75,24,30
+tree,50,23,Sorted ListRight,41.78666666666667,39,45
+tree,50,23,DFS,32.0,32,32
+tree,50,23,Maximum Degree Greedy,23.94333333333333,23,25
+tree,50,23,Greedy Independent Cover,23.0,23,23
+tree,50,23,Sorted ListLeft,26.716666666666665,24,30
+tree,50,23,Sorted ListRight,41.663333333333334,39,45
+tree,50,23,DFS,32.0,32,32
+tree,50,23,Maximum Degree Greedy,23.926666666666666,23,25
+tree,50,23,Greedy Independent Cover,23.0,23,23
+tree,50,23,Sorted ListLeft,26.76,24,30
+tree,50,23,Sorted ListRight,41.76,38,46
+tree,50,23,DFS,32.0,32,32
+tree,100,42,Maximum Degree Greedy,42.946666666666665,42,45
+tree,100,42,Greedy Independent Cover,42.0,42,42
+tree,100,42,Sorted ListLeft,47.63666666666666,44,51
+tree,100,42,Sorted ListRight,84.47333333333333,80,89
+tree,100,42,DFS,58.0,58,58
+tree,100,42,Maximum Degree Greedy,42.906666666666666,42,45
+tree,100,42,Greedy Independent Cover,42.0,42,42
+tree,100,42,Sorted ListLeft,47.623333333333335,45,51
+tree,100,42,Sorted ListRight,84.55,80,88
+tree,100,42,DFS,58.0,58,58
+tree,100,42,Maximum Degree Greedy,42.903333333333336,42,46
+tree,100,42,Greedy Independent Cover,42.0,42,42
+tree,100,42,Sorted ListLeft,47.516666666666666,44,51
+tree,100,42,Sorted ListRight,84.56,81,88
+tree,100,42,DFS,58.0,58,58
+tree,100,42,Maximum Degree Greedy,42.88333333333333,42,46
+tree,100,42,Greedy Independent Cover,42.0,42,42
+tree,100,42,Sorted ListLeft,47.68666666666667,44,51
+tree,100,42,Sorted ListRight,84.42666666666666,80,89
+tree,100,42,DFS,58.0,58,58
+tree,100,42,Maximum Degree Greedy,42.973333333333336,42,46
+tree,100,42,Greedy Independent Cover,42.0,42,42
+tree,100,42,Sorted ListLeft,47.63333333333333,45,52
+tree,100,42,Sorted ListRight,84.65,80,89
+tree,100,42,DFS,58.0,58,58
+tree,100,42,Maximum Degree Greedy,42.983333333333334,42,46
+tree,100,42,Greedy Independent Cover,42.0,42,42
+tree,100,42,Sorted ListLeft,47.61666666666667,44,51
+tree,100,42,Sorted ListRight,84.58,81,89
+tree,100,42,DFS,58.0,58,58
+tree,100,42,Maximum Degree Greedy,42.96333333333333,42,45
+tree,100,42,Greedy Independent Cover,42.0,42,42
+tree,100,42,Sorted ListLeft,47.74,44,51
+tree,100,42,Sorted ListRight,84.47,80,90
+tree,100,42,DFS,58.0,58,58
+tree,100,42,Maximum Degree Greedy,42.913333333333334,42,45
+tree,100,42,Greedy Independent Cover,42.0,42,42
+tree,100,42,Sorted ListLeft,47.61333333333334,44,52
+tree,100,42,Sorted ListRight,84.66333333333333,81,90
+tree,100,42,DFS,58.0,58,58
+tree,100,42,Maximum Degree Greedy,42.86333333333334,42,46
+tree,100,42,Greedy Independent Cover,42.0,42,42
+tree,100,42,Sorted ListLeft,47.7,44,52
+tree,100,42,Sorted ListRight,84.38333333333334,81,88
+tree,100,42,DFS,58.0,58,58
+tree,100,42,Maximum Degree Greedy,42.93666666666667,42,46
+tree,100,42,Greedy Independent Cover,42.0,42,42
+tree,100,42,Sorted ListLeft,47.56,44,51
+tree,100,42,Sorted ListRight,84.43333333333334,81,89
+tree,100,42,DFS,58.0,58,58
+tree,200,88,Maximum Degree Greedy,92.93333333333334,90,96
+tree,200,88,Greedy Independent Cover,88.0,88,88
+tree,200,88,Sorted ListLeft,102.47333333333333,98,107
+tree,200,88,Sorted ListRight,166.6,161,173
+tree,200,88,DFS,124.0,124,124
+tree,200,88,Maximum Degree Greedy,92.76666666666667,90,96
+tree,200,88,Greedy Independent Cover,88.0,88,88
+tree,200,88,Sorted ListLeft,102.33,97,108
+tree,200,88,Sorted ListRight,166.43333333333334,160,171
+tree,200,88,DFS,124.0,124,124
+tree,200,88,Maximum Degree Greedy,92.78333333333333,90,96
+tree,200,88,Greedy Independent Cover,88.0,88,88
+tree,200,88,Sorted ListLeft,102.45,98,107
+tree,200,88,Sorted ListRight,166.55333333333334,162,172
+tree,200,88,DFS,124.0,124,124
+tree,200,88,Maximum Degree Greedy,92.89333333333333,90,96
+tree,200,88,Greedy Independent Cover,88.0,88,88
+tree,200,88,Sorted ListLeft,102.40333333333334,97,107
+tree,200,88,Sorted ListRight,166.65,162,173
+tree,200,88,DFS,124.0,124,124
+tree,200,88,Maximum Degree Greedy,92.71333333333334,90,96
+tree,200,88,Greedy Independent Cover,88.0,88,88
+tree,200,88,Sorted ListLeft,102.51666666666667,98,107
+tree,200,88,Sorted ListRight,166.56333333333333,160,172
+tree,200,88,DFS,124.0,124,124
+tree,200,88,Maximum Degree Greedy,92.67,90,97
+tree,200,88,Greedy Independent Cover,88.0,88,88
+tree,200,88,Sorted ListLeft,102.34666666666666,98,107
+tree,200,88,Sorted ListRight,166.6,161,172
+tree,200,88,DFS,124.0,124,124
+tree,200,88,Maximum Degree Greedy,92.66,90,96
+tree,200,88,Greedy Independent Cover,88.0,88,88
+tree,200,88,Sorted ListLeft,102.28666666666666,98,106
+tree,200,88,Sorted ListRight,166.72,161,173
+tree,200,88,DFS,124.0,124,124
+tree,200,88,Maximum Degree Greedy,92.79333333333334,90,97
+tree,200,88,Greedy Independent Cover,88.0,88,88
+tree,200,88,Sorted ListLeft,102.46666666666667,98,107
+tree,200,88,Sorted ListRight,166.66,161,172
+tree,200,88,DFS,124.0,124,124
+tree,200,88,Maximum Degree Greedy,92.83333333333333,90,97
+tree,200,88,Greedy Independent Cover,88.0,88,88
+tree,200,88,Sorted ListLeft,102.40666666666667,98,107
+tree,200,88,Sorted ListRight,166.67666666666668,161,174
+tree,200,88,DFS,124.0,124,124
+tree,200,88,Maximum Degree Greedy,92.80666666666667,90,97
+tree,200,88,Greedy Independent Cover,88.0,88,88
+tree,200,88,Sorted ListLeft,102.34666666666666,98,108
+tree,200,88,Sorted ListRight,166.60666666666665,161,174
+tree,200,88,DFS,124.0,124,124
+tree,350,149,Maximum Degree Greedy,154.11,151,157
+tree,350,149,Greedy Independent Cover,149.0,149,149
+tree,350,149,Sorted ListLeft,162.73333333333332,158,167
+tree,350,149,Sorted ListRight,301.42333333333335,295,308
+tree,350,149,DFS,196.0,196,196
+tree,350,149,Maximum Degree Greedy,154.10666666666665,151,157
+tree,350,149,Greedy Independent Cover,149.0,149,149
+tree,350,149,Sorted ListLeft,162.92,159,167
+tree,350,149,Sorted ListRight,301.7866666666667,296,307
+tree,350,149,DFS,196.0,196,196
+tree,350,149,Maximum Degree Greedy,154.19,151,158
+tree,350,149,Greedy Independent Cover,149.0,149,149
+tree,350,149,Sorted ListLeft,162.68666666666667,158,168
+tree,350,149,Sorted ListRight,301.63666666666666,296,309
+tree,350,149,DFS,196.0,196,196
+tree,350,149,Maximum Degree Greedy,154.17333333333335,151,157
+tree,350,149,Greedy Independent Cover,149.0,149,149
+tree,350,149,Sorted ListLeft,162.66,158,168
+tree,350,149,Sorted ListRight,301.48,296,308
+tree,350,149,DFS,196.0,196,196
+tree,350,149,Maximum Degree Greedy,154.28,151,157
+tree,350,149,Greedy Independent Cover,149.0,149,149
+tree,350,149,Sorted ListLeft,162.91666666666666,158,168
+tree,350,149,Sorted ListRight,301.61333333333334,295,307
+tree,350,149,DFS,196.0,196,196
+tree,350,149,Maximum Degree Greedy,154.09666666666666,151,157
+tree,350,149,Greedy Independent Cover,149.0,149,149
+tree,350,149,Sorted ListLeft,162.92333333333335,158,168
+tree,350,149,Sorted ListRight,301.4066666666667,294,308
+tree,350,149,DFS,196.0,196,196
+tree,350,149,Maximum Degree Greedy,154.19666666666666,151,157
+tree,350,149,Greedy Independent Cover,149.0,149,149
+tree,350,149,Sorted ListLeft,162.8,158,168
+tree,350,149,Sorted ListRight,301.4033333333333,295,309
+tree,350,149,DFS,196.0,196,196
+tree,350,149,Maximum Degree Greedy,154.37,151,158
+tree,350,149,Greedy Independent Cover,149.0,149,149
+tree,350,149,Sorted ListLeft,162.78,157,168
+tree,350,149,Sorted ListRight,301.38666666666666,295,308
+tree,350,149,DFS,196.0,196,196
+tree,350,149,Maximum Degree Greedy,154.08,151,157
+tree,350,149,Greedy Independent Cover,149.0,149,149
+tree,350,149,Sorted ListLeft,162.71,158,169
+tree,350,149,Sorted ListRight,301.66,296,309
+tree,350,149,DFS,196.0,196,196
+tree,350,149,Maximum Degree Greedy,154.16333333333333,151,158
+tree,350,149,Greedy Independent Cover,149.0,149,149
+tree,350,149,Sorted ListLeft,162.75333333333333,158,167
+tree,350,149,Sorted ListRight,301.49333333333334,296,308
+tree,350,149,DFS,196.0,196,196
