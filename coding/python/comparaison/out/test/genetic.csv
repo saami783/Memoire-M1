@@ -1,0 +1,6 @@
+Graph,Nodes,Optimal_Size,Heuristic,Average_Size,Best_Size,Worst_Size
+frb,450,420,Genetic,164.93333333333334,150,172
+frb,450,420,Genetic,165.07333333333332,148,172
+frb,450,420,Genetic,164.93,150,173
+frb,450,420,Genetic,164.98333333333332,154,172
+frb,450,420,Genetic,164.60333333333332,153,173

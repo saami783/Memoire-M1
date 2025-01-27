@@ -54,12 +54,13 @@ def evaluate_algorithm(graph, num_runs=300, verbose=True):
         # "Harmony Search": [],
         # "Local Search Ratio": [],
         # "ACO": [],
+        # "Genetic": [],
 
         "Local Search": [], # en cours depuis 19h15
         "ILS": [],  # lancé à 21H25
         "VNS": [],  # lancé à 21H25
         "Memetic": [], # lancé à 21H36
-        "Genetic": [],  # lancé à 21H36
+
     }
 
     for run in range(1, num_runs + 1):
@@ -84,12 +85,13 @@ def evaluate_algorithm(graph, num_runs=300, verbose=True):
         # results["Harmony Search"].append(len(harmony_search_(graph)))
         # results["Local Search Ratio"].append(len(local_ratio(graph)))
         # results["ACO"].append(len(aco(graph)))
+        # results["Genetic"].append(len(genetic(graph)))
 
         results["Local Search"].append(len(local_search(graph)))
         results["ILS"].append(len(ils(graph)))
         results["VNS"].append(len(vns(graph)))
         results["Memetic"].append(len(memetic(graph)))
-        results["Genetic"].append(len(genetic(graph)))
+
     return {
         heuristic: calculate_statistics(sizes)
         for heuristic, sizes in results.items()
