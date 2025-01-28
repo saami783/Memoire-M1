@@ -37,27 +37,26 @@ def evaluate_algorithm(graph, num_runs=300, verbose=True):
         # "FPT": [],  # <--- Retiré
         # "Tabu": [],  # <--- Retiré très très long
         # "LP Rounding": [],
+        # "ILS": [],  # lancé à 21H25
 
-        # "Maximum Degree Greedy": [],
-        # "Greedy Independent Cover": [],
-        # "Sorted ListLeft": [],
-        # "Sorted ListRight": [],
-        # "DFS": [],
-        # "Matching Based": [],
-        # "Minimum Degree Greedy": [],
-        # "Primal Dual": [],
-        # "PSO": [],
-        # "Degree Reduction": [],
-        # "Bar Yehuda Even": [],
-        # "Approximate matching": [],
-        # "Edge Deletion": [],
-        # "Harmony Search": [],
-        # "Local Search Ratio": [],
-        # "ACO": [],
-        # "Genetic": [],
-
+        "Maximum Degree Greedy": [],
+        "Greedy Independent Cover": [],
+        "Sorted ListLeft": [],
+        "Sorted ListRight": [],
+        "DFS": [],
+        "Matching Based": [],
+        "Minimum Degree Greedy": [],
+        "Primal Dual": [],
+        "PSO": [],
+        "Degree Reduction": [],
+        "Bar Yehuda Even": [],
+        "Approximate matching": [],
+        "Edge Deletion": [],
+        "Harmony Search": [],
+        "Local Search Ratio": [],
+        "ACO": [],
+        "Genetic": [],
         "Local Search": [], # en cours depuis 19h15
-        "ILS": [],  # lancé à 21H25
         "VNS": [],  # lancé à 21H25
         "Memetic": [], # lancé à 21H36
 
@@ -68,27 +67,26 @@ def evaluate_algorithm(graph, num_runs=300, verbose=True):
         # results["FPT"].append(len(fpt(graph))) # <--- Commenté
         # results["Tabu"].append(len(tabu_search_(graph)))
         # results["LP Rounding"].append(len(lp_rounding(graph)))
+        # results["ILS"].append(len(ils(graph)))
 
-        # results["Maximum Degree Greedy"].append(len(maximum_degree_greedy(graph)))
-        # results["Greedy Independent Cover"].append(len(greedy_independent_cover(graph)))
-        # results["Sorted ListLeft"].append(len(sorted_list_left(graph)))
-        # results["Sorted ListRight"].append(len(sorted_list_right(graph)))
-        # results["DFS"].append(len(dfs(graph)))
-        # results["Matching Based"].append(len(matching_based(graph)))
-        # results["Minimum Degree Greedy"].append(len(minimum_degree_greedy(graph)))
-        # results["Primal Dual"].append(len(primal_dual(graph)))
-        # results["PSO"].append(len(pso(graph)))
-        # results["Degree Reduction"].append(len(degree_reduction(graph)))
-        # results["Bar Yehuda Even"].append(len(bar_yehuda_even(graph)))
-        # results["Approximate matching"].append(len(approximate_matching(graph)))
-        # results["Edge Deletion"].append(len(edge_deletion(graph)))
-        # results["Harmony Search"].append(len(harmony_search_(graph)))
-        # results["Local Search Ratio"].append(len(local_ratio(graph)))
-        # results["ACO"].append(len(aco(graph)))
-        # results["Genetic"].append(len(genetic(graph)))
-
+        results["Maximum Degree Greedy"].append(len(maximum_degree_greedy(graph)))
+        results["Greedy Independent Cover"].append(len(greedy_independent_cover(graph)))
+        results["Sorted ListLeft"].append(len(sorted_list_left(graph)))
+        results["Sorted ListRight"].append(len(sorted_list_right(graph)))
+        results["DFS"].append(len(dfs(graph)))
+        results["Matching Based"].append(len(matching_based(graph)))
+        results["Minimum Degree Greedy"].append(len(minimum_degree_greedy(graph)))
+        results["Primal Dual"].append(len(primal_dual(graph)))
+        results["PSO"].append(len(pso(graph)))
+        results["Degree Reduction"].append(len(degree_reduction(graph)))
+        results["Bar Yehuda Even"].append(len(bar_yehuda_even(graph)))
+        results["Approximate matching"].append(len(approximate_matching(graph)))
+        results["Edge Deletion"].append(len(edge_deletion(graph)))
+        results["Harmony Search"].append(len(harmony_search_(graph)))
+        results["Local Search Ratio"].append(len(local_ratio(graph)))
+        results["ACO"].append(len(aco(graph)))
+        results["Genetic"].append(len(genetic(graph)))
         results["Local Search"].append(len(local_search(graph)))
-        results["ILS"].append(len(ils(graph)))
         results["VNS"].append(len(vns(graph)))
         results["Memetic"].append(len(memetic(graph)))
 
