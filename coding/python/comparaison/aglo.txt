@@ -1,0 +1,9 @@
+genetic --> erdos reniy; regular;
+harmony --> erdos reniy; regular;
+memetic --> erdos reniy; regular;
+
+genetic, harmony et memetic on des ratios inférieur à 0%
+
+à voir pour pso --> on supprime car il dépasse le ratio de 100%
+
+aco retourne systématiquement la taille du graphe comme solution => corrigé
