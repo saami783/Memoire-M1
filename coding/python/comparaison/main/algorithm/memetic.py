@@ -1,3 +1,5 @@
+# @todo retourne des solutions en dessous de la taille optimale
+
 import random
 from .utils import is_valid_cover  # signature is_valid_cover(C_set, graph)
 
