@@ -47,18 +47,18 @@ def evaluate_algorithm(graph, num_runs=300, verbose=True):
         "Matching Based": [],
         "Minimum Degree Greedy": [],
         "Primal Dual": [],
-        "PSO": [],
+        # "PSO": [],
         "Degree Reduction": [],
         "Bar Yehuda Even": [],
         "Approximate matching": [],
         "Edge Deletion": [],
-        "Harmony Search": [],
+        # "Harmony Search": [],
         "Local Search Ratio": [],
         "ACO": [],
-        "Genetic": [],
+        # "Genetic": [],
         "Local Search": [], # en cours depuis 19h15
         "VNS": [],  # lancé à 21H25
-        "Memetic": [], # lancé à 21H36
+        # "Memetic": [], # lancé à 21H36
 
     }
 
@@ -77,18 +77,18 @@ def evaluate_algorithm(graph, num_runs=300, verbose=True):
         results["Matching Based"].append(len(matching_based(graph)))
         results["Minimum Degree Greedy"].append(len(minimum_degree_greedy(graph)))
         results["Primal Dual"].append(len(primal_dual(graph)))
-        results["PSO"].append(len(pso(graph)))
+        # results["PSO"].append(len(pso(graph)))
         results["Degree Reduction"].append(len(degree_reduction(graph)))
         results["Bar Yehuda Even"].append(len(bar_yehuda_even(graph)))
         results["Approximate matching"].append(len(approximate_matching(graph)))
         results["Edge Deletion"].append(len(edge_deletion(graph)))
-        results["Harmony Search"].append(len(harmony_search_(graph)))
+        # results["Harmony Search"].append(len(harmony_search_(graph)))
         results["Local Search Ratio"].append(len(local_ratio(graph)))
         results["ACO"].append(len(aco(graph)))
-        results["Genetic"].append(len(genetic(graph)))
+        # results["Genetic"].append(len(genetic(graph)))
         results["Local Search"].append(len(local_search(graph)))
         results["VNS"].append(len(vns(graph)))
-        results["Memetic"].append(len(memetic(graph)))
+        # results["Memetic"].append(len(memetic(graph)))
 
     return {
         heuristic: calculate_statistics(sizes)
