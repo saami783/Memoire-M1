@@ -1,52 +1,51 @@
-import pandas as pd
+import numpy as np
+import scipy.stats as stats
 import matplotlib.pyplot as plt
+import pandas as pd
+np.random.seed(42)
 
-# Charger les données depuis le fichier Excel
-file_path = 'Classeur1.xlsx'
-df = pd.read_excel(file_path)
+# Définition des intervalles à tester
+intervals = [(0, 10), (0, 1), (0, 100), (0, 1000), (0, 1000000)]
+num_samples = 10_000_000
 
-algorithms = df['Heuristic'].unique()
-for algo in algorithms:
-    algo_df = df[df['Heuristic'] == algo]
+# Stockage des résultats
+chi2_results = {}
 
-# # Choisir un algorithme spécifique
-# selected_algo = 'DFS'  # Remplace par l'algorithme de ton choix
+for low, high in intervals:
+    # Génération des nombres pseudo-aléatoires
+    samples = np.random.randint(low, high + 1, size=num_samples)
 
-    # Filtrer les données pour cet algorithme
-    algo_df = df[df['Heuristic'] == algo]
+    # Comptage des occurrences
+    unique, counts = np.unique(samples, return_counts=True)
+    observed_freq = dict(zip(unique, counts))
 
-    # Configuration de la charte graphique pour correspondre à l'exemple fourni
-    plt.rcParams.update({
-        "text.usetex": True,
-        "font.family": "serif",
-        "axes.labelsize": 14,
-        "axes.titlesize": 16,
-        "xtick.labelsize": 12,
-        "ytick.labelsize": 12,
-        "legend.fontsize": 12,
-        "figure.figsize": (8, 6),
-        "xtick.direction": "in",
-        "ytick.direction": "in",
-        "axes.grid": False,
-    })
+    # Distribution uniforme théorique
+    expected_freq = num_samples / (high - low + 1)
 
-    # Créer le graphique
-    plt.figure()
+    # Liste des fréquences observées et attendues
+    observed = np.array([observed_freq.get(i, 0) for i in range(low, high + 1)])
+    expected = np.full_like(observed, expected_freq)
 
-    # Tracer l'histogramme en utilisant les valeurs existantes
-    plt.hist(algo_df['Approximation_Ratio'], bins=50, edgecolor='black', alpha=1, linewidth=1.2)
+    # Normalisation des fréquences attendues
+    expected = expected * (observed.sum() / expected.sum())
 
-    # Ajouter les labels et les limites de l'axe des x
-    plt.xlabel(r"\textbf{Pourcentage d'erreur}")
-    plt.ylabel(r"\textbf{Nombre de solutions}")
-    plt.xlim(0, 100)
+    # Test du Chi-2
+    chi2_stat, p_value = stats.chisquare(observed, expected)
+    chi2_results[(low, high)] = {"Chi2 Stat": chi2_stat, "p-value": p_value}
 
-    # Ajouter le titre correspondant
-    plt.title(r"\textbf{" + algo.replace('_', ' ') + r"}")
+# Affichage des résultats sous forme de tableau
+df_chi2 = pd.DataFrame.from_dict(chi2_results, orient="index")
+print(df_chi2)
 
-    # Ajustement des axes pour correspondre au style attendu
-    plt.xticks(range(0, 110, 20))
-    plt.yticks(range(0, 300, 50))
+# Génération du graphique pour l'intervalle [0,100]
+low, high = (0, 100)
+samples = np.random.randint(low, high + 1, size=num_samples)
+unique, counts = np.unique(samples, return_counts=True)
 
-    # Afficher le graphique
-    plt.show()
+plt.figure(figsize=(12, 6))
+plt.bar(unique, counts, width=0.8)
+plt.xticks(np.arange(low, high + 1, step=10))  # Affichage des abscisses de 10 en 10
+plt.xlabel("Valeurs générées")
+plt.ylabel("Nombre de fois généré")
+plt.title(f"Distribution des valeurs générées pour l'intervalle [{low}, {high}]")
+plt.show()

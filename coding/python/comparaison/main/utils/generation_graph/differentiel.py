@@ -4,7 +4,7 @@ import os
 import numpy as np
 
 file_name = "rapport approximation differentiel.xlsx"
-sheet_name = "erdos_reniy"
+sheet_name = "bhoslib"
 
 df = pd.read_excel(file_name, sheet_name=sheet_name, usecols=["Heuristic", "Rapport"])
 
@@ -15,7 +15,7 @@ df["Rapport"] = pd.to_numeric(df["Rapport"], errors='coerce')
 
 df = df.dropna()
 
-output_folder = f"graphics/{sheet_name}"
+output_folder = f"graphics/differentiel/{sheet_name}"
 os.makedirs(output_folder, exist_ok=True)
 
 grouped = df.groupby(["Heuristic", "Rapport"]).size().reset_index(name="Nombre de solutions")
@@ -55,7 +55,7 @@ for heuristic in heuristics:
 
     # Configuration du graphique
     plt.title(f"{heuristic}", fontsize=16)
-    plt.xlabel("Pourcentage d'erreur (Rapport)", fontsize=14)
+    plt.xlabel("Pourcentage d'erreur", fontsize=14)
     plt.ylabel("Nombre de solutions", fontsize=14)
 
     # Ajustement des échelles des axes
