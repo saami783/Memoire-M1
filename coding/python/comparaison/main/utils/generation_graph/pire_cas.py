@@ -7,7 +7,7 @@ if __name__ == "__main__":
     col_name = "Pire cas"
 
     # Liste des feuilles à traiter.
-    sheet_names = ["erdos_reniy", "bhoslib", "regular", "tree"]
+    sheet_names = ["erdos_renyi", "bhoslib", "regular", "tree"]
 
     for sheet in sheet_names:
 
