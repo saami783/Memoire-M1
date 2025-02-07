@@ -72,7 +72,6 @@ def plot_like_rapport(file_name, sheet_name, original_col, output_folder):
         )
 
         # Titres et labels
-        plt.title(f"{heuristic}", fontsize=16)
         plt.xlabel(f"Pourcentage d'erreur", fontsize=14)
         plt.ylabel("Nombre de solutions", fontsize=14)
 
@@ -90,7 +89,7 @@ def plot_like_rapport(file_name, sheet_name, original_col, output_folder):
         plt.tight_layout()
 
         # 9) Sauvegarde
-        output_filename = os.path.join(output_folder, f"{sheet_name}_{heuristic}_{original_col}.png")
+        output_filename = os.path.join(output_folder, f"{sheet_name}_{heuristic}.png")
         plt.savefig(output_filename, dpi=300)
         plt.close()
-        print(f"✅ Graphique enregistré : {output_filename}")
+        print(f"Graphique enregistré : {output_filename}")
