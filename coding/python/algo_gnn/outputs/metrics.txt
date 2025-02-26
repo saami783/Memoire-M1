@@ -1,4 +1,4 @@
-Exactitude sur le test : 81.69%
-Précision : 86.17%
-Rappel : 85.42%
-Score F1 : 85.80%
+Exactitude sur le test : 81.26%
+Précision : 85.94%
+Rappel : 84.95%
+Score F1 : 85.44%

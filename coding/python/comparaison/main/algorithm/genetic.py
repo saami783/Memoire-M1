@@ -5,8 +5,7 @@ from .utils import is_valid_cover
 
 def genetic(graph, population_size=30, generations=100, mutation_prob=0.1):
     """
-    Algorithme génétique simple pour Vertex Cover.
-    Chaque individu est représenté par un ensemble de sommets (ou un bitset).
+    Chaque individu est représenté par un ensemble de sommets.
     """
     nodes = list(graph.nodes())
     n = len(nodes)
@@ -20,8 +19,6 @@ def genetic(graph, population_size=30, generations=100, mutation_prob=0.1):
             return len(cover_set)
 
     # --- Générer la population initiale ---
-    #  1) Soit totalement aléatoire
-    #  2) Soit mixte : un peu BFS, DFS, etc.
     population = []
     for _ in range(population_size):
         # Version simple aléatoire : prend chaque sommet avec prob 0.5
@@ -76,3 +73,6 @@ def genetic(graph, population_size=30, generations=100, mutation_prob=0.1):
             best_cover = current_best
 
     return list(best_cover)
+
+# solution non realisable on ne la remet pas dans la population
+# croisenement en 2 points, uniforme, la coupe, l'echange par bijection

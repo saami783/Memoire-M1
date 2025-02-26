@@ -1,0 +1,27 @@
+types de GNN : GCNConv, GraphSAGE, GAT
+
+Vocabulaire :
+
+Époque :
+
+Une époque correspond à un passage complet (une itération complète) sur l’ensemble des données d’entraînement.
+Si j'ai par exemple, 1000 exemples dans mon ensemble d’entraînement, alors une époque consiste à faire une passe sur
+chacun de ces 1000 exemples (souvent organisés en plus petits lots, appelés « batchs » ou « mini-batchs »).
+
+Le nombre d'époques est un hyperparamètre que vous pouvez régler. Il s'agit du nombre de fois que l'algorithme d'apprentissage
+va parcourir l'ensemble des données d'entraînement. Plus vous entraînez votre modèle longtemps, plus il a de chances de s'améliorer,
+mais il y a un risque de surapprentissage.
+
+Le surapprentissage se produit lorsque le modèle apprend à mémoriser les données d'entraînement au lieu de généraliser à de nouvelles données.
+Cela se produit souvent lorsque le modèle est trop complexe ou qu'il est entraîné trop longtemps.
+
+Le surapprentissage peut être détecté en surveillant les performances du modèle sur un ensemble de données de validation distinct.
+Si les performances sur l'ensemble de validation commencent à se détériorer alors que les performances sur l'ensemble d'entraînement continuent de s'améliorer,
+cela signifie que le modèle est en train de surapprendre.
+
+Loss :
+
+La loss (ou fonction de coût, fonction de perte) est la mesure qui indique à quel point les prédictions du modèle sont
+ « mauvaises » par rapport aux valeurs cibles (labels) réelles.
+ C’est grâce à la loss qu’on peut calculer les gradients (via la rétropropagation) pour mettre à jour
+ les paramètres (poids) du modèle afin de réduire cette perte au fil des itérations.

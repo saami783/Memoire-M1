@@ -1,33 +1,53 @@
 import numpy as np
+import scipy.stats as stats
 import matplotlib.pyplot as plt
-import collections
+import pandas as pd
+np.random.seed(42)
 
-# Génération des nombres aléatoires entre 0 et 100 (10 millions de fois)
+# Définition des intervalles à tester
+intervals = [(0, 10), (0, 1), (0, 100), (0, 1000)]
 num_samples = 10_000_000
-values = np.random.randint(0, 100, num_samples)
 
-# Comptage des occurrences de chaque valeur
-counter = collections.Counter(values)
+# Stockage des résultats
+chi2_results = {}
 
-# Extraction des données pour le graphique
-x_values = sorted(counter.keys())  # Les valeurs uniques (0 à 99)
-y_counts = [counter[x] for x in x_values]  # Le nombre d'occurrences de chaque valeur
+for low, high in intervals:
+    # Génération des nombres pseudo-aléatoires
+    samples = np.random.randint(low, high + 1, size=num_samples)
 
+    # Comptage des occurrences
+    unique, counts = np.unique(samples, return_counts=True)
+    observed_freq = dict(zip(unique, counts))
 
-# Création du graphique
-plt.figure(figsize=(12, 8))
-plt.bar(x_values, y_counts, width=0.8, align='center',
+    # Distribution uniforme théorique
+    expected_freq = num_samples / (high - low + 1)
+
+    # Liste des fréquences observées et attendues
+    observed = np.array([observed_freq.get(i, 0) for i in range(low, high + 1)])
+    expected = np.full_like(observed, expected_freq)
+
+    # Normalisation des fréquences attendues
+    expected = expected * (observed.sum() / expected.sum())
+
+    # Test du Chi-2
+    chi2_stat, p_value = stats.chisquare(observed, expected)
+    chi2_results[(low, high)] = {"Chi2 Stat": chi2_stat, "p-value": p_value}
+
+# Affichage des résultats sous forme de tableau
+df_chi2 = pd.DataFrame.from_dict(chi2_results, orient="index")
+print(df_chi2)
+
+# Génération du graphique pour l'intervalle [0,100]
+low, high = (0, 100)
+samples = np.random.randint(low, high + 1, size=num_samples)
+unique, counts = np.unique(samples, return_counts=True)
+
+plt.figure(figsize=(12, 6))
+plt.bar(unique, counts,  width=0.8, align='center',
         edgecolor="black", color="none")
-
+plt.xticks(np.arange(low, high + 1, step=10))
 plt.xlabel("Valeurs générées", fontsize=14)
-plt.ylabel("Nombre d'occurrences", fontsize=14)
-plt.title("Distribution des valeurs générées aléatoirement",  fontsize=16)
-
-plt.xticks(range(0, 101, 10))
-plt.grid(axis='y', linestyle='--', alpha=0.7)
-
-# Enregistrement avant d'afficher
-plt.savefig("uniforme.png", dpi=300)  # dpi=300 pour une meilleure qualité
-
-# Affichage du graphique
+plt.ylabel("Nombre de fois généré", fontsize=14)
+# plt.title(f"Distribution des valeurs générées pour l'intervalle [{low}, {high}]", fontsize=16)
+plt.savefig("uniforme.png")
 plt.show()
