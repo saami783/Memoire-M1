@@ -1,52 +1,48 @@
+import os
 import networkx as nx
-from networkx.readwrite.graph6 import write_graph6
+import tqdm
 
-
-def load_graph_from_dimacs(filename):
-    """
-    Charge un graphe depuis un fichier DIMACS avec correction de l'indexation.
-    """
-    graph = nx.Graph()
-
+def load_dimacs_graph(filename):
+    """Charge un graphe au format DIMACS et le convertit en objet NetworkX."""
+    G = nx.Graph()
     with open(filename, "r") as f:
         for line in f:
-            line = line.strip()
-            if line.startswith("c") or line == "":
-                continue
-            if line.startswith("p"):
-                parts = line.split()
+            parts = line.split()
+            if parts[0] == "p":  # Ligne d'entête (nombre de sommets et arêtes)
                 num_nodes = int(parts[2])
-                graph.add_nodes_from(range(num_nodes))
-            elif line.startswith("e"):
-                parts = line.split()
-                u, v = int(parts[1]) - 1, int(parts[2]) - 1
-                graph.add_edge(u, v)
+                num_edges = int(parts[3])
+            elif parts[0] == "e":  # Définition des arêtes
+                u, v = int(parts[1]), int(parts[2])
+                G.add_edge(u, v)
+    return G
 
-    return graph
-
-
-def save_graph_as_g6(graph, output_file):
+def process_dimacs_files(input_folder, output_folder):
+    """Parcourt récursivement le dossier input_folder, convertit les fichiers .dimacs en .g6
+       et les stocke dans un dossier miroir sous output_folder.
     """
-    Sauvegarde un graphe en format Graph6 et affiche la chaîne générée.
-    """
-    g6_string = nx.to_graph6_bytes(graph, header=False).decode()
-    print("Graph6 généré :", g6_string)
+    for root, _, files in os.walk(input_folder):
+        for filename in files:
+            if filename.endswith(".dimacs"):
+                input_path = os.path.join(root, filename)
 
-    with open(output_file, "w") as f:
-        f.write(g6_string)
+                # Créer le chemin miroir dans output_folder
+                relative_path = os.path.relpath(root, input_folder)
+                output_dir = os.path.join(output_folder, relative_path)
+                os.makedirs(output_dir, exist_ok=True)
 
+                # Définir le chemin de sortie en remplaçant l'extension
+                output_path = os.path.join(output_dir, filename.replace(".dimacs", ".g6"))
+
+                # Charger et convertir le graphe
+                graph = load_dimacs_graph(input_path)
+                graph = nx.relabel_nodes(graph, lambda x: x - 1)
+                nx.write_graph6(graph, output_path, header=False)
+
+                print(f"Converti : {input_path} → {output_path}")
 
 if __name__ == "__main__":
-    filename = "dimacs_files/regular/regular_28_16_1.dimacs"
-    output_file = "graph.g6"
+    input_folder = "dimacs_files"   # Dossier contenant les fichiers .dimacs
+    output_folder = "graph6_files"  # Dossier de sortie
 
-    graph = load_graph_from_dimacs(filename)
-
-    print(f"Nombre de sommets : {graph.number_of_nodes()}")
-    print(f"Nombre d'arêtes : {graph.number_of_edges()}")
-
-    write_graph6(graph, "graph.g6")
-
-    save_graph_as_g6(graph, output_file)
-
-    print(f"Conversion réussie : {filename} → {output_file}")
+    process_dimacs_files(input_folder, output_folder)
+    print("Conversion terminée ! ✅")
