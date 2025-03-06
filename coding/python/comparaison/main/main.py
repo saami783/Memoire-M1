@@ -8,8 +8,8 @@ from graphs.load_graph import load_graph_from_dimacs
 from algorithm.evaluation import process_graph
 
 SEED = 42
-INPUT_DIR = "dimacs_files/bhoslib/frb"
-OUTPUT_FILE = "out/test/genetic.csv"
+INPUT_DIR = "dimacs_files/bhoslib"
+OUTPUT_FILE = "out/matching_based.csv"
 
 # Configuration du logger
 logging.basicConfig(level=logging.WARNING, format="%(asctime)s - %(levelname)s - %(message)s")

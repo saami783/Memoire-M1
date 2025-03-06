@@ -5,7 +5,8 @@ from .utils import is_valid_cover
 
 # à vérifier !!! ne fonctionne pas.
 # https://jair.org/index.php/jair/article/view/10812/25808
-def NuMVC(graph, cutoff=10, gamma=100, rho=0.3):
+# ERROR - Erreur lors du traitement du fichier tree_100_42_7.dimacs : 'Graph' object has no attribute 'vertices'
+def numvc(graph, cutoff=10, gamma=100, rho=0.3):
     """Implémentation corrigée de NuMVC conforme au pseudo-code"""
     start_time = time.time()
     vertices = list(graph.vertices)
