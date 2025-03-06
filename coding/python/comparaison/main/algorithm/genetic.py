@@ -1,78 +1,79 @@
-# @todo retourne des solutions en dessous de la taille optimale
-
+import numpy as np
 import random
-from .utils import is_valid_cover
 
-def genetic(graph, population_size=30, generations=100, mutation_prob=0.1):
-    """
-    Chaque individu est représenté par un ensemble de sommets.
-    """
-    nodes = list(graph.nodes())
-    n = len(nodes)
+# https://github.com/MKaczkow/genetic_algo/tree/main
+def initiate_population(pop_size, num_vertices):
+    """Génère une population initiale aléatoire."""
+    return np.random.randint(2, size=(pop_size, num_vertices))
 
-    def fitness(cover_set):
-        # On privilégie la taille la plus petite, tout en imposant
-        # une "pénalité" énorme si la couverture n'est pas valide
-        if not is_valid_cover(cover_set, graph):
-            return 10_000 + len(cover_set)
+
+def evaluate(population, graph):
+    """Évalue la population et retourne le meilleur couvert valide."""
+    best_member = np.ones(population.shape[1], dtype=int)
+    best_size = population.shape[1]
+
+    for member in population:
+        cover = [i for i, val in enumerate(member) if val == 1]
+        temp_graph = graph.copy()
+        temp_graph.delete_vertices(cover)
+
+        if temp_graph.ecount() == 0 and sum(member) < best_size:
+            best_member = member
+            best_size = sum(member)
+
+    return best_member
+
+
+def tournament_selection(population, graph):
+    """Sélection par tournoi entre deux individus."""
+    new_pop = np.empty_like(population)
+
+    for i in range(len(new_pop)):
+        # Sélection de deux candidats aléatoires
+        a, b = random.sample(range(len(population)), 2)
+        candidate1 = population[a]
+        candidate2 = population[b]
+
+        # Évaluation des candidats
+        def eval_candidate(cand):
+            cover = [i for i, val in enumerate(cand) if val == 1]
+            g = graph.copy()
+            g.delete_vertices(cover)
+            return (g.ecount(), sum(cand))
+
+        score1 = eval_candidate(candidate1)
+        score2 = eval_candidate(candidate2)
+
+        # Sélection du meilleur
+        if score1 < score2 or (score1 == score2 and sum(candidate1) < sum(candidate2)):
+            new_pop[i] = candidate1
         else:
-            return len(cover_set)
+            new_pop[i] = candidate2
 
-    # --- Générer la population initiale ---
-    population = []
-    for _ in range(population_size):
-        # Version simple aléatoire : prend chaque sommet avec prob 0.5
-        individual = {node for node in nodes if random.random() < 0.5}
-        population.append(individual)
+    return new_pop
 
-    # Evolution
-    best_cover = min(population, key=fitness)
 
-    for gen in range(generations):
-        # 1) Évaluation
-        sorted_pop = sorted(population, key=fitness)
+def mutate(population, mutation_prob=0.01):
+    """Applique des mutations aléatoires à la population."""
+    mutated = population.copy()
+    num_genes = mutated.shape[1]
 
-        # 2) Sélection (garder les meilleurs 50%)
-        survivors = sorted_pop[: population_size // 2]
+    for i in range(len(mutated)):
+        if random.random() < mutation_prob:
+            gene = random.randint(0, num_genes - 1)
+            mutated[i, gene] = 1 - mutated[i, gene]
 
-        # 3) Croisement (reproduction)
-        new_population = []
-        while len(new_population) < population_size:
-            p1 = random.choice(survivors)
-            p2 = random.choice(survivors)
-            # Croisement (union, intersection, mélange aléatoire)
+            if random.random() < mutation_prob ** 2:
+                mutated[i, (gene - 1) % num_genes] = 1 - mutated[i, (gene - 1) % num_genes]
 
-            # Exemple : on fait un "mélange" bit‐à‐bit
-            child = set()
-            for node in nodes:
-                if node in p1 and node in p2:
-                    child.add(node)
-                elif node in p1 or node in p2:
-                    # 50% de chances
-                    if random.random() < 0.5:
-                        child.add(node)
-                else:
-                    # ni p1 ni p2
-                    pass
+    return mutated
 
-            # Mutation
-            for node in nodes:
-                if random.random() < mutation_prob:
-                    if node in child:
-                        child.remove(node)
-                    else:
-                        child.add(node)
 
-            new_population.append(child)
+def evolve(graph, population, max_generations=100, mutation_prob=0.01):
+    """Exécute l'algorithme génétique et retourne le meilleur couvert."""
+    for _ in range(max_generations):
+        population = tournament_selection(population, graph)
+        population = mutate(population, mutation_prob)
 
-        population = new_population
-
-        # Mettre à jour le meilleur
-        current_best = min(population, key=fitness)
-        if fitness(current_best) < fitness(best_cover):
-            best_cover = current_best
-
-    return list(best_cover)
-
-# solution non realisable on ne la remet pas dans la population
-# croisenement en 2 points, uniforme, la coupe, l'echange par bijection
+    best_solution = evaluate(population, graph)
+    return [i for i, val in enumerate(best_solution) if val == 1]

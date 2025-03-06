@@ -1,6 +1,10 @@
 import random
 
 def maximum_degree_greedy(graph):
+    """
+    Algorithme glouton qui sélectionne le sommet de degré maximum, l'ajoute au cover, et supprime ses arêtes.
+    Si plusieurs sommets ont le même degré maximum, on en choisit un aléatoirement.
+    """
     C = set()
     temp_graph = graph.copy()
 
