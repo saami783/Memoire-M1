@@ -2,6 +2,7 @@ import networkx as nx
 
 def load_graph_from_dimacs(filename):
     """
+    @todo charger les graph6
     Charge un graphe depuis un fichier DIMACS.
     """
     graph = nx.Graph()
