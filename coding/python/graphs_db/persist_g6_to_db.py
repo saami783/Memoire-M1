@@ -1,7 +1,7 @@
 import os
 import sqlite3
 import networkx as nx
-
+import json
 
 def create_database(db_name="graphes.db"):
     conn = sqlite3.connect(db_name)
@@ -18,11 +18,29 @@ def create_database(db_name="graphes.db"):
             densite REAL,
             num_nodes INTEGER,
             cover_size INTEGER,
-            instance_number INTEGER
-        )
+            instance_number INTEGER,
+            max_degree INTEGER,
+            min_degree INTEGER,
+            avg_degree REAL,
+            num_deg_one INTEGER,
+            count_triangles INTEGER,
+            total_triangles INTEGER,
+            fraction_closed_triangles REAL,
+            avg_count_triangles REAL,
+            max_count_triangles INTEGER,
+            min_count_triangles INTEGER,
+            avg_neighbor_deg REAL,
+            sum_neighbor_deg REAL,
+            avg_node_connectivity REAL,
+            degree_assortativity_coefficient REAL,
+            diameter INTEGER,
+            local_efficiency REAL,
+            avg_neighbor_clustering REAL,
+            avg_clustering_coefficient REAL
+        ) 
     """)
 
-    conn.commit()
+    conn.commit() # 22H03
     conn.close()
 
 
@@ -58,33 +76,26 @@ def insert_graph(db_name, file_path, root_dir):
     densite = (2 * count_edges) / (nb_sommets * (nb_sommets - 1)) if nb_sommets > 1 else 0
     canonical_form = nx.to_graph6_bytes(graph, header=False).decode('ascii').strip()
 
-    # max_degree = max(deg for node, deg in graph.degree)
-    # min_degree = min(deg for node, deg in graph.degree)
-    # avg_degree = sum(deg for node, deg in graph.degree) / nb_sommets if nb_sommets > 0 else 0
-    # num_deg_one = sum(1 for node, deg in graph.degree if deg == 1)
-    # count_triangles = sum(nx.triangles(graph).values()) // 3  # Division entière. Calcul le nombre de triangles fermés
-    # total_triangles = sum(1 for node, deg in graph.degree if deg >= 2) # Calcul le nombre de triangles totaux (fermé ou non)
-    # fraction_closed_triangles = count_triangles / total_triangles if total_triangles > 0 else 0
-    # avg_count_triangles = count_triangles / count_edges if count_edges > 0 else 0
-    # max_count_triangles = max(nx.triangles(graph).values())
-    # min_count_triangles = min(nx.triangles(graph).values())
-    # avg_neighbor_deg = sum(nx.average_neighbor_degree(graph).values()) / nb_sommets if nb_sommets > 0 else 0
-    # sum_neighbor_deg = sum(nx.average_degree_connectivity(graph).values())
-    # avg_node_connectivity = sum(nx.average_node_connectivity(graph).values()) / nb_sommets if nb_sommets > 0 else 0
-    # degree_assortativity_coefficient = nx.degree_assortativity_coefficient(graph)
-    # degrees = dict(graph.degree)
-    # betweenness_centrality = nx.betweenness_centrality(graph)
-    # closeness_centrality = nx.closeness_centrality(graph)
-    # eigenvector_centrality = nx.eigenvector_centrality(graph)
-    # pagerank = nx.pagerank(graph)
-    # core_number = nx.core_number(graph)
-    # harmonic_centrality = nx.harmonic_centrality(graph)
-    # load_centrality = nx.load_centrality(graph)
-    # eccentricity = nx.eccentricity(graph)
-    # diameter = nx.diameter(graph)
-    # local_efficiency = nx.local_efficiency(graph)
-    # avg_neighbor_clustering = nx.average_clustering(graph)
-    # avg_clustering_coefficient = nx.average_clustering(graph)
+    max_degree = max(deg for node, deg in graph.degree)
+    min_degree = min(deg for node, deg in graph.degree)
+    avg_degree = sum(deg for node, deg in graph.degree) / nb_sommets if nb_sommets > 0 else 0
+    num_deg_one = sum(1 for node, deg in graph.degree if deg == 1)
+    count_triangles = sum(nx.triangles(graph).values()) // 3  # Division entière. Calcul le nombre de triangles fermés
+    total_triangles = sum(1 for node, deg in graph.degree if deg >= 2) # Calcul le nombre de triangles totaux (fermé ou non)
+    fraction_closed_triangles = count_triangles / total_triangles if total_triangles > 0 else 0
+    avg_count_triangles = count_triangles / count_edges if count_edges > 0 else 0
+    max_count_triangles = max(nx.triangles(graph).values())
+    min_count_triangles = min(nx.triangles(graph).values())
+    avg_neighbor_deg = sum(nx.average_neighbor_degree(graph).values()) / nb_sommets if nb_sommets > 0 else 0
+    sum_neighbor_deg = sum(nx.average_degree_connectivity(graph).values())
+    avg_node_connectivity = nx.average_node_connectivity(graph) / nb_sommets if nb_sommets > 0 else 0
+    degree_assortativity_coefficient = nx.degree_assortativity_coefficient(graph)
+    diameter = nx.diameter(graph)
+    local_efficiency = nx.local_efficiency(graph)
+    avg_neighbor_clustering = nx.average_clustering(graph)
+    avg_clustering_coefficient = nx.average_clustering(graph)
+
+
 
     graph_name_with_extension = os.path.basename(file_path)  # Le nom complet du fichier avec l'extension
     graph_name = os.path.splitext(graph_name_with_extension)[0]  # Retirer l'extension ".g6"
@@ -112,10 +123,25 @@ def insert_graph(db_name, file_path, root_dir):
     print(f"Nom du graphe : {graph_name}")
     print(f"Propriétés : num_nodes = {num_nodes}, cover_size = {cover_size}, instance_number = {instance_number}")
 
+
+
     cursor.execute("""
-        INSERT INTO graphes (graph_name, canonical_form, class, nb_sommets, nb_aretes, densite, num_nodes, cover_size, instance_number) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-    """, (graph_name, canonical_form, graph_class, nb_sommets, count_edges, densite, num_nodes, cover_size, instance_number))
+            INSERT INTO graphes (
+                graph_name, canonical_form, class, nb_sommets, nb_aretes, densite,
+                num_nodes, cover_size, instance_number, max_degree, min_degree, avg_degree,
+                num_deg_one, count_triangles, total_triangles, fraction_closed_triangles,
+                avg_count_triangles, max_count_triangles, min_count_triangles, avg_neighbor_deg,
+                sum_neighbor_deg, avg_node_connectivity, degree_assortativity_coefficient,
+                diameter, local_efficiency, avg_neighbor_clustering, avg_clustering_coefficient
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (
+        graph_name, canonical_form, graph_class, nb_sommets, count_edges, densite,
+        num_nodes, cover_size, instance_number, max_degree, min_degree, avg_degree,
+        num_deg_one, count_triangles, total_triangles, fraction_closed_triangles,
+        avg_count_triangles, max_count_triangles, min_count_triangles, avg_neighbor_deg,
+        sum_neighbor_deg, avg_node_connectivity, degree_assortativity_coefficient,
+        diameter, local_efficiency, avg_neighbor_clustering, avg_clustering_coefficient
+    ))
 
     conn.commit()
     conn.close()
