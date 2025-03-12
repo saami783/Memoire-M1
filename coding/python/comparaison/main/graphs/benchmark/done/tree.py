@@ -3,16 +3,24 @@ import networkx as nx
 from tqdm import tqdm
 from main.solveur.solveur import minimum_vertex_cover
 from networkx.generators import trees
+import random
 
 FIXED_SEED = 42
-TREE_SIZES = [20, 40, 60, 80, 100]  # Nombre de nœuds
-GRAPHS_PER_COMBINATION = 5  # Instances par taille
+TREE_SIZES = [25, 50, 75, 100, 250, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3250, 3500, 3750, 4000]
+GRAPHS_PER_COMBINATION = 5
 
+# arbre simple et sans cycle (récursif aléatoire non uniformément réparti)
+def generate_random_tree(n, seed=None):
+    if seed is not None:
+        random.seed(seed)
 
-def generate_tree(num_nodes, seed):
-    """Génère un arbre aléatoire avec n nœuds"""
-    return trees.random_tree(num_nodes, seed=seed)
+    tree = nx.Graph()
+    tree.add_nodes_from(range(n))
+    for i in range(1, n):
+        parent = random.randint(0, i - 1)
+        tree.add_edge(parent, i)
 
+    return tree
 
 def save_graph_to_g6(graph, filename):
     os.makedirs("g6_files/tree/", exist_ok=True)
@@ -20,19 +28,16 @@ def save_graph_to_g6(graph, filename):
 
 
 if __name__ == "__main__":
-    # Déterminer la taille cible pour chaque n
     target_cover_sizes = {}
 
     for n in TREE_SIZES:
-        # Génération de l'arbre de référence
         base_seed = hash(f"{FIXED_SEED}-{n}") % (2 ** 32)
-        tree = generate_tree(n, base_seed)
+        tree = generate_random_tree(n, base_seed)
         solveur = minimum_vertex_cover(tree)
 
         if solveur and solveur[1] == "Optimal":
             target_cover_sizes[n] = solveur[0]
 
-    # Génération des instances avec taille contrôlée
     for n, target_size in target_cover_sizes.items():
         instance_count = 0
         attempt = 0
@@ -40,7 +45,7 @@ if __name__ == "__main__":
         with tqdm(total=GRAPHS_PER_COMBINATION, desc=f"Arbres n={n}", leave=False) as pbar:
             while instance_count < GRAPHS_PER_COMBINATION and attempt < 1000:
                 seed = hash(f"{FIXED_SEED}-{n}-{attempt}") % (2 ** 32)
-                tree = generate_tree(n, seed)
+                tree = generate_random_tree(n, seed)
                 solveur = minimum_vertex_cover(tree)
 
                 if solveur and solveur[1] == "Optimal" and solveur[0] == target_size:
