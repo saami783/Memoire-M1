@@ -34,9 +34,12 @@ def minimum_vertex_cover(graph: nx.Graph):
     # Résolution du problème
     prob.solve()
 
-    # Extraction des résultats
     status = LpStatus[prob.status]
+    if status != "Optimal":
+        print(f"Le solveur n'a pas trouvé la solution exacte. Statut = {status}")
+        return None
+
     solution = {v: int(vertex_vars[v].value()) for v in graph.nodes()}
     cover_size = sum(solution[v] for v in graph.nodes())
 
-    return solution, cover_size, status
+    return cover_size, status
