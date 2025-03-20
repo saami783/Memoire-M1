@@ -38,11 +38,11 @@ def process_dimacs_files(input_folder, output_folder):
                 graph = nx.relabel_nodes(graph, lambda x: x - 1)
                 nx.write_graph6(graph, output_path, header=False)
 
-                print(f"Converti : {input_path} → {output_path}")
+                print(f"Converti : {input_path} -> {output_path}")
 
 if __name__ == "__main__":
-    input_folder = "dimacs_files"   # Dossier contenant les fichiers .dimacs
-    output_folder = "graph6_files"  # Dossier de sortie
+    input_folder = "dimacs_files"
+    output_folder = "graph6_files"
 
     process_dimacs_files(input_folder, output_folder)
-    print("Conversion terminée ! ✅")
+    print("Conversion terminée !")
