@@ -10,7 +10,7 @@ def create_database(db_name="graphes.db"):
     cursor = conn.cursor()
 
     cursor.execute("""
-        CREATE TABLE IF NOT EXISTS graphes (
+       CREATE TABLE IF NOT EXISTS graphes (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             graph_name TEXT,
             canonical_form TEXT,
@@ -36,8 +36,20 @@ def create_database(db_name="graphes.db"):
             diameter INTEGER,
             local_efficiency REAL,
             avg_neighbor_clustering REAL,
-            avg_clustering_coefficient REAL
-        ) 
+            avg_clustering_coefficient REAL,
+            is_acyclic INTEGER NOT NULL,
+            is_bipartite INTEGER NOT NULL,
+            is_connected INTEGER NOT NULL,
+            radius INTEGER,
+            matching_number INTEGER,
+            largest_eigenvalue REAL,
+            num_components INTEGER,
+            is_eularian INTEGER NOT NULL,
+            is_semi_eularian INTEGER NOT NULL,
+            g_is_planar INTEGER NOT NULL,
+            twin_free INTEGER NOT NULL
+        );
+
     """)
 
     conn.commit() # 22H03
@@ -71,33 +83,7 @@ def insert_graph(db_name, file_path, root_dir):
     conn = sqlite3.connect(db_name)
     cursor = conn.cursor()
 
-    #             id INTEGER PRIMARY KEY AUTOINCREMENT,
-    #             graph_name TEXT,
-    #             canonical_form TEXT,
-    #             class TEXT,
-    #             nb_sommets INTEGER,
-    #             nb_aretes INTEGER,
-    #             densite REAL,
-    #             cover_size INTEGER,
-    #             instance_number INTEGER,
-    #             max_degree INTEGER,
-    #             min_degree INTEGER,
-    #             avg_degree REAL,
-    #             num_deg_one INTEGER,
-    #             count_triangles INTEGER,
-    #             total_triangles INTEGER,
-    #             fraction_closed_triangles REAL,
-    #             avg_count_triangles REAL,
-    #             max_count_triangles INTEGER,
-    #             min_count_triangles INTEGER,
-    #             avg_neighbor_deg REAL,
-    #             sum_neighbor_deg REAL,
-    #             degree_assortativity_coefficient REAL,
-    #             diameter INTEGER,
-    #             local_efficiency REAL,
-    #             avg_neighbor_clustering REAL,
-    #             avg_clustering_coefficient REAL
-
+    start_time = time.time()
     graph, nb_sommets = load_g6_graph(file_path)
     graph_name_with_extension = os.path.basename(file_path)
 
@@ -106,8 +92,8 @@ def insert_graph(db_name, file_path, root_dir):
     graph_class = extract_graph_class(file_path, root_dir)
     nb_aretes = graph.number_of_edges()
     densite = (2 * nb_aretes) / (nb_sommets * (nb_sommets - 1)) if nb_sommets > 1 else 0
-    cover_size = None
-    instance_number = None
+    cover_size = 1
+    instance_number = 1
     max_degree = max(deg for node, deg in graph.degree)
     min_degree = min(deg for node, deg in graph.degree)
     avg_degree = sum(deg for node, deg in graph.degree) / nb_sommets if nb_sommets > 0 else 0
@@ -132,18 +118,6 @@ def insert_graph(db_name, file_path, root_dir):
     is_connected = nx.is_connected(graph)
     radius = nx.radius(graph)
 
-    # start_time = time.time()
-    # end_time = time.time()
-    # execution_time = end_time - start_time
-    #
-    # print(f"Temps d execution : {execution_time}"+"secondes")
-
-
-
-    # propriétés problèmatiques :
-    cliques = list(nx.find_cliques(graph))  # Trouver toutes les cliques maximales
-    nb_cliques = len(cliques) # Nombre de cliques maximales
-
     matching = nx.max_weight_matching(graph, maxcardinality=True, weight=None) # Trouver l'appariement de taille maximale
     matching_number = len(matching) # Nombre d'arêtes dans le matching maximal - 5 secondes
 
@@ -153,85 +127,107 @@ def insert_graph(db_name, file_path, root_dir):
     largest_eigenvalue = np.max(eigenvalues) # Plus grande valeur propre
 
     # algebraic_connectivity
-    L = nx.laplacian_matrix(graph).todense() # Calcul de la matrice du laplacien
-    eigenvalues = np.linalg.eigvals(L)  # Calcul des valeurs propres du laplacien
-    largest_eigenvalue = np.max(eigenvalues)  # Plus grande valeur propre
-
     num_components = nx.number_connected_components(graph) # calcule le nombre de composants connexes
-
     is_eularian = nx.is_eulerian(graph)
     is_semi_eularian = nx.is_semieulerian(graph)
-
     g_is_planar = is_planar(graph)
-
-    tw = nx.algorithms.approximation.treewidth_min_degree(graph)
-
+    # tw = nx.algorithms.approximation.treewidth_min_degree(graph)
     twin_free = is_twin_free(graph)  # 40 sec
 
-    # print(f"Nom du graphe : {graph_name}")
-    # print(f"Propriétés : num_nodes = {num_nodes}, cover_size = {cover_size}, instance_number = {instance_number}")
+    end_time = time.time()
+    execution_time = end_time - start_time
+
+    print(f"Temps d execution : {execution_time}"+"secondes")
+
+    print(f"Nom du graphe : {graph_name}")
+    print(f"Propriétés : num_nodes = {nb_sommets}, cover_size = {cover_size}, instance_number = {instance_number}")
 
 
+    # propriétés problèmatiques :
+    # # avg_node_connectivity = nx.average_node_connectivity( graph) / nb_sommets if nb_sommets > 0 else 0  # testé sur 1h et continue de tourner.
+    #
+    # cliques = list(nx.find_cliques(graph))  # problème np-difficile basé sur l'énumération donc impraticable
+    # nb_cliques = len(cliques) # Nombre de cliques maximales
 
+    largest_eigenvalue = np.max(np.linalg.eigvals(L))  # Directement récupérer la plus grande valeur propre
 
-
-    # avg_node_connectivity = nx.average_node_connectivity( graph) / nb_sommets if nb_sommets > 0 else 0  # testé sur 1h et continue de tourner.
-
-    # cursor.execute("""
-    #         INSERT INTO graphes (
-    #         graph_name,
-    #         canonical_form,
-    #         class,
-    #         nb_sommets,
-    #         nb_aretes,
-    #         densite,
-    #         cover_size,
-    #         instance_number,
-    #         max_degree,
-    #         min_degree,
-    #         avg_degree,
-    #         num_deg_one,
-    #         count_triangles,
-    #         total_triangles,
-    #         fraction_closed_triangles,
-    #         avg_count_triangles,
-    #         max_count_triangles,
-    #         min_count_triangles,
-    #         avg_neighbor_deg,
-    #         sum_neighbor_deg,
-    #         degree_assortativity_coefficient,
-    #         diameter,
-    #         local_efficiency,
-    #         avg_neighbor_clustering,
-    #         avg_clustering_coefficient
-    #         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    #     """, (
-    #         graph_name,
-    #         canonical_form,
-    #         graph_class,
-    #         nb_sommets,
-    #         count_edges,
-    #         densite,
-    #         cover_size,
-    #         instance_number,
-    #         max_degree,
-    #         min_degree,
-    #         avg_degree,
-    #         num_deg_one,
-    #         count_triangles,
-    #         total_triangles,
-    #         fraction_closed_triangles,
-    #         avg_count_triangles,
-    #         max_count_triangles,
-    #         min_count_triangles,
-    #         avg_neighbor_deg,
-    #         sum_neighbor_deg,
-    #         degree_assortativity_coefficient,
-    #         diameter,
-    #         local_efficiency,
-    #         avg_neighbor_clustering,
-    #         avg_clustering_coefficient
-    # ))
+    cursor.execute("""
+        INSERT INTO graphes (
+            graph_name,
+            canonical_form,
+            class,
+            nb_sommets,
+            nb_aretes,
+            densite,
+            cover_size,
+            instance_number,
+            max_degree,
+            min_degree,
+            avg_degree,
+            num_deg_one,
+            count_triangles,
+            total_triangles,
+            fraction_closed_triangles,
+            avg_count_triangles,
+            max_count_triangles,
+            min_count_triangles,
+            avg_neighbor_deg,
+            sum_neighbor_deg,
+            degree_assortativity_coefficient,
+            diameter,
+            local_efficiency,
+            avg_neighbor_clustering,
+            avg_clustering_coefficient,
+            is_acyclic,
+            is_bipartite,
+            is_connected,
+            radius,
+            matching_number,
+            largest_eigenvalue,
+            num_components,
+            is_eularian,
+            is_semi_eularian,
+            g_is_planar,
+            twin_free
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """, (
+        graph_name,
+        canonical_form,
+        graph_class,
+        nb_sommets,
+        nb_aretes,
+        densite,
+        cover_size,
+        instance_number,
+        max_degree,
+        min_degree,
+        avg_degree,
+        num_deg_one,
+        count_triangles,
+        total_triangles,
+        fraction_closed_triangles,
+        avg_count_triangles,
+        max_count_triangles,
+        min_count_triangles,
+        avg_neighbor_deg,
+        sum_neighbor_deg,
+        degree_assortativity_coefficient,
+        diameter,
+        local_efficiency,
+        avg_neighbor_clustering,
+        avg_clustering_coefficient,
+        is_acyclic,
+        is_bipartite,
+        is_connected,
+        radius,
+        matching_number,
+        largest_eigenvalue,
+        num_components,
+        is_eularian,
+        is_semi_eularian,
+        g_is_planar,
+        twin_free
+    ))
 
     conn.commit()
     conn.close()
