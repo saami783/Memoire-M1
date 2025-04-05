@@ -44,14 +44,15 @@ def evaluate_algorithm(graph, num_runs=300, verbose=True):
         for heuristic, sizes in results.items()
     }
 
-def process_graph(filename, graph, opt_size, verbose=True):
+def process_graph(filename, graph, opt_size,  num_nodes, num_edges, verbose=True):
     """Évalue les heuristiques sur un graphe donné et retourne les résultats."""
     heuristic_results = evaluate_algorithm(graph, verbose=verbose)
     results = []
     for heuristic, res in heuristic_results.items():
         results.append({
             "Graph": filename,
-            "Nodes": graph.number_of_nodes(),
+            "Nodes": num_nodes,
+            "Edges": num_edges,
             "Optimal_Size": opt_size,
             "Heuristic": heuristic,
             "Average_Size": res["avg_size"],

@@ -55,6 +55,12 @@ def create_database(db_name="graphes.db"):
     conn.commit() # 22H03
     conn.close()
 
+def parse_tree_filename(filename):
+    """Extrait vertex_cover, nb_sommets et instance à partir du nom du fichier."""
+    base = os.path.splitext(filename)[0]
+    _, cover, n, instance = base.split("-")
+    return int(cover), int(n), int(instance)
+
 
 def load_g6_graph(file_path):
     graph = nx.read_graph6(file_path)
@@ -87,13 +93,14 @@ def insert_graph(db_name, file_path, root_dir):
     graph, nb_sommets = load_g6_graph(file_path)
     graph_name_with_extension = os.path.basename(file_path)
 
-    graph_name = os.path.splitext(graph_name_with_extension)[0]
+    graph_name = "tree"
     canonical_form = nx.to_graph6_bytes(graph, header=False).decode('ascii').strip()
     graph_class = extract_graph_class(file_path, root_dir)
     nb_aretes = graph.number_of_edges()
     densite = (2 * nb_aretes) / (nb_sommets * (nb_sommets - 1)) if nb_sommets > 1 else 0
-    cover_size = 1
-    instance_number = 1
+
+    cover_size, nb_sommets, instance_number = parse_tree_filename(graph_name_with_extension)
+
     max_degree = max(deg for node, deg in graph.degree)
     min_degree = min(deg for node, deg in graph.degree)
     avg_degree = sum(deg for node, deg in graph.degree) / nb_sommets if nb_sommets > 0 else 0
@@ -244,7 +251,7 @@ def is_twin_free(G):
     return True  # aucune paire de sommets jumeaux
 
 if __name__ == "__main__":
-    root_directory = "graph6_files"
+    root_directory = "g6_files/tree"
     db_name = "graphes.db"
 
     create_database(db_name)
