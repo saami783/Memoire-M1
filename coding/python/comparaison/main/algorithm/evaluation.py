@@ -1,10 +1,5 @@
-from .malatya import malatya_vertex_cover
 import networkx as nx
-
-from .matching_based import matching_based
-from .mdg import maximum_degree_greedy
-from .slf import sorted_list_left
-from .slr import sorted_list_right
+from .genetic import genetic
 
 
 def calculate_statistics(solution_sizes):
@@ -21,7 +16,7 @@ def evaluate_algorithm(graph, num_runs=300, verbose=True):
         return []
 
     results = {
-        "Sorted ListRight": [],
+        "genetic": [],
     }
 
     for run in range(1, num_runs + 1):
@@ -36,13 +31,16 @@ def evaluate_algorithm(graph, num_runs=300, verbose=True):
         # results["Matching Based"].append(len(matching_based(graph)))
         # results["Maximum Degree Greedy"].append(len(maximum_degree_greedy(graph)))
         # results["Sorted ListLeft"].append(len(sorted_list_left(graph)))
+        # results["Sorted ListRight"].append(len(sorted_list_right(graph)))
+        # results["genetic"].append(len(genetic(graph)))
 
-        results["Sorted ListRight"].append(len(sorted_list_right(graph)))
+        solution, size = genetic(graph)
+        results["genetic"].append(size)
 
         # results["KS VC"].append(len(ks_vc(graph)))
         # results["PSO"].append(len(pso(graph)))
         # results["Harmony Search"].append(len(harmony_search_(graph)))
-        # results["Genetic"].append(len(genetic(graph)))
+
         # results["Memetic"].append(len(memetic(graph)))
     return {
         heuristic: calculate_statistics(sizes)
