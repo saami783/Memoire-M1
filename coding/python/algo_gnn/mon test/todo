@@ -1,0 +1,12 @@
+- importer la base de données de delbot --~ ok
+- créer ma base de données avec mes instances --> ok
+    - stocker pleins de propriétés des graphes (voir graph.properties)  --> en cours
+
+- corriger tous les algorithmes (la plupart sont faux, ils reprennent le fonctionnement de edge deletion)
+- choisir des instances dans la bdd de delbot afin de refaire les experiences
+- reprendre les données générées par l'expérience et reconstituer les résultats
+- faire le bilan de la comparaison
+- faire une constatation des résultats
+
+côté GNN :
+- calculer pleins de propriétés pour chaque graphes.

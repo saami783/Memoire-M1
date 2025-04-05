@@ -5,3 +5,10 @@
 /main/test/out
 .idea
 dump solutions
+/g6_files/
+/graphs_db/g6_files/
+db/delbot.db
+db/**
+db/*.db
+db/*.sqlite
+db/graphes.db
