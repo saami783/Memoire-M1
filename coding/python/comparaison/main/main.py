@@ -3,6 +3,8 @@ from tqdm import tqdm
 import utils.graph as graph_utils
 from algorithm.evaluation import process_graph
 import pandas as pd
+import matplotlib.pyplot as plt
+import networkx as nx
 
 logging.basicConfig(level=logging.WARNING, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
@@ -25,7 +27,7 @@ def main():
         try:
             graph = graph_utils.load_graph_from_db(canonical_form)
 
-            result = process_graph(graph_name, graph, cover_size, num_nodes, num_edges)
+            result = process_graph(graph_name, graph, cover_size, num_nodes, num_edges, verbose=False)
 
             results.extend(result)
 

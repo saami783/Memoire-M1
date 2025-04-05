@@ -1,13 +1,11 @@
-from .dfs import dfs
-from .gic import greedy_independent_cover
+from .malatya import malatya_vertex_cover
+import networkx as nx
+
+from .matching_based import matching_based
 from .mdg import maximum_degree_greedy
 from .slf import sorted_list_left
 from .slr import sorted_list_right
-from .edge_deletion import edge_deletion
-from .ils import ils
-from .memetic import memetic
-from .pso import pso
-from .matching_based import matching_based
+
 
 def calculate_statistics(solution_sizes):
     """Calcule les statistiques (moyenne, min, max) pour une liste de tailles de solutions."""
@@ -18,27 +16,34 @@ def calculate_statistics(solution_sizes):
     }
 
 def evaluate_algorithm(graph, num_runs=300, verbose=True):
+    if not isinstance(graph, nx.Graph):
+        print(f"Erreur : Le graphe n'est pas de type nx.Graph")
+        return []
+
     results = {
-        "matching_based": [],
+        "Sorted ListRight": [],
     }
 
     for run in range(1, num_runs + 1):
         # Approximations, heuristiques et métaheuristiques
-        results["matching_based"].append(len(greedy_independent_cover(graph)))
         # results["ILS"].append(len(ils(graph)))
 
-        # results["Maximum Degree Greedy"].append(len(maximum_degree_greedy(graph)))
-        # results["Greedy Independent Cover"].append(len(greedy_independent_cover(graph)))
-        # results["Sorted ListLeft"].append(len(sorted_list_left(graph)))
-        # results["Sorted ListRight"].append(len(sorted_list_right(graph)))
+        # results["bfs"].append(len(bfs(graph)))
         # results["DFS"].append(len(dfs(graph)))
+        # results["edge deletion"].append(len(edge_deletion(graph)))
+        # results["Greedy Independent Cover"].append(len(greedy_independent_cover(graph)))
+        # results["malatya"].append(len(malatya_vertex_cover(graph)))
         # results["Matching Based"].append(len(matching_based(graph)))
+        # results["Maximum Degree Greedy"].append(len(maximum_degree_greedy(graph)))
+        # results["Sorted ListLeft"].append(len(sorted_list_left(graph)))
+
+        results["Sorted ListRight"].append(len(sorted_list_right(graph)))
+
+        # results["KS VC"].append(len(ks_vc(graph)))
         # results["PSO"].append(len(pso(graph)))
-        # results["Edge Deletion"].append(len(edge_deletion(graph)))
         # results["Harmony Search"].append(len(harmony_search_(graph)))
         # results["Genetic"].append(len(genetic(graph)))
         # results["Memetic"].append(len(memetic(graph)))
-
     return {
         heuristic: calculate_statistics(sizes)
         for heuristic, sizes in results.items()

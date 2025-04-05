@@ -1,13 +1,27 @@
-algorithme à tester :
-- ils => ok
-- matching_based
-- malatya
+voir pour implémenter :
+- https://www.mdpi.com/1424-8220/23/18/7831
+- vns
 
-algorithme à implémenter :
-- genetic
-- pso
-- memetic
+genetic, harmony et memetic on des ratios inférieur à 0%
+à voir pour pso --> on supprime car il dépasse le ratio de 100%
 
-bug :
-- numvc
-- ks_vc
+- BFS -> ok
+- DFS -> ok
+- ED -> ok
+- GIC -> ok
+- ILS -> (à tester, long)
+- Malatya -> ok
+- Matching based -> ok
+- MDG -> ok
+- SLF -> ok
+- SLR -> ok
+
+- Genetic
+- KS_VC
+- max_AR
+- Memetic
+- Num_VC
+- PFT
+- PSO
+- Annealin
+- TIVC
