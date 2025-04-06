@@ -26,14 +26,14 @@ def evaluate_algorithm(graph, num_runs=300, verbose=True):
 
     results = {
         "BFS": [],
-        "DFS": [],
-        "Edge deletion": [],
-        "Greedy Independent Cover": [],
-        "Malatya": [],
-        "Matching Based": [],
-        "Maximum Degree Greedy": [],
-        "Sorted ListLeft": [],
-        "Sorted ListRight": [],
+        # "DFS": [],
+        # "Edge deletion": [],
+        # "Greedy Independent Cover": [],
+        # "Malatya": [],
+        # "Matching Based": [],
+        # "Maximum Degree Greedy": [],
+        # "Sorted ListLeft": [],
+        # "Sorted ListRight": [],
         # "Genetic": [],
 
         # "max_A": [],
@@ -45,14 +45,14 @@ def evaluate_algorithm(graph, num_runs=300, verbose=True):
         # results["ILS"].append(len(ils(graph)))
 
         results["BFS"].append(len(bfs(graph)))
-        results["DFS"].append(len(dfs(graph)))
-        results["Edge deletion"].append(len(edge_deletion(graph)))
-        results["Greedy Independent Cover"].append(len(greedy_independent_cover(graph)))
-        results["Malatya"].append(len(malatya_vertex_cover(graph)))
-        results["Matching Based"].append(len(matching_based(graph)))
-        results["Maximum Degree Greedy"].append(len(maximum_degree_greedy(graph)))
-        results["Sorted ListLeft"].append(len(sorted_list_left(graph)))
-        results["Sorted ListRight"].append(len(sorted_list_right(graph)))
+        # results["DFS"].append(len(dfs(graph)))
+        # results["Edge deletion"].append(len(edge_deletion(graph)))
+        # results["Greedy Independent Cover"].append(len(greedy_independent_cover(graph)))
+        # results["Malatya"].append(len(malatya_vertex_cover(graph)))
+        # results["Matching Based"].append(len(matching_based(graph)))
+        # results["Maximum Degree Greedy"].append(len(maximum_degree_greedy(graph)))
+        # results["Sorted ListLeft"].append(len(sorted_list_left(graph)))
+        # results["Sorted ListRight"].append(len(sorted_list_right(graph)))
         # solution, size = genetic(graph)
         # results["Genetic"].append(size)
 
