@@ -3,15 +3,10 @@ from collections import deque
 
 
 def bfs(graph):
-    """
-    Heuristique basée sur un parcours en largeur (BFS).
-    Pour chaque composante connexe, on lance un BFS ;
-    lorsqu'on visite une arête (u,v), on ajoute 'u' (ou 'v') au cover.
-    """
-    C = set()
+
+    vertex_cover = set()
     visited = set()
 
-    # On mélange les nœuds pour éviter un ordre déterministe.
     nodes = list(graph.nodes())
     random.shuffle(nodes)
 
@@ -24,10 +19,11 @@ def bfs(graph):
                 u = queue.popleft()
                 for v in graph.neighbors(u):
                     if v not in visited:
-                        # Ici, on couvre l’arête (u, v) en ajoutant 'u'
-                        # (on aurait pu choisir 'v' au lieu de 'u', c’est une variante possible).
-                        C.add(u)
+                        if graph.degree(u) > graph.degree(v):
+                            vertex_cover.add(u)
+                        else:
+                            vertex_cover.add(v)
                         visited.add(v)
                         queue.append(v)
 
-    return list(C)
+    return list(vertex_cover)

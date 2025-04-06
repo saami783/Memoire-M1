@@ -5,7 +5,7 @@ voir pour implémenter :
 genetic, harmony et memetic on des ratios inférieur à 0%
 à voir pour pso --> on supprime car il dépasse le ratio de 100%
 
-- BFS -> ok
+- BFS -> retourne une solution sur-opt pour tous les graphes
 - DFS -> ok
 - ED -> ok
 - GIC -> ok
@@ -15,10 +15,11 @@ genetic, harmony et memetic on des ratios inférieur à 0%
 - MDG -> ok
 - SLF -> ok
 - SLR -> ok
-- Genetic -> ok
+- Genetic -> retourne une solution sous-opt pour bhoslib et barbasi albert
 
+- max_AR -> retourne une solution sur-opt
+- max_A -> retourne une solution sur-opt
 - KS_VC
-- max_AR
 - Memetic
 - Num_VC
 - PFT

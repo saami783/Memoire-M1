@@ -1,116 +1,140 @@
 import numpy as np
 import numba as nb
+from tqdm import tqdm  # Pour la barre de progression
 
-def debug_edges(graph, edges_array, node_map):
-    print("=== DEBUG EDGES ===")
-    print("Node mapping:", node_map)
-    print("Nombre de nœuds dans le graphe:", len(graph.nodes()))
-
-    original_edges = list(graph.edges())[:5]
-    converted_edges = edges_array[:5]
-
-    print("\nOriginal vs Converted (premières 5 arêtes):")
-    for (u_orig, v_orig), (u_conv, v_conv) in zip(original_edges, converted_edges):
-        print(f"({u_orig},{v_orig}) -> ({u_conv},{v_conv})")
-
-    for u, v in graph.edges():
-        try:
-            if node_map[u] not in range(len(graph)) or node_map[v] not in range(len(graph)):
-                raise ValueError(f"Indice hors limites: ({u},{v}) -> ({node_map[u]},{node_map[v]})")
-        except KeyError as e:
-            print(f"ERREUR CRITIQUE: Nœud {e} non trouvé dans le mapping!")
-            raise
 
 @nb.njit(nogil=True, cache=True)
 def compute_fitness(population, edges):
     n_individuals = population.shape[0]
     fitness = np.zeros((n_individuals, 2), dtype=np.int64)
+
     for i in nb.prange(n_individuals):
         cover = population[i]
         uncovered = 0
+        # Vérifier toutes les arêtes
         for j in range(edges.shape[0]):
             u, v = edges[j]
             if not (cover[u] or cover[v]):
                 uncovered += 1
+        # Pénalité exponentielle pour les solutions invalides
         fitness[i, 0] = uncovered
-        fitness[i, 1] = cover.sum()
+        fitness[i, 1] = cover.sum() + (uncovered * 1000000 if uncovered > 0 else 0)
+
     return fitness
 
-def genetic(graph, pop_size=100, generations=100, mutation_rate=0.01, elite_ratio=0.1, verbose=False):
+
+@nb.njit(nogil=True)
+def two_point_crossover(parent1, parent2):
+    n = len(parent1)
+    child = np.zeros(n, dtype=np.uint8)
+    crossover_points = np.sort(np.random.choice(n, 2, replace=False))
+    child[:crossover_points[0]] = parent1[:crossover_points[0]]
+    child[crossover_points[0]:crossover_points[1]] = parent2[crossover_points[0]:crossover_points[1]]
+    child[crossover_points[1]:] = parent1[crossover_points[1]:]
+    return child
+
+
+def remove_redundant_nodes(cover, edges):
+    nodes = list(np.where(cover)[0])
+    for node in sorted(nodes, reverse=True):
+        temp = [n for n in nodes if n != node]
+        if is_valid_cover(temp, edges):
+            nodes = temp
+    new_cover = np.zeros_like(cover)
+    new_cover[nodes] = 1
+    return new_cover
+
+
+def is_valid_cover(cover_nodes, edges):
+    for u, v in edges:
+        if u not in cover_nodes and v not in cover_nodes:
+            return False
+    return True
+
+
+def genetic(graph, pop_size=500, generations=1000, mutation_rate=0.05, elite_ratio=0.1, verbose=False):
+    # Mapping des nœuds
     nodes = sorted(graph.nodes())
     node_map = {n: i for i, n in enumerate(nodes)}
     n_nodes = len(nodes)
 
-    edges = []
-    for u, v in graph.edges():
-        try:
-            edges.append((node_map[u], node_map[v]))
-        except KeyError as e:
-            raise ValueError(f"Arête ({u},{v}) contient un nœud non répertorié: {e}")
-    edges = np.array(edges, dtype=np.int64)
+    # Conversion des arêtes
+    edges = np.array([(node_map[u], node_map[v]) for u, v in graph.edges()], dtype=np.int64)
 
-    if verbose:
-        debug_edges(graph, edges, node_map)
-        print("\nVérification finale:")
-        print("Nombre d'arêtes converties:", len(edges))
-        print("Indice max:", np.max(edges) if len(edges) > 0 else 0)
-        print("Taille de la couverture optimale connue:", graph.graph.get('optimal_size', 'Inconnue'))
-
+    # Initialisation de la population
     population = np.random.randint(2, size=(pop_size, n_nodes), dtype=np.uint8)
     elite_size = max(1, int(pop_size * elite_ratio))
     best_solution = None
     best_size = np.inf
 
-    for gen in range(generations):
+    for gen in tqdm(range(generations), disable=not verbose):
+        # Évaluation
         fitness = compute_fitness(population, edges)
 
-        valid_indices = np.where(fitness[:, 0] == 0)[0]
-        if valid_indices.size > 0:
-            best_idx = valid_indices[np.argmin(fitness[valid_indices, 1])]
-            current_size = fitness[best_idx, 1]
+        # Mise à jour de la meilleure solution
+        valid_mask = fitness[:, 0] == 0
+        if np.any(valid_mask):
+            valid_fitness = fitness[valid_mask]
+            best_idx = np.argmin(valid_fitness[:, 1])
+            current_size = valid_fitness[best_idx, 1]
 
             if current_size < best_size:
                 best_size = current_size
-                best_solution = population[best_idx].copy()
-                if verbose:
-                    print(f"Génération {gen}: Nouvelle meilleure taille = {best_size}")
+                best_solution = population[valid_mask][best_idx].copy()
 
         # Sélection élitiste
         elite_indices = np.lexsort((fitness[:, 1], fitness[:, 0]))[:elite_size]
         elite = population[elite_indices]
 
-        tournament_size = 5
-        tournaments = np.random.randint(low=0, high=pop_size, size=(pop_size - elite_size, tournament_size))
-        tournament_fitness = fitness[tournaments, 0]
-        winners = np.argmin(tournament_fitness, axis=1)
-        selected_indices = tournaments[np.arange(tournaments.shape[0]), winners]
-        parents = population[selected_indices]
+        # Sélection par tournoi
+        parents = []
+        for _ in range(pop_size - elite_size):
+            contestants = np.random.choice(pop_size, 5, replace=False)
+            winner = contestants[np.argmin(fitness[contestants, 0])]
+            parents.append(population[winner])
+        parents = np.array(parents)
 
-        crossover_mask = np.random.randint(2, size=parents.shape, dtype=np.uint8)
-        parents_shuffled = np.random.permutation(parents)
-        offspring = (parents * crossover_mask) + (parents_shuffled * (1 - crossover_mask))
+        # Croisement en deux points
+        offspring = []
+        for i in range(0, len(parents), 2):
+            if i + 1 >= len(parents):
+                offspring.append(parents[i])
+                continue
+            child1 = two_point_crossover(parents[i], parents[i + 1])
+            child2 = two_point_crossover(parents[i + 1], parents[i])
+            offspring.extend([child1, child2])
+        offspring = np.array(offspring[:pop_size - elite_size])
 
+        # Mutation bit-flip
         mutation_mask = np.random.rand(*offspring.shape) < mutation_rate
-        offspring ^= mutation_mask.astype(np.uint8)
+        offspring = np.where(mutation_mask, 1 - offspring, offspring)
 
         population = np.vstack((elite, offspring))
 
+    # Post-optimisation locale
     if best_size != np.inf:
-        cover = np.where(best_solution)[0]
-        edge_coverage = 0
-        for u, v in edges:
-            if u in cover or v in cover:
-                edge_coverage += 1
-        coverage_ratio = edge_coverage / len(edges)
-
-        if verbose:
-            print(f"\nSolution finale: {len(cover)} nœuds")
-            print(f"Couverture réelle: {coverage_ratio * 100:.2f}% des arêtes")
-
-        if coverage_ratio == 1.0:
-            return [nodes[i] for i in cover], best_size
+        optimized_cover = remove_redundant_nodes(best_solution, edges)
+        if is_valid_cover(np.where(optimized_cover)[0], edges):
+            best_solution = optimized_cover
+            best_size = optimized_cover.sum()
         else:
-            print("Avertissement: Solution invalide! (couverture incomplète)")
-            return [], 0
+            best_size = np.inf
+
+    if best_size != np.inf:
+        return [nodes[i] for i in np.where(best_solution)[0]], best_size
     else:
-        return [], 0
+        return [], np.inf
+
+
+def run_multiple_times(graph, runs=10, **kwargs):
+    results = []
+    for _ in range(runs):
+        _, size = genetic(graph, **kwargs)
+        if size != np.inf:
+            results.append(size)
+
+    return {
+        'average_size': np.mean(results) if results else np.inf,
+        'best_size': np.min(results) if results else np.inf,
+        'worst_size': np.max(results) if results else np.inf
+    }

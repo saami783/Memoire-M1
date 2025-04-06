@@ -3,20 +3,18 @@ from tqdm import tqdm
 import utils.graph as graph_utils
 from algorithm.evaluation import process_graph
 import pandas as pd
-import matplotlib.pyplot as plt
-import networkx as nx
 
 logging.basicConfig(level=logging.WARNING, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
 SEED = 42
-OUTPUT_FILE = "out/test.csv"
+OUTPUT_FILE = "out/bfs.csv"
 
 def main():
     graph_names = ["regular"]
 
     try:
-        graphs = graph_utils.get_graphs_from_db(graph_names)
+        graphs = graph_utils.get_graphs_from_db()
     except Exception as e:
         logger.error(f"Erreur lors de la récupération des graphes depuis la base de données : {e}")
         exit(1)

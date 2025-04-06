@@ -1,5 +1,14 @@
-import networkx as nx
+from .bfs import bfs
+from .dfs import dfs
+from .edge_deletion import edge_deletion
 from .genetic import genetic
+from .gic import greedy_independent_cover
+from .malatya import malatya_vertex_cover
+from .matching_based import matching_based
+from .mdg import maximum_degree_greedy
+from .slf import sorted_list_left
+from .slr import sorted_list_right
+from .todo.max_AR import *
 
 
 def calculate_statistics(solution_sizes):
@@ -16,31 +25,43 @@ def evaluate_algorithm(graph, num_runs=300, verbose=True):
         return []
 
     results = {
-        "genetic": [],
+        "BFS": [],
+        "DFS": [],
+        "Edge deletion": [],
+        "Greedy Independent Cover": [],
+        "Malatya": [],
+        "Matching Based": [],
+        "Maximum Degree Greedy": [],
+        "Sorted ListLeft": [],
+        "Sorted ListRight": [],
+        # "Genetic": [],
+
+        # "max_A": [],
+        # "max_AR": [],
     }
 
     for run in range(1, num_runs + 1):
         # Approximations, heuristiques et métaheuristiques
         # results["ILS"].append(len(ils(graph)))
 
-        # results["bfs"].append(len(bfs(graph)))
-        # results["DFS"].append(len(dfs(graph)))
-        # results["edge deletion"].append(len(edge_deletion(graph)))
-        # results["Greedy Independent Cover"].append(len(greedy_independent_cover(graph)))
-        # results["malatya"].append(len(malatya_vertex_cover(graph)))
-        # results["Matching Based"].append(len(matching_based(graph)))
-        # results["Maximum Degree Greedy"].append(len(maximum_degree_greedy(graph)))
-        # results["Sorted ListLeft"].append(len(sorted_list_left(graph)))
-        # results["Sorted ListRight"].append(len(sorted_list_right(graph)))
-        # results["genetic"].append(len(genetic(graph)))
+        results["BFS"].append(len(bfs(graph)))
+        results["DFS"].append(len(dfs(graph)))
+        results["Edge deletion"].append(len(edge_deletion(graph)))
+        results["Greedy Independent Cover"].append(len(greedy_independent_cover(graph)))
+        results["Malatya"].append(len(malatya_vertex_cover(graph)))
+        results["Matching Based"].append(len(matching_based(graph)))
+        results["Maximum Degree Greedy"].append(len(maximum_degree_greedy(graph)))
+        results["Sorted ListLeft"].append(len(sorted_list_left(graph)))
+        results["Sorted ListRight"].append(len(sorted_list_right(graph)))
+        # solution, size = genetic(graph)
+        # results["Genetic"].append(size)
 
-        solution, size = genetic(graph)
-        results["genetic"].append(size)
+        # results["max_A"].append(len(maxA(graph)))
+        # results["max_AR"].append(len(maxAR(graph)))
 
         # results["KS VC"].append(len(ks_vc(graph)))
         # results["PSO"].append(len(pso(graph)))
         # results["Harmony Search"].append(len(harmony_search_(graph)))
-
         # results["Memetic"].append(len(memetic(graph)))
     return {
         heuristic: calculate_statistics(sizes)
