@@ -1,16 +1,42 @@
 import os
-import random
 import networkx as nx
 import pulp
 import torch
 import torch.nn.functional as F
 import numpy as np
+import sqlite3
 
+import logging
 from tqdm import tqdm
 from torch_geometric.data import Data, Dataset
 from torch_geometric.loader import DataLoader
 from torch_geometric.nn import GCNConv
 
+logging.basicConfig(level=logging.WARNING, format="%(asctime)s - %(levelname)s - %(message)s")
+logger = logging.getLogger(__name__)
+
+def load_graph_from_db(canonical_form):
+    """
+    Charge un graphe depuis la base de données SQLite en utilisant sa forme canonique (graph6).
+    """
+    graph = nx.from_graph6_bytes(canonical_form.encode())
+    return graph
+
+
+def get_graphs_from_db(label="train"):
+    connection = sqlite3.connect("entrainement.db")
+    cursor = connection.cursor()
+
+    query = """
+        SELECT canonical_form, cover_size 
+        FROM graphes 
+        WHERE label = ?
+    """
+    cursor.execute(query, (label,))
+    graphs = cursor.fetchall()
+    connection.close()
+
+    return graphs
 
 # ============ 1) Solveur EXACT du Minimum Vertex Cover ============
 def solve_min_vertex_cover(g: nx.Graph):
@@ -40,21 +66,6 @@ def solve_min_vertex_cover(g: nx.Graph):
     # Récupérer la solution
     solution = [int(x[i].varValue) for i in nodes]
     return solution
-
-
-# ============ 2) Génération d'un graphe et features ============
-def generate_random_graph(n=15, p=0.2, seed=None):
-    """
-    Génère un graphe aléatoire Erdős–Rényi G(n, p).
-    """
-    if seed is not None:
-        random.seed(seed)
-    g = nx.erdos_renyi_graph(n, p)
-
-    # Éventuellement on évite un graphe totalement isolé
-    if g.number_of_edges() == 0:
-        return generate_random_graph(n, p, seed + 1 if seed is not None else None)
-    return g
 
 
 def get_node_features(g: nx.Graph):
@@ -169,6 +180,7 @@ def get_node_features(g: nx.Graph):
         num_deg_one,
         avg_neighbor_clustering
     ])
+    # Normalisation des features
 
     return torch.tensor(features, dtype=torch.float)
 
@@ -195,15 +207,36 @@ def build_data_from_nx(g: nx.Graph, cover_label: list):
 
 # ============ 3) Dataset PyG ============
 class VertexCoverDataset(Dataset):
-    def __init__(self, n_graphs=1000, n_nodes=7, p=0.3):
+    def __init__(self, label="train"):
         super().__init__()
         self.data_list = []
+        graphs = get_graphs_from_db(label)
 
-        for i in tqdm(range(n_graphs), desc="Génération des graphes"):
-            g = generate_random_graph(n_nodes, p, seed=i)
-            cover = solve_min_vertex_cover(g)
-            data = build_data_from_nx(g, cover)
-            self.data_list.append(data)
+        if not graphs:
+            raise ValueError(f"Aucun graphe trouvé pour le label '{label}'")
+
+        for canonical_form, cover_size in tqdm(graphs, desc="Chargement des graphes"):
+            try:
+                # Conversion depuis graph6
+                graph = nx.from_graph6_bytes(canonical_form.encode('ascii'))
+
+                # Vérification de la taille attendue
+                if graph.number_of_nodes() != 15:
+                    logger.warning(f"Graphe {canonical_form} a une taille incorrecte")
+                    continue
+
+                # Conversion des labels
+                cover_label = [1 if i in cover_size else 0 for i in range(15)]
+
+                data = build_data_from_nx(graph, cover_label)
+                self.data_list.append(data)
+
+            except Exception as e:
+                logger.error(f"Erreur sur {canonical_form} : {str(e)}")
+                continue
+
+        if not self.data_list:
+            raise ValueError("Aucun graphe valide trouvé")
 
     def len(self):
         return len(self.data_list)
@@ -298,8 +331,8 @@ def main():
     model_path = "model_checkpoint.pth"
 
     # -- Création du dataset
-    train_dataset = VertexCoverDataset(n_graphs=num_train_graphs, n_nodes=7, p=0.3)
-    test_dataset = VertexCoverDataset(n_graphs=num_test_graphs, n_nodes=70, p=0.2)
+    train_dataset = VertexCoverDataset(label="train")
+    test_dataset = VertexCoverDataset(label="test")
 
     train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
     test_loader  = DataLoader(test_dataset,  batch_size=32, shuffle=False)
@@ -334,9 +367,9 @@ def main():
     print(f"\nModèle sauvegardé dans {model_path}")
 
     # -- Démo sur un graphe "hors dataset"
-    demo_g = generate_random_graph(n=7, p=0.2)
-    cover_opt = solve_min_vertex_cover(demo_g)
-    data_demo = build_data_from_nx(demo_g, cover_opt).to(device)
+    demo_g = get_graphs_from_db("test")
+    cover_opt = solve_min_vertex_cover(demo_g[0])
+    data_demo = build_data_from_nx(demo_g[0], cover_opt).to(device)
 
     model.eval()
     with torch.no_grad():
