@@ -5,7 +5,7 @@ from solveur import minimum_vertex_cover
 import random
 
 FIXED_SEED = 42
-TREE_SIZES = [25, 50, 75, 100, 250]
+TREE_SIZES = [25, 50, 75, 100]
 GRAPHS_PER_COMBINATION = 1000
 OUTPUT_DIR = "g6_files/tree"
 
@@ -34,21 +34,40 @@ def save_graph_to_g6(graph, filename):
     nx.write_graph6(graph, f"g6_files/tree/{filename}")
 
 
+def generate_uniform_mvc_trees(n, graphs_needed, seed_base):
+    valid_graphs = 0
+    tries = 0
+    target_cover_size = None
+    pbar = tqdm(total=graphs_needed, desc=f"Arbres n={n} (mvc=?)")
+
+    while valid_graphs < graphs_needed:
+        seed = seed_base + tries
+        tree = generate_random_tree(n, seed)
+        result = minimum_vertex_cover(tree)
+
+        if result and result[1] == "Optimal":
+            cover_size = result[0]
+
+            # pour la première instance, je stocke la taille du MVC
+            if target_cover_size is None:
+                target_cover_size = cover_size
+                pbar.set_description(f"Arbres n={n} (mvc={target_cover_size})")
+
+            # on garde uniquement les arbres avec le même MVC que la première instance
+            if cover_size == target_cover_size:
+                filename = f"tree-{cover_size}-{n}-{valid_graphs+1}.g6"
+                save_graph_to_g6(tree, filename)
+                valid_graphs += 1
+                pbar.update(1)
+
+        tries += 1
+
+    pbar.close()
+
 if __name__ == "__main__":
     for n in TREE_SIZES:
-        print(f"Génération de {GRAPHS_PER_COMBINATION} arbres de taille n={n}...")
+        print(f"Génération de {GRAPHS_PER_COMBINATION} arbres de taille n={n} avec mvc uniforme...")
         os.makedirs(OUTPUT_DIR, exist_ok=True)
-        with tqdm(total=GRAPHS_PER_COMBINATION, desc=f"Arbres n={n}") as pbar:
-            for i in range(GRAPHS_PER_COMBINATION):
-                # graine déterministe pour chaque instance
-                seed = FIXED_SEED * 10**6 + n * 10**4 + i
-                tree = generate_random_tree(n, seed)
-                result = minimum_vertex_cover(tree)
-                if result and result[1] == "Optimal":
-                    cover_size = result[0]
-                else:
-                    cover_size = "NA"
-                filename = f"tree-{cover_size}-{n}-{i+1}.g6"
-                save_graph_to_g6(tree, filename)
-                pbar.update(1)
+        seed_base = FIXED_SEED * 10**6 + n * 10**4
+        generate_uniform_mvc_trees(n, GRAPHS_PER_COMBINATION, seed_base)
         print(f"Terminé pour n={n}. Fichiers dans {OUTPUT_DIR}/")
