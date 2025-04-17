@@ -12,6 +12,6 @@ db/**
 db/*.db
 db/*.sqlite
 db/graphes.db
-/graphs_db/g6_files/
+graphs_db/g6_files/
 /graphs_db/dump db/
 /out/

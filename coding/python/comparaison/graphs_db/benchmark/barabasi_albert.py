@@ -1,7 +1,7 @@
 import os
 import networkx as nx
 from tqdm import tqdm
-from main.solveur.solveur import minimum_vertex_cover
+from solveur import minimum_vertex_cover
 
 FIXED_SEED = 42
 BARABASI_ALBERT_SIZES = [100, 200, 300, 400, 500] # 22min à partir de 400 sommets.

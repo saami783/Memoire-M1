@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.WARNING, format="%(asctime)s - %(levelname)s -
 logger = logging.getLogger(__name__)
 
 SEED = 42
-OUTPUT_FILE = "out/bfs.csv"
+OUTPUT_FILE = "out/bfs_bfs_gic_mdg.csv"
 
 def main():
     graph_names = ["regular"]

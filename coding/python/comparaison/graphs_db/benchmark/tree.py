@@ -5,8 +5,9 @@ from solveur import minimum_vertex_cover
 import random
 
 FIXED_SEED = 42
-TREE_SIZES = [25, 50, 75, 100, 250, 500, 750, 1000]
+TREE_SIZES = [25, 50, 75, 100, 250]
 GRAPHS_PER_COMBINATION = 1000
+OUTPUT_DIR = "g6_files/tree"
 
 """
 Paramètres de génération des arbres :
@@ -19,14 +20,14 @@ exemple : pour n = 1000, on a 1000 sommets et 999 arêtes.
 def generate_random_tree(n, seed=None):
     if seed is not None:
         random.seed(seed)
-
-    tree = nx.Graph()
-    tree.add_nodes_from(range(n))
-    for i in range(1, n):
-        parent = random.randint(0, i - 1)
-        tree.add_edge(parent, i)
-
-    return tree
+    G = nx.complete_graph(n)
+    rng = random.Random(seed)
+    while G.number_of_edges() > n - 1:
+        edge_to_remove = rng.choice(list(G.edges()))
+        G.remove_edge(*edge_to_remove)
+        if not nx.is_connected(G):
+            G.add_edge(*edge_to_remove)
+    return G
 
 def save_graph_to_g6(graph, filename):
     os.makedirs("g6_files/tree/", exist_ok=True)
@@ -34,37 +35,20 @@ def save_graph_to_g6(graph, filename):
 
 
 if __name__ == "__main__":
-    target_cover_sizes = {}
-
     for n in TREE_SIZES:
-        base_seed = hash(f"{FIXED_SEED}-{n}") % (2 ** 32)
-        tree = generate_random_tree(n, base_seed)
-        solveur = minimum_vertex_cover(tree)
-
-        if solveur and solveur[1] == "Optimal":
-            target_cover_sizes[n] = solveur[0]
-
-    for n, target_size in target_cover_sizes.items():
-        instance_count = 0
-        attempt = 0
-
-        with tqdm(total=GRAPHS_PER_COMBINATION, desc=f"Arbres n={n}", leave=False) as pbar:
-            while instance_count < GRAPHS_PER_COMBINATION and attempt < 1000:
-                seed = hash(f"{FIXED_SEED}-{n}-{attempt}") % (2 ** 32)
+        print(f"Génération de {GRAPHS_PER_COMBINATION} arbres de taille n={n}...")
+        os.makedirs(OUTPUT_DIR, exist_ok=True)
+        with tqdm(total=GRAPHS_PER_COMBINATION, desc=f"Arbres n={n}") as pbar:
+            for i in range(GRAPHS_PER_COMBINATION):
+                # graine déterministe pour chaque instance
+                seed = FIXED_SEED * 10**6 + n * 10**4 + i
                 tree = generate_random_tree(n, seed)
-                solveur = minimum_vertex_cover(tree)
-
-                attempt = 0
-
-                if solveur and solveur[1] == "Optimal" and solveur[0] == target_size:
-                    save_graph_to_g6(
-                        tree,
-                        f"tree-{target_size}-{n}-{instance_count + 1}.g6"
-                    )
-                    instance_count += 1
-                    pbar.update(1)
-
-                attempt += 1
-
-            if instance_count < GRAPHS_PER_COMBINATION:
-                print(f"Avertissement: Taille {target_size} rare pour n={n} ({instance_count}/5)")
+                result = minimum_vertex_cover(tree)
+                if result and result[1] == "Optimal":
+                    cover_size = result[0]
+                else:
+                    cover_size = "NA"
+                filename = f"tree-{cover_size}-{n}-{i+1}.g6"
+                save_graph_to_g6(tree, filename)
+                pbar.update(1)
+        print(f"Terminé pour n={n}. Fichiers dans {OUTPUT_DIR}/")
