@@ -1,7 +1,7 @@
 import os
 import networkx as nx
 import random
-from main.solveur.solveur import minimum_vertex_cover
+from solveur import minimum_vertex_cover
 
 # Fonction pour générer un graphe Anti-MDG
 def generate_anti_mdg_graph(k, p):

@@ -6,7 +6,7 @@ import time
 import numpy as np
 import re
 
-def create_database(db_name="graphes.db"):
+def create_database(db_name="ba.db"):
     conn = sqlite3.connect(db_name)
     cursor = conn.cursor()
 
@@ -57,11 +57,7 @@ def create_database(db_name="graphes.db"):
     conn.close()
 
 def parse_graph_filename(filename):
-    """
-    Extrait vertex_cover, nb_nodes, nb_aretes, instance_number depuis un nom de fichier .g6
-    Format attendu : ba-{vertex_cover}-n{node}-m{aretes}-{instance}.g6
-    """
-    pattern = r"ba-(\d+)-n(\d+)-m(\d+)-(\d+)\.g6"
+    pattern = r"ba-(\d+)-(\d+)-(\d+)-(\d+)\.g6"
     match = re.match(pattern, filename)
     if match:
         vertex_cover = int(match.group(1))
@@ -261,7 +257,7 @@ def is_twin_free(G):
 
 if __name__ == "__main__":
     root_directory = "g6_files/barabasi_albert"
-    db_name = "graphes.db"
+    db_name = "ba.db"
 
     create_database(db_name)
     g6_files = find_g6_files(root_directory)

@@ -8,10 +8,9 @@ logging.basicConfig(level=logging.WARNING, format="%(asctime)s - %(levelname)s -
 logger = logging.getLogger(__name__)
 
 SEED = 42
-OUTPUT_FILE = "out/bfs_bfs_gic_mdg.csv"
+OUTPUT_FILE = "out/edge_bhoslib.csv"
 
 def main():
-    graph_names = ["regular"]
 
     try:
         graphs = graph_utils.get_graphs_from_db()

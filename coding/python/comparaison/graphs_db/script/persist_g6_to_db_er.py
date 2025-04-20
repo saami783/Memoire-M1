@@ -7,7 +7,7 @@ import numpy as np
 import re
 from typing import Optional, Tuple, Union
 
-def create_database(db_name="graphes.db"):
+def create_database(db_name="er.db"):
     conn = sqlite3.connect(db_name)
     cursor = conn.cursor()
 
@@ -59,22 +59,8 @@ def create_database(db_name="graphes.db"):
 
 
 def parse_erdos_renyi_filename(filename: str) -> Optional[Tuple[int, int, Union[int, float], int]]:
-    """
-    Parse un nom de fichier de graphe de type:
-    - ba-{cover_size}-{n}-{m}-{instance}.g6
-    - erdos_renyi-{cover_size}-{n}-{p}-{instance}.g6
-
-    Retourne: (cover_size, n, m or p, instance)
-    """
-    # Sans l'extension
     name = filename.replace(".g6", "")
 
-    # Match BA
-    ba_match = re.match(r"ba-(\d+)-(\d+)-(\d+)-(\d+)", name)
-    if ba_match:
-        return tuple(map(int, ba_match.groups()))
-
-    # Match Erdős–Rényi
     er_match = re.match(r"erdos_renyi-(\d+)-(\d+)-([\d.]+)-(\d+)", name)
     if er_match:
         cover_size, n, p_str, instance = er_match.groups()
@@ -295,7 +281,7 @@ def is_twin_free(G):
 
 if __name__ == "__main__":
     root_directory = "g6_files/erdos_renyi"
-    db_name = "graphes.db"
+    db_name = "er.db"
 
     create_database(db_name)
     g6_files = find_g6_files(root_directory)
