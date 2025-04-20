@@ -8,7 +8,6 @@ def greedy_independent_cover(graph):
         degrees = dict(temp_graph.degree())
         min_degree = min(degrees.values())
         min_degree_nodes = [node for node, degree in degrees.items() if degree == min_degree]
-        # Choix aléatoire parmi les nœuds de degré min
         min_degree_node = random.choice(min_degree_nodes)
 
         neighbors = set(temp_graph.neighbors(min_degree_node))

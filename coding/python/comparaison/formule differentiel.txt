@@ -1,9 +1,3 @@
-pire cas : = ((G2 / C2) - 1) * 100
-moyen cas : = ((E2 / C2) - 1) * 100
-meilleur cas : = ((F2 / C2) - 1) * 100
-ratio en % : =SI(H2-D2=0;0;ENT(((F2-D2)/(H2-D2))*100))
-
-
 Graph(A)	Nodes(B)	Edges(C)	Optimal_Size(D)	Heuristic(E)	Average_Size.1(F)	Best_Size(G)	Worst_Size(H)   Pire cas(I)	Moyen cas(J)	Meilleur cas(K)	Rapport(L)
 
 frb30-15-1	450	83198	420	DFS	441	441	441	5	5	5	100
@@ -15,4 +9,4 @@ frb30-15-5	450	83231	420	DFS	440	440	440	4,761904762	4,761904762	4,761904762	100
 pire cas : = ((H2 / D2) - 1) * 100
 moyen cas : = ((F2 / D2) - 1) * 100
 meilleur cas : = ((G2 / D2) - 1) * 100
-ratio en % : =SI(H2-D2=0;0;ENT(((F2-D2)/(H2-D2))*100))
+ratio en % : =SI(B2-D2=0; 0;ENT(((B2-F2)/(B2-D2))*100))

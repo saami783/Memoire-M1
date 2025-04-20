@@ -32,9 +32,9 @@ def get_graphs_from_db(graph_names=None):
         #  "regular", "tree", "barabasi_albert", "erdos_renyi"
     ]
 
-    # connection = sqlite3.connect("ba.db")
-    connection = sqlite3.connect("bhoslib.db")
-    #connection = sqlite3.connect("er.db")
+    connection = sqlite3.connect("ba.db")
+    # connection = sqlite3.connect("bhoslib.db")
+    # connection = sqlite3.connect("er.db")
     # connection = sqlite3.connect("ruglar.db")
     # connection = sqlite3.connect("tree.db")
     cursor = connection.cursor()

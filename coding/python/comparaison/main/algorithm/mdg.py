@@ -12,7 +12,6 @@ def maximum_degree_greedy(graph):
         degrees = dict(temp_graph.degree())
         max_degree = max(degrees.values())
         max_degree_nodes = [node for node, degree in degrees.items() if degree == max_degree]
-        # Choix aléatoire parmi les nœuds de degré max
         max_degree_node = random.choice(max_degree_nodes)
 
         C.add(max_degree_node)

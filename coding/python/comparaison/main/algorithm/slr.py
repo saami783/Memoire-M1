@@ -7,9 +7,11 @@ def sorted_list_right(graph):
     random.shuffle(node_list)
     sorted_nodes = sorted(node_list, key=lambda x: -degrees[x])
 
+    position = {node: idx for idx, node in enumerate(sorted_nodes)}
+
     for u in reversed(sorted_nodes):
-        # Idem que sorted_list_left, pas de choix aléatoire particulier ici
-        if any(neighbor not in C for neighbor in graph.neighbors(u)):
+        neighbors_right = [v for v in graph.neighbors(u) if position[v] > position[u]]
+        if any(v not in C for v in neighbors_right):
             C.add(u)
 
     return list(C)
