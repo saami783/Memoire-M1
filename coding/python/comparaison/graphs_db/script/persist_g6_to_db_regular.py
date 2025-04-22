@@ -5,7 +5,7 @@ from pprint import pprint
 import time
 import numpy as np
 
-def create_database(db_name="graphes.db"):
+def create_database(db_name="regular.db"):
     conn = sqlite3.connect(db_name)
     cursor = conn.cursor()
 
