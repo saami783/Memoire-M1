@@ -23,7 +23,6 @@ def edge_deletion_smart(graph):
 
 def edge_deletion(graph):
     """
-    Implémentation fidèle de l'algorithme Edge Deletion :
     - Choisir une arête (u,v)
     - Ajouter u et v au vertex cover
     - Supprimer u et v (et donc toutes leurs arêtes incidentes)
@@ -34,6 +33,26 @@ def edge_deletion(graph):
     while temp_graph.number_of_edges() > 0:
         u, v = random.choice(list(temp_graph.edges()))
         C.update([u, v])
+        temp_graph.remove_nodes_from([u, v])
+
+    return list(C)
+
+def edge_deletion_max_degree_sum(graph):
+    """
+    Variante qui choisit l'arête dont la somme des degrés des deux nœuds est la plus élevée,
+    puis ajoute ces deux nœuds au vertex cover et les supprime du graphe.
+    """
+    C = set()
+    temp_graph = graph.copy()
+
+    while temp_graph.number_of_edges() > 0:
+        # Trouver l'arête avec la somme des degrés maximale
+        edges = list(temp_graph.edges())
+        max_edge = max(edges, key=lambda e: temp_graph.degree[e[0]] + temp_graph.degree[e[1]])
+        u, v = max_edge
+        # Ajouter les deux nœuds au vertex cover
+        C.update([u, v])
+        # Supprimer les nœuds et leurs arêtes incidentes
         temp_graph.remove_nodes_from([u, v])
 
     return list(C)

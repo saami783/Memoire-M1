@@ -1,15 +1,12 @@
 from .dfs import dfs
-from .edge_deletion import edge_deletion
-from .edge_deletion import edge_deletion_smart
-from .genetic import genetic
+from .edge_deletion import *
 from .gic import greedy_independent_cover
-from .ks_vc import ks_vc
 from .malatya import malatya_vertex_cover
 from .matching_based import matching_based
 from .mdg import maximum_degree_greedy
 from .slf import sorted_list_left
 from .slr import sorted_list_right
-# from .todo.max_AR import *
+from .ks_vc import ks_vc
 
 import networkx as nx
 
@@ -27,18 +24,19 @@ def evaluate_algorithm(graph, num_runs=300, verbose=True):
         return []
 
     results = {
-        "DFS": [],
-        "Edge deletion": [],
-        "Edge deletion smart": [],
-        "Greedy Independent Cover": [],
-        "Malatya": [],
-        "Matching Based": [],
-        "Maximum Degree Greedy": [],
-        "KS VC": [],
-        "Sorted ListLeft": [],
-         "Sorted ListRight": [],
-        # "Genetic": [],
+        # "DFS": [],
+        # "Edge deletion": [],
+        # "Edge deletion smart": [],
+        "ED Sum Max Deg": [],
+        # "Greedy Independent Cover": [],
+        # "Malatya": [],
+        # "Matching Based": [],
+        # "Maximum Degree Greedy": [],
+        # "KS VC": [],
+        # "Sorted ListLeft": [],
+        #  "Sorted ListRight": [],
 
+        # "Genetic": [],
         # "max_A": [],
         # "max_AR": [],
     }
@@ -47,16 +45,17 @@ def evaluate_algorithm(graph, num_runs=300, verbose=True):
         # Approximations, heuristiques et métaheuristiques
         # results["ILS"].append(len(ils(graph)))
 
-        results["DFS"].append(len(dfs(graph)))
-        results["Edge deletion"].append(len(edge_deletion(graph)))
-        results["Edge deletion smart"].append(len(edge_deletion_smart(graph)))
-        results["Greedy Independent Cover"].append(len(greedy_independent_cover(graph)))
-        results["Malatya"].append(len(malatya_vertex_cover(graph)))
-        results["Matching Based"].append(len(matching_based(graph)))
-        results["Maximum Degree Greedy"].append(len(maximum_degree_greedy(graph)))
-        results["KS VC"].append(len(ks_vc(graph)))
-        results["Sorted ListLeft"].append(len(sorted_list_left(graph)))
-        results["Sorted ListRight"].append(len(sorted_list_right(graph)))
+        # results["DFS"].append(len(dfs(graph)))
+        # results["Edge deletion"].append(len(edge_deletion(graph)))
+        # results["Edge deletion smart"].append(len(edge_deletion_smart(graph)))
+        results["ED Sum Max Deg"].append(len(edge_deletion_max_degree_sum(graph)))
+        # results["Greedy Independent Cover"].append(len(greedy_independent_cover(graph)))
+        # results["Malatya"].append(len(malatya_vertex_cover(graph)))
+        # results["Matching Based"].append(len(matching_based(graph)))
+        # results["Maximum Degree Greedy"].append(len(maximum_degree_greedy(graph)))
+        # results["KS VC"].append(len(ks_vc(graph)))
+        # results["Sorted ListLeft"].append(len(sorted_list_left(graph)))
+        # results["Sorted ListRight"].append(len(sorted_list_right(graph)))
 
         # solution, size = genetic(graph)
         # results["Genetic"].append(size)
@@ -64,7 +63,7 @@ def evaluate_algorithm(graph, num_runs=300, verbose=True):
         # results["max_A"].append(len(maxA(graph)))
         # results["max_AR"].append(len(maxAR(graph)))
 
-        results["KS VC"].append(len(ks_vc(graph)))
+        # results["KS VC"].append(len(ks_vc(graph)))
         # results["PSO"].append(len(pso(graph)))
         # results["Harmony Search"].append(len(harmony_search_(graph)))
         # results["Memetic"].append(len(memetic(graph)))
@@ -73,12 +72,15 @@ def evaluate_algorithm(graph, num_runs=300, verbose=True):
         for heuristic, sizes in results.items()
     }
 
-def process_graph(filename, graph, opt_size,  num_nodes, num_edges, verbose=True):
+def process_graph(id, instance_number, graph_class, filename, graph, opt_size,  num_nodes, num_edges, verbose=True):
     """Évalue les heuristiques sur un graphe donné et retourne les résultats."""
     heuristic_results = evaluate_algorithm(graph, verbose=verbose)
     results = []
     for heuristic, res in heuristic_results.items():
         results.append({
+            "Id": id,
+            "Instance": instance_number,
+            "Class": graph_class,
             "Graph": filename,
             "Nodes": num_nodes,
             "Edges": num_edges,

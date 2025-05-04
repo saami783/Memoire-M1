@@ -7,8 +7,8 @@ file_name = "rapport approximation differentiel.xlsx"
 # sheet_name = "tree"
 # sheet_name = "barabasi_albert"
 # sheet_name = "erdos_renyi"
-# sheet_name = "bhoslib"
-sheet_name = "regular"
+sheet_name = "bhoslib"
+# sheet_name = "regular"
 
 df = pd.read_excel(file_name, sheet_name=sheet_name, usecols=["Heuristic", "Rapport"])
 

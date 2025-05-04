@@ -5,9 +5,9 @@ if __name__ == "__main__":
     file_name = "rapport approximation differentiel.xlsx"
     # sheet_name = "tree"
     # sheet_name = "barabasi_albert"
-    sheet_name = "erdos_renyi"
+    # sheet_name = "erdos_renyi"
     # sheet_name = "bhoslib"
-    # sheet_name = "regular"
+    sheet_name = "regular"
     col_name = "Pire cas"
 
     # Parallèle à "graphics/differentiel/{sheet_name}"

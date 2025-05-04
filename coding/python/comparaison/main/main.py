@@ -8,7 +8,8 @@ logging.basicConfig(level=logging.WARNING, format="%(asctime)s - %(levelname)s -
 logger = logging.getLogger(__name__)
 
 SEED = 42
-OUTPUT_FILE = "out/algos_regular.csv"
+# excepted ed max sum dg
+OUTPUT_FILE = "out/ed_max_sum_dg.csv"
 
 def main():
 
@@ -20,11 +21,11 @@ def main():
 
     results = []
 
-    for graph_name, canonical_form, cover_size, instance_number, num_nodes, num_edges in tqdm(graphs, desc="Traitement des graphes"):
+    for id, graph_name, graph_class, canonical_form, cover_size, instance_number, num_nodes, num_edges in tqdm(graphs, desc="Traitement des graphes"):
         try:
             graph = graph_utils.load_graph_from_db(canonical_form)
 
-            result = process_graph(graph_name, graph, cover_size, num_nodes, num_edges, verbose=False)
+            result = process_graph(id, instance_number, graph_class, graph_name, graph, cover_size, num_nodes, num_edges, verbose=False)
 
             results.extend(result)
 
