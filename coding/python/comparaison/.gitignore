@@ -15,3 +15,7 @@ db/graphes.db
 graphs_db/g6_files/
 /graphs_db/dump db/
 /out/
+/graphics/differentiel/
+/graphics/meilleur_cas/
+/graphics/moyen_cas/
+/graphics/pire_cas/

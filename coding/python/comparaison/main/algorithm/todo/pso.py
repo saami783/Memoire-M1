@@ -1,1 +1,0 @@
-# @todo retourne des solutions en dessous de la taille optimale (sauf pour les graphes regular)

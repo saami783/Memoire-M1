@@ -3,7 +3,6 @@ import random
 # https://www.sciencedirect.com/science/article/pii/S0304397511000363
 def ils(graph, max_iter=10000):
     """
-    Implémentation de l'algorithme ILS pour Vertex Cover.
     - Commence avec tous les nœuds dans la couverture.
     - Retire les nœuds redondants ou effectue des échanges d'arêtes.
     """

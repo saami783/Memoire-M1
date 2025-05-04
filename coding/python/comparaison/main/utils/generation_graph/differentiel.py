@@ -4,7 +4,11 @@ import os
 import numpy as np
 
 file_name = "rapport approximation differentiel.xlsx"
+# sheet_name = "tree"
+# sheet_name = "barabasi_albert"
+# sheet_name = "erdos_renyi"
 sheet_name = "bhoslib"
+# sheet_name = "regular"
 
 df = pd.read_excel(file_name, sheet_name=sheet_name, usecols=["Heuristic", "Rapport"])
 
@@ -21,7 +25,7 @@ os.makedirs(output_folder, exist_ok=True)
 grouped = df.groupby(["Heuristic", "Rapport"]).size().reset_index(name="Nombre de solutions")
 
 heuristics = grouped["Heuristic"].unique()
-print(f"\n📌 Heuristiques trouvées : {heuristics}")
+print(f"\n Heuristiques trouvées : {heuristics}")
 
 # Générer un graphique pour chaque heuristique
 for heuristic in heuristics:
@@ -68,7 +72,7 @@ for heuristic in heuristics:
     plt.tight_layout()
 
     # Enregistrer le graphique
-    output_filename = os.path.join(output_folder, f"{sheet_name}_{heuristic}.png")
+    output_filename = os.path.join(output_folder, f"{heuristic}.png")
     plt.savefig(output_filename, dpi=300)
     plt.close()
 
