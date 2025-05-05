@@ -1,6 +1,6 @@
 import sqlite3
 
-conn = sqlite3.connect('../performances.db')
+conn = sqlite3.connect('../../performances.db')
 cursor = conn.cursor()
 
 cursor.execute("SELECT rowid, graph_name, class FROM graphes")

@@ -1,66 +1,61 @@
 import sqlite3
 import pandas as pd
-import joblib
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import LabelEncoder
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, classification_report
-import xgboost as xgb
+from sklearn.impute import SimpleImputer
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+from extract_properties import *
 
-conn = sqlite3.connect("performances.db")
-df_graphs = pd.read_sql_query("SELECT * FROM graphes", conn, index_col="id")
-df_best = pd.read_sql_query("""
-WITH min_score AS (
-  SELECT graphe_id, MIN(Rapport) AS best_rapport
-  FROM performances
-  GROUP BY graphe_id
-)
-SELECT p.graphe_id, p.heuristique AS best_heuristic
-FROM performances p
-JOIN min_score m
-  ON p.graphe_id = m.graphe_id
- AND p.Rapport   = m.best_rapport
-""", conn)
-conn.close()
+if __name__ == "__main__":
+    conn = sqlite3.connect("performances.db")
 
-df = df_best.merge(df_graphs, left_on="graphe_id", right_index=True, how="left")
+    df_graphs = pd.read_sql_query("""
+      SELECT *, CAST(largest_eigenvalue AS REAL) AS largest_eigenvalue
+      FROM graphes
+      """, conn, index_col="id")
 
-X = df.select_dtypes(include=["number"]).drop(
-    columns=["id", "graphe_id", "cover_size", "instance_number"], errors="ignore"
-)
-y = df["best_heuristic"].astype(str)
+    df_best = pd.read_sql_query("""
+        WITH ranked AS (SELECT *,ROW_NUMBER() OVER(
+        PARTITION BY graphe_id 
+        ORDER BY Rapport ASC, heuristique
+            ) AS rn
+        FROM performances)
+        SELECT graphe_id, heuristique AS best_heuristic
+        FROM ranked
+        WHERE rn = 1
+        """, conn)
 
-X = X.fillna(X.median())
+    conn.close()
 
-le = LabelEncoder()
-y_enc = le.fit_transform(y)
+    df = df_best.merge(df_graphs, left_on="graphe_id", right_index=True, how='inner')
 
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y_enc, test_size=0.2, random_state=42
-)
+    df = df.drop(columns=['graph_name', 'canonical_form'], errors='ignore')
 
-model = xgb.XGBClassifier(
-    objective="multi:softmax",
-    num_class=len(le.classes_),
-    eval_metric="mlogloss",
-    use_label_encoder=False,
-    n_estimators=200,
-    learning_rate=0.1,
-    max_depth=6,
-    random_state=42
-)
-model.fit(X_train, y_train)
+    numeric_cols = df.select_dtypes(include=np.number).columns
+    df[numeric_cols] = df[numeric_cols].apply(pd.to_numeric, errors='coerce')
 
-y_pred = model.predict(X_test)
-print("=== Évaluation sur le set de test ===")
-print("Accuracy :", accuracy_score(y_test, y_pred))
+    le_heuristic = LabelEncoder()
+    y = le_heuristic.fit_transform(df['best_heuristic'])
 
-labels_present = sorted(set(y_test))
-target_names = le.inverse_transform(labels_present)
+    X = df[numeric_cols].drop(columns=['graphe_id', 'best_heuristic'], errors='ignore')
 
-print(classification_report(
-    y_test,
-    y_pred,
-    labels=labels_present,
-    target_names=target_names
-))
+    model = make_pipeline(
+        SimpleImputer(strategy='median'),
+        StandardScaler(),
+        KNeighborsClassifier(
+            n_neighbors=15,
+            weights='distance',
+            metric='cosine'
+        )
+    )
 
+    model.fit(X, y)
+
+    graph_data = extract_graph_properties()
+    new_graph_df = pd.DataFrame([graph_data])
+
+    new_graph_df = new_graph_df.reindex(columns=X.columns, fill_value=np.nan)
+
+    pred = model.predict(new_graph_df)
+    print(f"Heuristique recommandée : {le_heuristic.inverse_transform(pred)[0]}")

@@ -1,7 +1,7 @@
 import sqlite3
 import pandas as pd
 
-DB_PATH = "../performances.db"
+DB_PATH = "../../performances.db"
 
 conn = sqlite3.connect(DB_PATH)
 

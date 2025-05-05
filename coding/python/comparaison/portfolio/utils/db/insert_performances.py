@@ -4,7 +4,7 @@ from tqdm import tqdm
 
 df = pd.read_excel("performances.xlsx", sheet_name="algos")
 
-conn = sqlite3.connect("../performances.db")
+conn = sqlite3.connect("../../performances.db")
 cursor = conn.cursor()
 
 cursor.execute("""
