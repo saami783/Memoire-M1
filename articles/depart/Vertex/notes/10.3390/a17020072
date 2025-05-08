@@ -1,0 +1,193 @@
+Algorithme se basant à la fois sur des informations locales et globales de la matrice de contiguïté pour trouver des solutions approximatives au problème de couverture minimale du vertex. L'étude propose une évaluation avec un algorithme 2-approché, une heuristique et une méthode exacte. Apparemment l'algorithme de l'auteur surpasse l'heuristique et la 2-approximation.
+
+Les data-driven ne sont pas personnalisé selon les spécificités du problème et n'ont pas de garantie théorique.
+Des directions de recherche plus efficaces s'appuient sur l'Apprentissage par Renforcement (Reinforcement Learning, RL) [19, 20, 21, 22] ou les Réseaux de Neurones sur Graphes (Graph Neural Networks, GNNs) [23, 24], non pas de manière end-to-end, mais avec une approche en deux étapes : une première étape où ils apprennent une représentation du graphe (avec des techniques de DL comme les GNN, suivant un paradigme d'apprentissage de représentation), et une seconde étape où cette représentation est utilisée pour construire la solution au problème d'optimisation combinatoire à l'aide d'une procédure autoregressive basée sur le machine learning (par exemple avec le RL), ou en utilisant des algorithmes gloutons ou de recherche locale.
+
+Dans de nombreux problèmes d'optimisation combinatoire basés sur les graphes, l'information globale du graphe est nécessaire pour résoudre le problème ; cependant, les modèles d'apprentissage sur les graphes existants, notamment les GNN, n'agrègent que des informations locales provenant des voisins. Des architectures DL génériques sont utilisées pour résoudre différents types de problèmes d'optimisation combinatoire (MVC, TS, MC) ; cependant, chaque problème possède ses propres caractéristiques et contraintes. L'encodage de biais inductifs dans les architectures DL pour mieux capturer les spécificités du problème d'optimisation combinatoire est souvent absent. De nombreuses approches n'intègrent pas ou ne prennent pas en compte les heuristiques traditionnelles, bien que l'identification des opérations des heuristiques traditionnelles d'un problème d'optimisation combinatoire et l'intégration appropriée de ces opérations dans la procédure d'apprentissage ou la méthodologie puissent bénéficier aux méthodes basées sur l'apprentissage.
+
+ Si, d'une part, les approximations à facteur 2 sont très utiles pour leur faible complexité, d'autre part, elles produisent des résultats assez éloignés de l'optimum. Divers algorithmes exacts ou heuristiques ont été proposés pour surmonter ce problème. Les méthodes exactes, qui incluent principalement la Programmation Linéaire en Nombres Entiers (ILP) [33], les algorithmes de branch-and-bound [34–37], et les algorithmes à paramètre fixe (fixed-parameter tractable) [38], garantissent l'optimalité de leurs solutions, mais peuvent échouer à fournir une solution dans un temps raisonnable pour des instances de taille moyenne ou grande. Dans cette recherche, nous proposons une approche personnalisée basée sur le DL pour résoudre le problème MVC en abordant ces trois défis principaux : (1) construire une représentation de graphe appropriée au niveau des nœuds en utilisant à la fois des informations globales et locales ; (2) personnaliser une approche DL commune basée sur l'attention pour refléter la structure combinatoire des problèmes MVC ; (3) intégrer la méthodologie DL avec des heuristiques de l'état de l'art pour en tirer parti.
+
+Le modèle en page 5 vise à résoudre le problème de la Couverture de Sommets Minimale (MVC) en le transformant en un problème de prédiction probabiliste. L’idée est de prédire, pour chaque nœud d’un graphe, la probabilité qu’il fasse partie de la solution optimale, en tenant compte des dépendances entre les choix de nœuds.
+
+====== Explications du modèle de probabilités en page 5=======
+Ce travail propose une approche probabiliste pour résoudre le problème NP-difficile de
+la couverture de sommets minimale.L’objectif est de prédire, pour un graphe non orienté et non pondéré, le sous-ensemble minimal de nœuds couvrant toutes les arêtes. Pour cela, le modèle combine des techniques d’apprentissage profond (DL) avec des heuristiques classiques, en exploitant à la fois des informations locales et globales du graphe.
+
+Le cœur du modèle repose sur une modélisation séquentielle des décisions, où la sélection d’un nœud dépend des choix précédents.
+Concrètement, chaque nœud est représenté par un plongement appris par le modèle, qui encode son importance structurelle
+(degré, connectivité, etc.). Ces plongements guident la prédiction d’une séquence optimale de nœuds via des probabilités
+conditionnelles : à chaque étape, la probabilité d’inclure un nœud dans la couverture est calculée en fonction des nœuds déjà
+sélectionnés et de leurs caractéristiques.
+
+Pour renforcer l’efficacité, le modèle intègre des heuristiques de l’état de l’art (ex : recherche locale) lors de la génération de la solution finale. Cette hybridation permet de pallier les limites des approches purement end-to-end, notamment en évitant le surlissage des représentations et en exploitant des connaissances combinatoires préexistantes.
+
+Les résultats expérimentaux montrent que cette méthodologie surpasse à la fois les algorithmes d’approximation à facteur 2 et les heuristiques classiques, notamment sur des graphes de grande taille. Les plongements appris capturent efficacement la structure combinatoire du problème, comme en témoigne leur capacité à discriminer visuellement les nœuds critiques.
+
+========================Léxique===============================
+
+T :  Nombre total d’états cachés de l’encodeur (longueur de la séquence d’entrée).
+i : Indice parcourant les états cachés de l’encodeur (i ∈ {1,...,T})
+a_t,i : Poids d’attention (probabilité) associé au  i-ème état caché de l’encodeur au pas de temps t
+s_t-1 : État de sortie précédent du décodeur (représente la décision prise à l’étape t-1)
+s_t : État de sortie courant du décodeur (décision à l’étape t)
+h_i : Représentation encodée (état caché) du i-ème nœud ou élément de la séquence d’entrée.
+e_t,i : Score d’alignement entre s_t-1 (décision précédente) et h_i (noeud i)
+c_t : Vecteur de contexte au pas t, combinaison pondérée des h_i selon a_t,i
+d_k : Dimension des vecteurs de requêtes Q et clés K
+Q,K,V : Matrices de requêtes, clés et valeurs, dérivées des états de l’encodeur et du décodeur.
+N' : Sous-ensemble de nœuds formant une couverture minimale.
+P = (P_1, ..., P_n) : Plongements (représentations latentes) des nœuds, appris par l’encodeur.
+C^P = (C_1, ..., C_m(P)) : Séquence de nœuds sélectionnés pour la couverture, générée par le décodeur.
+
+==============================================================
+
+
+
+========================Mécanisme d'attention==================
+
+Le mécanisme d’attention a été introduit par Bahadanau et al. [43] pour améliorer les performances des modèles encodeur-décodeur en traduction automatique.
+Les modèles encodeur-décodeur traitent une séquence d’entrée en construisant d’abord une représentation compacte et significative dans un espace latent,
+ puis en utilisant cette représentation pour générer la séquence de sortie cible. Avant l’introduction de l’attention, ces modèles traitaient la séquence d’entrée dans son intégralité, accordant la même importance à toutes ses parties.
+L'encodeur-décodeur a été nommée Attention with Complement Information (ACI).
+Le modèle vise à mapper un graphe G = (N,E) vers un ensemble de noeuds N' ⊆ N formant une couverture minimale, en apprenant une représentation biaisée MVC des nœuds combinant informations locales (voisinage direct via la matrice d’adjacence) et informations globales (via le complément de la matrice d’adjacence).
+L'encodeur utilise à la fois la matrice d’adjacence et son complément pour éviter le biais local des GNN classiques et capturer des motifs globaux.
+Le décodeur prédit une séquence de noeuds c^P = (C_1, ..., C_m(P) )formant la couverture minimale.
+Il applique un mécanisme d’attention pour pondérer l’importance des nœuds, similaire à l’approche de Bahadanau [43] qui est le
+calcule des scores d’alignement entre les états précédents du décodeur (s_t-1) et les plongements (h_j).
+Transforme ces scores en probabilités via SoftMax a_ti = softmax(e_ti) et puis genere un vecteur de contexte.
+Pour améliorer les performances, le modèle intègre des heuristiques de l’état de l’art (ex : NuMVC, FastVC) dans la phase de décodage, les plongements P sont utilisés pour initialiser ou guider des algorithmes de recherche locale. Cela permet de combiner la puissance des représentations apprises avec des règles combinatoires éprouvées. Le modèle surpasse les algorithmes d’approximation à facteur 2 et les heuristiques classiques, notamment sur les grands graphes.
+
+==============================================================
+
+
+===================2.2 : Réseaux de Mémoire====================
+
+Cette section présente les réseaux de neurones récurrents (RNN) et leur extension, les réseaux à mémoire à long terme (LSTM), conçus pour modéliser des données séquentielles et gérer les dépendances temporelles.
+L'objectif du RNN est de modéliser des dépendances à court terme en traitant une séquence élément par élément.
+Le LSTM sert à capturer des dépendances à long terme via une mémoire persistante.
+Les RNN sont adaptés aux dépendances à court terme, mais limités pour les séquences longues.
+
+Les LSTM résolvent ce problème via des portes et une mémoire de cellule, permettant de capturer
+à la fois des motifs locaux et globaux dans les données séquentielles.
+
+==============================================================
+
+La Figure 2 illustre l’architecture globale proposée pour résoudre le MVC.
+Elle repose sur un composant encodeur exploitant le mécanisme d’attention décrit dans [45] et un
+ composant décodeur basé sur des réseaux LSTM avec une couche d’activation SoftMax.
+ Cette méthodologie a été conçue pour pallier l’un des principaux inconvénients des approches basées sur
+ l’apprentissage profond (DL), à savoir le fait qu’elles construisent des représentations de graphes en ne
+ considérant que des informations locales. En exploitant un mécanisme d’attention directement sur la matrice
+ d’adjacence du graphe (qui contient à la fois des informations locales et globales), le vecteur de contexte
+ résultant fournit une représentation encodée de chaque nœud reflétant la nature combinatoire du problème,
+  intégrant des caractéristiques au niveau des nœuds et du graphe.
+
+
+Pour résoudre un autre problème des approches DL génériques (qui ignorent les spécificités des problèmes
+d’optimisation combinatoire), nous personnalisons le mécanisme d’attention en nous inspirant des heuristiques
+classiques [39,40]. Ces dernières privilégient l’ajout initial de nœuds à degré élevé ou connectés à des sous-ensembles variés.
+
+L’entrée de l’architecture est la matrice d’adjacence du graphe d’entrée. La sortie est la probabilité que chaque nœud appartienne à l’ensemble de couverture. L’entrée subit d’abord une étape d’embedding, consistant en une transformation non linéaire de l’entrée plus un encodage positionnel. Cela est ensuite transmis à l’encodeur, composé de la couche d’attention personnalisée (produisant un vecteur de contexte) et d’une couche dense (produisant une transformation non linéaire de ce vecteur de contexte avec des connexions résiduelles). Les informations sont ensuite transmises au décodeur, composé d’une couche LSTM calculant la distribution de probabilité conditionnelle sur les nœuds, finalement normalisée par la couche d’activation SoftMax.
+
+pour calculer l’embedding des nœuds, ils considèrent non seulement la matrice d’adjacence elle-même, mais aussi son complément comme entrée du mécanisme d’attention. Le complément de la matrice d’adjacence est utilisé comme clé pour produire une meilleure représentation de l’entrée.
+
+Enfin, pour garantir que la sortie du réseau soit une couverture, nous concevons un algorithme simple qui ajoute itérativement chaque nœud à l’ensemble de couverture en fonction du classement des scores fourni par le modèle. L’algorithme est conçu suivant le schéma de l’algorithme d’initialisation de certaines heuristiques courantes, abordant ainsi également le troisième inconvénient majeur de l’approche DL pour l’optimisation combinatoire sur les graphes en intégrant les opérations de ces heuristiques courantes dans la procédure de classification.
+
+===================3.2 : Attention with complement information====================
+
+L’architecture proposée combine un mécanisme d’attention personnalisé avec des réseaux LSTM pour résoudre le problème de la couverture de sommets minimale (MVC). L’encodeur utilise la matrice d’adjacence A et son complément A-bar pour générer des représentations de nœuds intégrant des informations locales et globales. Les matrices Q,K,V sont calculées via des transformations linéaires/non linéaires distinctes, permettant de capturer des similarités entre nœuds ayant peu de voisins communs.
+Le mécanisme d’attention produit des scores d’alignement, normalisés par SoftMax, qui déterminent l’importance relative des nœuds. Ces scores génèrent un vecteur de contexte u_i  pour chaque nœud, combinant leurs caractéristiques et leur pertinence pour la MVC.
+Enfin, un algorithme itératif ajoute les nœuds à la couverture selon un classement de probabilités obtenues via une couche SoftMax, intégrant des heuristiques classiques pour garantir une solution valide. Cette approche surmonte les limites des méthodes DL génériques en exploitant à la fois la structure du graphe et des biais inductifs spécifiques au MVC.
+
+==============================================================
+
+Le vecteur d’embedding produit par l’encodeur (voir Figure 2) est utilisé pour générer la distribution de probabilité finale p(C_i|C_1,...,C_i-1,P) Pour cela, le décodeur LSTM reçoit en entrée la séquence d’embeddings P = P_1,...P_n. Comme décrit dans la Section 3.3, le décodeur LSTM modélise la distribution de probabilité conditionnelle via les paramètres appris pendant l’entraînement. Lors de l’inférence, la séquence C^P* avec la probabilité la plus élevée est sélectionnée en utilisant les paramètres optimisés θ∗. Pour obtenir les scores finaux, une fonction d’activation SoftMax est appliquée à la sortie du LSTM, normalisant le vecteur de sortie en une distribution sur les nœuds. Pour garantir que la sortie du réseau soit une couverture minimale, nous adaptons l’algorithme ConstructVC [40] en remplaçant les degrés des nœuds par les scores de probabilité issus de notre modèle ACI. L’algorithme modifié comporte deux phases.
+1. C ← ∅
+2. Pour chaque arête e ∈ E :
+   | Si e n’est pas couverte :
+   | | Ajouter à C l’extrémité de e avec le score le plus élevé.
+3. Calculer loss(v) pour chaque v ∈ C.
+4. Pour chaque arête e ∈ E :
+   | Si une seule extrémité de e est dans C :
+   | | Incrémenter loss(v) pour v ∈ C.
+5. Pour chaque v ∈ C :
+   | Si loss(v) = 0 :
+   | | Retirer v de C et mettre à jour loss des voisins.
+
+
+
+==========================Experiences==============================
+
+Pour entraîner le modèle neuronal proposé, nous avons créé un jeu de données synthétiques composé de graphes générés aléatoirement. Le jeu de données final comprend 3000 graphes pour l’entraînement et 600 graphes pour la validation, avec un nombre aléatoire de nœuds entre 5 et 2000. La moitié des instances sont relativement simples (faible densité), avec un nombre d’arêtes compris entre le nombre de nœuds et 1,5 fois ce nombre. L’autre moitié est plus complexe (haute densité), avec un nombre d’arêtes entre 5 et 500 fois le nombre de nœuds.
+Les instances sont construites en choisissant uniformément au hasard un graphe parmi tous ceux possédant le nombre de nœuds et d’arêtes spécifié, selon la méthode décrite dans [50].
+
+Instances simples : La couverture est calculée via un algorithme branch-and-bound [51], résolvant exactement le programme linéaire en nombres entiers (Équation 1). Les paramètres incluent :
+
+Borne supérieure : Nombre initial de nœuds (mis à jour avec la meilleure solution trouvée).
+
+Borne inférieure : Taille de la couverture actuelle + taille de la meilleure couverture trouvée pour le sous-problème.
+
+Démarrage : Nœud de degré le plus élevé dans le sous-problème.
+
+Instances complexes : La couverture est calculée via l’algorithme FastVC [40], avec :
+
+Temps limite de 10 secondes.
+
+Maximum de 30 itérations.
+
+5 exécutions par graphe (du fait du caractère non déterministe de FastVC), en retenant la meilleure solution.
+
+Ce choix s’explique par l’absence de jeux de données publics avec solutions exactes adaptés à notre cas, et par la lenteur des solveurs exacts (ILP) sur les instances denses. Les instances simples avec solutions exactes permettent au modèle d’apprendre à généraliser pour les cas complexes. FastVC est choisi car il surpasse d’autres heuristiques comme NuMVC [39].
+
+Exactitude : Rapport entre les prédictions correctes (vrais positifs + vrais négatifs) et le nombre total de prédictions.
+
+Précision : Rapport entre les vrais positifs et le total des prédictions positives (vrais + faux positifs).
+
+Rappel : Rapport entre les vrais positifs et le total des instances positives réelles (vrais positifs + faux négatifs).
+
+Un seuil de 0,5 est appliqué aux probabilités prédites (si p≥0,5, la classe est 1 ; sinon 0).
+Résultats sur les jeux synthétiques (92 graphes, 92 650 nœuds) :
+Exactitude : 82,61 %
+Précision : 89,04 %
+Rappel : 84,41 %
+
+Pour mesurer la performance de notre modèle sur les trois jeux de données, étant donné que les ensembles MVC ne sont pas uniques, nous comparons la taille des couvertures produites par notre méthodologie ACI et par l’heuristique FastVC avec celles des algorithmes de référence (solveur ILP pour le premier jeu de test ou approximation à facteur 2 pour les deuxième et troisième jeux). La distance est normalisée par rapport à la plus grande couverture obtenue par la référence et la méthode comparée, via l’équation I = |sol|-|sol_opt| / max(|sol|-|sol_opt|) * 100 où I est l’amélioration en pourcentage, et sol_opt la taille de la couverture de référence, et. sol celle de la méthode comparée.
+
+
+
+
+
+
+Résumé pour état de l'art
+
+Cet article propose une méthodologie innovante pour résoudre le problème NP-difficile de la couverture de sommets minimale (MVC) sur les graphes, en combinant apprentissage profond (DL) et heuristiques classiques. Les contributions clés sont :
+
+Architecture hybride :
+
+Un mécanisme d’attention personnalisé (ACI) exploitant à la fois la matrice d’adjacence et son complément, permettant de capturer des informations locales (voisinages) et globales (interactions non directes).
+
+Un décodeur LSTM générant des probabilités conditionnelles pour sélectionner les nœuds, guidé par des représentations enrichies des nœuds.
+
+Intégration d’heuristiques :
+
+L’algorithme itératif proposé s’inspire de FastVC (état de l’art), mais remplace les critères de degré par des scores de probabilité appris, améliorant la sélection des nœuds.
+
+Résultats expérimentaux :
+
+Surperformance des méthodes de référence :
+
+Réduction de 7,21 % de la taille des couvertures par rapport au solveur ILP sur des graphes simples.
+
+Amélioration de 3,26 % face à l’approximation à 2 facteurs sur des graphes denses.
+
+Scalabilité : Temps d’exécution stable sur des graphes de grande taille (jusqu’à 2000 nœuds), contrairement à FastVC.
+
+Représentation des nœuds :
+
+Les embeddings produits par ACI séparent linéairement les nœuds couvrants et non couvrants dans un espace latent, validant leur adéquation avec la structure combinatoire du MVC.
+
+Implications pour l’état de l'art :
+
+Première approche DL à adresser simultanément les biais locaux des GNN, le manque d’induction de connaissances combinatoires, et l’intégration d’heuristiques.
+
+Piste prometteuse pour étendre ce cadre à d’autres problèmes NP-difficiles (ex : réseaux temporels) et pour hybridiser DL avec des raffinements heuristiques (ex : Best from Multiple Selections).

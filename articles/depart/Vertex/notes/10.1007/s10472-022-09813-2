@@ -1,0 +1,66 @@
+il faut regarder le travail de Dai et al car le travail de cet article repose dessus.
+
+F_k est l’ensemble des graphes dont la couverture de sommets minimale est au plus k.
+Par exemple, si k = 2 alors F_2 contient tous les graphes où 2 sommets suffisent pour couvrir toutes les arêtes.
+L'obstruction de k noté Ob(k) est l'ensemble des graphes minimaux qui ne sont pas dans F_k (leur
+couverture minimale est >k) mais dont tous les mineurs sont dans F_k.
+
+On nous donne l'exemple des cycle impair C_2k+1. Un cycle à 2k+1 sommets (eg C_5 pour k=2) sa couverture minimale est k+1,
+il faut au moins 3 sommets pour couvrir C_5 donc C_5 appartient à Ob(2).
+Pour une clique, on a un graphe complet à k+2 sommets, sa couverture minimale est k+1. Par exemple K_4 pour k=2 nécessite 3 sommets
+donc K_4 appartient à Ob(2).
+
+En gros, on a un graphe G, si un mineur de G noté G' € à Ob(k) alors VC(G) > k. Et si G appartient à F_k alors tout mineur G'
+appartient aussi à F_k.
+
+Si G € F_k tous les mineurs de G sont aussi dans F_k donc VC(G) ≤ k.
+Si G' ≤m G et G' € Ob(k) alors VC(G) > k.
+
+Pour la partie deep learning (utilise un modèle de Qlearning profond) :
+
+Une approche d’apprentissage par renforcement nspirée de Dai et al. [11] est utilisée pour approximer la solution du MVC.
+Le modèle S2V-DQN est appliqué. Les graphes sont représentés dans un espace latent via Structure2Vec.
+
+Un modèle de Deep Q-Learning est entraîné pour maximiser le gain associé au choix des sommets à ajouter à la couverture.
+
+Entraîner le réseau sur la famille de graphes Ob(k) (dont le MVC est connue) permet d’apprendre des statistiques et de
+maximiser une fonction associant les choix d’actions (par exemple, sélectionner le prochain sommet à ajouter à la couverture)
+à un coût représentant le gain réel( induit par l’ajout de ce sommet. L'objectif est d'xploiter les obstructions Ob(k) pour guider
+l’apprentissage vers des solutions optimales.
+
+Fonctoinnement du S2Vec :
+Itération 1 : Chaque nœud intègre les infos de ses voisins à distance 1.
+Itération 2 : Chaque nœud intègre les infos des voisins de ses voisins (2 sauts)
+Après T itérations : Chaque embedding u_v encode le voisinage à T sauts.
+
+La fonction de récompense :
+Chaque fois que l’agent ajoute un nœud à la couverture, il perd 1 point.
+Ajouter le minimum de nœuds possible pour couvrir toutes les arêtes.
+
+Pour le Q-learning,  le but est de trouver les meilleures actions pour maximiser les points donc minimiser le nombre de nœuds
+à ajouter.
+
+État (S) : Le graphe actuel avec les nœuds déjà sélectionnés.
+Action : Ajouter un nouveau nœud à la couverture.
+Récompense : −1 (pénalité pour chaque nœud ajouté).
+Terminaison : Toutes les arêtes sont couvertes.
+Le modèle apprend à choisir les nœuds qui couvrent le plus d’arêtes avec le moins de pénalités et à anticiper les conséquences
+de ses choix sur plusieurs étapes.
+
+Pour l'entraînement ils ont utilisé des ensembles de graphes d’obstruction connexe car calculer l'obstruction est trop complexe
+dû à sa croissance exponentielle pour un k élevé. Le fait que chaque composante connexe d’une obstruction est elle-même une obstruction
+ pour une valeur plus petite de k.
+Puis il y a une phase de filtrage pour éliminer les isomorphismes, permettant une progression jusqu’à k = 10 au lieu de  k = 7.
+
+L'algorithme 3 créer une obstruction plus complexe à partir d’une obstruction existante G € Ob(k)
+
+Comparaison entre 4 algo,
+- L’approche de Dai et al.
+- Celle de l'auteur avec l'obstruction
+- heuristique de degré max (algo1)
+- algo 2-approché (algo2) -> ajoute les sommets 2 tant qu'il existe une arête non couverte
+
+Les deux algo surpasses l'algo 2-approché mais sont en dessous de l'heuristique. L'algo de l'auteur converge plus rapidement en à
+ peu près 3000 itérations comparé à Dal où  son algo converge vers les 700 000 itérations.
+
+Pour la mesure de performance, l’erreur quadratique moyenne est calculée comme un vingtième de la somme, pour l’ensemble des
