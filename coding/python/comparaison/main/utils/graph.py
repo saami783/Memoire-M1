@@ -59,7 +59,32 @@ def get_graphs_from_db(graph_names=None):
 
     return graphs
 
-def process_graph(graph_name, canonical_form, cover_size, instance_number, num_nodes, num_edges):
+def get_graphs_from_hog(db_path="db/graphs.db"):
+    """
+    Récupère les graphes depuis la base House of Graphs avec uniquement les champs nécessaires.
+
+    Returns:
+        list: Les graphes avec les propriétés nécessaires.
+    """
+    connection = sqlite3.connect(db_path)
+    cursor = connection.cursor()
+
+    query = """
+        SELECT id, canonical_form, graph_name, Number_of_Vertices, Number_of_Edges, Vertex_Cover_Number
+        FROM graphes
+        WHERE canonical_form IS NOT NULL
+          AND Vertex_Cover_Number > 0
+          AND Number_of_Vertices BETWEEN 20 AND 300
+          AND Connected = 1.0
+    """
+
+    cursor.execute(query)
+    graphs = cursor.fetchall()
+    connection.close()
+
+    return graphs
+
+def process_graph(graph_name, cover_size, instance_number, num_nodes, num_edges):
     """
     Traite un graphe en utilisant les propriétés récupérées de la base de données.
     """

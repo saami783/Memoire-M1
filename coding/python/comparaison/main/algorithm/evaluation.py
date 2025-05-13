@@ -8,71 +8,59 @@ from .slf import sorted_list_left
 from .slr import sorted_list_right
 from .ks_vc import ks_vc
 
+import time
 import networkx as nx
 
-def calculate_statistics(solution_sizes):
+def calculate_statistics(solution_sizes, times):
     """Calcule les statistiques (moyenne, min, max) pour une liste de tailles de solutions."""
     return {
         "avg_size": sum(solution_sizes) / len(solution_sizes),
         "min_size": min(solution_sizes),
         "max_size": max(solution_sizes),
+        "avg_time": sum(times) / len(times),
+        "min_time": min(times),
+        "max_time": max(times),
+        "total_time": sum(times),
     }
 
 def evaluate_algorithm(graph, num_runs=300, verbose=True):
     if not isinstance(graph, nx.Graph):
         print(f"Erreur : Le graphe n'est pas de type nx.Graph")
-        return []
+        return {}
 
-    results = {
-        # "DFS": [],
-        # "Edge deletion": [],
-        # "Edge deletion smart": [],
-        "ED Sum Max Deg": [],
-        # "Greedy Independent Cover": [],
-        # "Malatya": [],
-        # "Matching Based": [],
-        # "Maximum Degree Greedy": [],
-        # "KS VC": [],
-        # "Sorted ListLeft": [],
-        #  "Sorted ListRight": [],
-
-        # "Genetic": [],
-        # "max_A": [],
-        # "max_AR": [],
+    heuristics = {
+        "DFS": dfs,
+        "Edge deletion": edge_deletion,
+        "Edge deletion smart": edge_deletion_smart,
+        "ED Sum Max Deg": edge_deletion_max_degree_sum,
+        # "Greedy Independent Cover": greedy_independent_cover,
+        "Malatya": malatya_vertex_cover,
+        "Matching Based": matching_based,
+        "Maximum Degree Greedy": maximum_degree_greedy,
+        "KS VC": ks_vc,
+        "Sorted ListLeft": sorted_list_left,
+        "Sorted ListRight": sorted_list_right,
     }
 
-    for run in range(1, num_runs + 1):
-        # Approximations, heuristiques et métaheuristiques
-        # results["ILS"].append(len(ils(graph)))
+    results = {}
 
-        # results["DFS"].append(len(dfs(graph)))
-        # results["Edge deletion"].append(len(edge_deletion(graph)))
-        # results["Edge deletion smart"].append(len(edge_deletion_smart(graph)))
-        results["ED Sum Max Deg"].append(len(edge_deletion_max_degree_sum(graph)))
-        # results["Greedy Independent Cover"].append(len(greedy_independent_cover(graph)))
-        # results["Malatya"].append(len(malatya_vertex_cover(graph)))
-        # results["Matching Based"].append(len(matching_based(graph)))
-        # results["Maximum Degree Greedy"].append(len(maximum_degree_greedy(graph)))
-        # results["KS VC"].append(len(ks_vc(graph)))
-        # results["Sorted ListLeft"].append(len(sorted_list_left(graph)))
-        # results["Sorted ListRight"].append(len(sorted_list_right(graph)))
+    for name, func in heuristics.items():
+        sizes = []
+        times = []
 
-        # solution, size = genetic(graph)
-        # results["Genetic"].append(size)
+        for _ in range(num_runs):
+            start = time.perf_counter()
+            size = len(func(graph))
+            end = time.perf_counter()
 
-        # results["max_A"].append(len(maxA(graph)))
-        # results["max_AR"].append(len(maxAR(graph)))
+            sizes.append(size)
+            times.append(end - start)
 
-        # results["KS VC"].append(len(ks_vc(graph)))
-        # results["PSO"].append(len(pso(graph)))
-        # results["Harmony Search"].append(len(harmony_search_(graph)))
-        # results["Memetic"].append(len(memetic(graph)))
-    return {
-        heuristic: calculate_statistics(sizes)
-        for heuristic, sizes in results.items()
-    }
+        results[name] = calculate_statistics(sizes, times)
 
-def process_graph(id, instance_number, graph_class, filename, graph, opt_size,  num_nodes, num_edges, verbose=True):
+    return results
+
+def process_graph_from_db(id, instance_number, graph_class, filename, graph, opt_size,  num_nodes, num_edges, verbose=True):
     """Évalue les heuristiques sur un graphe donné et retourne les résultats."""
     heuristic_results = evaluate_algorithm(graph, verbose=verbose)
     results = []
@@ -89,5 +77,32 @@ def process_graph(id, instance_number, graph_class, filename, graph, opt_size,  
             "Average_Size": res["avg_size"],
             "Best_Size": res["min_size"],
             "Worst_Size": res["max_size"],
+            "Average_Time": res["avg_time"],
+            "Best_Time": res["min_time"],
+            "Worst_Time": res["max_time"],
+            "Total_Time": res["total_time"],
+        })
+    return results
+
+def process_graph_from_hog(id, graph_class, filename, graph, opt_size,  num_nodes, num_edges, verbose=True):
+
+    heuristic_results = evaluate_algorithm(graph, verbose=verbose)
+    results = []
+    for heuristic, res in heuristic_results.items():
+        results.append({
+            "Id": id,
+            "Class": graph_class,
+            "Graph": filename,
+            "Nodes": num_nodes,
+            "Edges": num_edges,
+            "Optimal_Size": opt_size,
+            "Heuristic": heuristic,
+            "Average_Size": res["avg_size"],
+            "Best_Size": res["min_size"],
+            "Worst_Size": res["max_size"],
+            "Average_Time": res["avg_time"],
+            "Best_Time": res["min_time"],
+            "Worst_Time": res["max_time"],
+            "Total_Time": res["total_time"],
         })
     return results
