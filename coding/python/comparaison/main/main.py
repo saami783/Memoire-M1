@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 SEED = 42
 # excepted ed max sum dg
 OUTPUT_FILE = "out/algo20_a_300.csv"
-GRAPH_SOURCE = "hog"
+GRAPH_SOURCE = "hogi"
 
 def main():
 

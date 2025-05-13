@@ -2,9 +2,7 @@ import sqlite3
 import networkx as nx
 
 def load_graph_from_db(canonical_form):
-    """
-    Charge un graphe depuis la base de données SQLite en utilisant sa forme canonique (graph6).
-    """
+    # print(f"[DEBUG] Type de canonical_form: {type(canonical_form)}")
     graph = nx.from_graph6_bytes(canonical_form.encode())
     return graph
 

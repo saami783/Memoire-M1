@@ -7,6 +7,7 @@ from .mdg import maximum_degree_greedy
 from .slf import sorted_list_left
 from .slr import sorted_list_right
 from .ks_vc import ks_vc
+from .aci.inference_aci import aci
 
 import time
 import networkx as nx
@@ -29,17 +30,18 @@ def evaluate_algorithm(graph, num_runs=300, verbose=True):
         return {}
 
     heuristics = {
-        "DFS": dfs,
-        "Edge deletion": edge_deletion,
-        "Edge deletion smart": edge_deletion_smart,
-        "ED Sum Max Deg": edge_deletion_max_degree_sum,
+        # "DFS": dfs,
+        # "Edge deletion": edge_deletion,
+        # "Edge deletion smart": edge_deletion_smart,
+        # "ED Sum Max Deg": edge_deletion_max_degree_sum,
         # "Greedy Independent Cover": greedy_independent_cover,
-        "Malatya": malatya_vertex_cover,
-        "Matching Based": matching_based,
-        "Maximum Degree Greedy": maximum_degree_greedy,
-        "KS VC": ks_vc,
-        "Sorted ListLeft": sorted_list_left,
-        "Sorted ListRight": sorted_list_right,
+        # "Malatya": malatya_vertex_cover,
+        # "Matching Based": matching_based,
+        # "Maximum Degree Greedy": maximum_degree_greedy,
+        # "KS VC": ks_vc,
+        # "Sorted ListLeft": sorted_list_left,
+        # "Sorted ListRight": sorted_list_right,
+        "ACI": aci,
     }
 
     results = {}
