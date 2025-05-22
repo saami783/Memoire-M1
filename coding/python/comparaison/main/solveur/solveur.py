@@ -18,7 +18,6 @@ def minimum_vertex_cover(graph: nx.Graph):
     if graph.is_directed():
         raise ValueError("Le graphe doit être non orienté.")
 
-    # Création du problème de programmation linéaire
     prob = LpProblem("MinimumVertexCover", LpMinimize)
 
     # Variables binaires pour chaque sommet
@@ -31,7 +30,6 @@ def minimum_vertex_cover(graph: nx.Graph):
     for u, v in graph.edges():
         prob += vertex_vars[u] + vertex_vars[v] >= 1, f"Edge_{u}_{v}_Covered"
 
-    # Résolution du problème
     prob.solve()
 
     status = LpStatus[prob.status]

@@ -8,8 +8,7 @@ logging.basicConfig(level=logging.WARNING, format="%(asctime)s - %(levelname)s -
 logger = logging.getLogger(__name__)
 
 SEED = 42
-# excepted ed max sum dg
-OUTPUT_FILE = "out/algo20_a_300.csv"
+OUTPUT_FILE = "out/aci_graphes_no_hog.csv"
 GRAPH_SOURCE = "hogi"
 
 def main():

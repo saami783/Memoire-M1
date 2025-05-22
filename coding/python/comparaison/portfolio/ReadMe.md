@@ -1,7 +1,11 @@
-Il faut copier la base de données `fusion.db` dans le dossier `db` pour que le code fonctionne.
-Le fichier excel `performances.xlsx` correspond à la nouvelle version des performances de chaque algorithme.
-Par conséquent, le fichier `rapport approximation differentiel.xlsx` est obsolète.
+Dans le dossier `utils` :
+- Le fichier `import_performances_to_db.py` créer une table `performances` dans la base de données, en fonction des données du fichier
+`performances.xlsx`. Chaque performance sera persistée dans la base de données avec une jointure sur chaque instance de la table `graphes`.
 
-/!\ Les colonnes `graph_name` et `class` ont été inversé et la classe n'est pas la bonne.
-Pour continuer l'expérience il faut exécuter le script `fix_columns.py`. Nous modifions aussi le nom
-de la classe `frb%` par `bhoslib`.
+- Le script `meilleure_heuristique_en_moyenne.py` créer une table `best_avg_size_per_heuristic` afin de permet de connaître la liste des graphe_id (instances) pour lesquels chaque heuristique est la meilleure en moyenne, selon avg_size.
+- Le script `predict_from_graph_id.py` Donne l’heuristique prédite pour un graphe donné (par son id).
+- Le script `analyze_misclassifications.py` Affiche les erreurs de prédiction avec :
+- - l'ID du graphe
+- - la vraie heuristique
+- - la prédiction
+- - les features associées

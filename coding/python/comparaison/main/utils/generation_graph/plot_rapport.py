@@ -38,7 +38,7 @@ def plot_like_rapport(file_name, sheet_name, original_col, output_folder):
     for heuristic in heuristics:
         df_filtered = grouped[grouped["Heuristic"] == heuristic]
         if df_filtered.empty:
-            print(f"⚠ Aucune donnée pour {heuristic}, graphique ignoré.")
+            print(f"Aucune donnée pour {heuristic}, graphique ignoré.")
             continue
 
         # Détermination de l'axe Y
@@ -90,7 +90,7 @@ def plot_like_rapport(file_name, sheet_name, original_col, output_folder):
         plt.tight_layout()
 
         # 9) Sauvegarde
-        output_filename = os.path.join(output_folder, f"{sheet_name}_{heuristic}_{original_col}.png")
+        output_filename = os.path.join(output_folder, f"{heuristic}.png")
         plt.savefig(output_filename, dpi=300)
         plt.close()
-        print(f"✅ Graphique enregistré : {output_filename}")
+        print(f"Graphique enregistré : {output_filename}")

@@ -8,6 +8,7 @@ from .slf import sorted_list_left
 from .slr import sorted_list_right
 from .ks_vc import ks_vc
 from .aci.inference_aci import aci
+from .pbil import pbil_mvc_hybrid
 
 import time
 import networkx as nx
@@ -42,6 +43,7 @@ def evaluate_algorithm(graph, num_runs=300, verbose=True):
         # "Sorted ListLeft": sorted_list_left,
         # "Sorted ListRight": sorted_list_right,
         "ACI": aci,
+        # "PBIC": pbil_mvc_hybrid
     }
 
     results = {}

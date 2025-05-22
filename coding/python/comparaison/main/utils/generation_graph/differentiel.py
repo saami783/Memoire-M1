@@ -3,23 +3,25 @@ import matplotlib.pyplot as plt
 import os
 import numpy as np
 
-file_name = "rapport approximation differentiel.xlsx"
+file_name = "performances.xlsx"
 # sheet_name = "tree"
 # sheet_name = "barabasi_albert"
 # sheet_name = "erdos_renyi"
-sheet_name = "bhoslib"
+# sheet_name = "bhoslib"
 # sheet_name = "regular"
+# sheet_name = "HoG"
+sheet_name = "kernels_hog"
 
 df = pd.read_excel(file_name, sheet_name=sheet_name, usecols=["Heuristic", "Rapport"])
 
-print(f"🔍 Données brutes chargées : {len(df)} lignes")
+print(f"Données brutes chargées : {len(df)} lignes")
 print(df.head())
 
 df["Rapport"] = pd.to_numeric(df["Rapport"], errors='coerce')
 
 df = df.dropna()
 
-output_folder = f"graphics/differentiel/{sheet_name}"
+output_folder = f"out/graphics/differentiel/{sheet_name}"
 os.makedirs(output_folder, exist_ok=True)
 
 grouped = df.groupby(["Heuristic", "Rapport"]).size().reset_index(name="Nombre de solutions")
@@ -32,10 +34,10 @@ for heuristic in heuristics:
     df_filtered = grouped[grouped["Heuristic"] == heuristic]
 
     if df_filtered.empty:
-        print(f"⚠ Aucune donnée pour {heuristic}, graphique ignoré.")
+        print(f"Aucune donnée pour {heuristic}, graphique ignoré.")
         continue
 
-    print(f"🔹 Heuristic : {heuristic} - {len(df_filtered)} entrées")
+    print(f"Heuristic : {heuristic} - {len(df_filtered)} entrées")
     print(df_filtered.head())
 
     y_max = df_filtered["Nombre de solutions"].max()
@@ -76,4 +78,4 @@ for heuristic in heuristics:
     plt.savefig(output_filename, dpi=300)
     plt.close()
 
-    print(f"✅ Graphique enregistré : {output_filename}")
+    print(f"Graphique enregistré : {output_filename}")
