@@ -1,4 +1,3 @@
-# pire_cas.py
 from .plot_rapport import plot_like_rapport
 
 if __name__ == "__main__":

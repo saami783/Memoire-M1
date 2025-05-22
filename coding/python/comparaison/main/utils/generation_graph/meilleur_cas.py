@@ -1,4 +1,3 @@
-# pire_cas.py
 from .plot_rapport import plot_like_rapport
 
 if __name__ == "__main__":
@@ -6,12 +5,12 @@ if __name__ == "__main__":
 
     sheets = [
         "tree",
-        # "barabasi_albert",
-        # "erdos_renyi",
-        # "bhoslib",
-        # "HoG",
-        # "regular",
-        # "kernels_hog"
+        "barabasi_albert",
+        "erdos_renyi",
+        "bhoslib",
+        "HoG",
+        "regular",
+        "kernels_hog"
     ]
 
     col_name = "Meilleur cas"
