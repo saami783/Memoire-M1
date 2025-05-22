@@ -6,12 +6,12 @@ if __name__ == "__main__":
 
     sheets = [
         "tree",
-        "barabasi_albert",
-        "erdos_renyi",
-        "bhoslib",
-        "HoG",
-        "regular",
-        "kernels_hog"
+        # "barabasi_albert",
+        # "erdos_renyi",
+        # "bhoslib",
+        # "HoG",
+        # "regular",
+        # "kernels_hog"
     ]
 
     col_name = "Meilleur cas"

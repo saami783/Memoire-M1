@@ -53,6 +53,9 @@ def plot_like_rapport(file_name, sheet_name, original_col, output_folder):
             y_step = 20
         y_ticks = np.arange(0, y_max + y_step, y_step)
 
+        if len(y_ticks) > 10:
+            y_ticks = np.linspace(0, y_max, 10, dtype=int)
+
         # 7) Détermination de l'axe X : si le max dépasse 100, on élargit
         max_rapport_val = df_filtered["Rapport"].max()
         if max_rapport_val > 100:
